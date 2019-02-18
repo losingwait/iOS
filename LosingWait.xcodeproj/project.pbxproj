@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF621221B32E500E70446 /* AppDelegate.swift */; };
-		CA3DF624221B32E500E70446 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF623221B32E500E70446 /* ViewController.swift */; };
 		CA3DF627221B32E500E70446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF625221B32E500E70446 /* Main.storyboard */; };
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
 		CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62B221B32E600E70446 /* Assets.xcassets */; };
 		CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */; };
+		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA3DF61E221B32E500E70446 /* LosingWait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LosingWait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3DF621221B32E500E70446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA3DF623221B32E500E70446 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA3DF626221B32E500E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA3DF629221B32E500E70446 /* LosingWait.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LosingWait.xcdatamodel; sourceTree = "<group>"; };
 		CA3DF62B221B32E600E70446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA3DF62E221B32E600E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA3DF630221B32E600E70446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				CA3DF621221B32E500E70446 /* AppDelegate.swift */,
-				CA3DF623221B32E500E70446 /* ViewController.swift */,
+				CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */,
 				CA3DF625221B32E500E70446 /* Main.storyboard */,
 				CA3DF62B221B32E600E70446 /* Assets.xcassets */,
 				CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */,
@@ -139,8 +139,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
-				CA3DF624221B32E500E70446 /* ViewController.swift in Sources */,
 				CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */,
+				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

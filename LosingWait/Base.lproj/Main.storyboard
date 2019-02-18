@@ -1,24 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LR3-Ui-YaZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Workout-->
+        <scene sceneID="eJ0-sp-Sh1">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="A2A-9A-HKp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jaR-hX-B3G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="WSY-y3-Utp"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Workout" image="workout-unselected" selectedImage="workout-selected" id="QcN-Vs-d8U"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJu-UZ-Shc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-888" y="508"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="Dmf-vJ-EY8">
+            <objects>
+                <viewController id="AxN-IB-XAS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pVd-Xg-7zO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rw3-T9-WVp"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-unselected" selectedImage="map-selected" id="UK9-5b-L2I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHX-5D-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-888" y="-159"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="pXB-1E-1bP">
+            <objects>
+                <tabBarController useStoryboardIdentifierAsRestorationIdentifier="YES" id="LR3-Ui-YaZ" customClass="MainTabBarController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d9p-fS-Yid">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="AxN-IB-XAS" kind="relationship" relationship="viewControllers" id="bJV-hY-WYp"/>
+                        <segue destination="A2A-9A-HKp" kind="relationship" relationship="viewControllers" id="48c-og-AVi"/>
+                        <segue destination="XD7-tb-oGA" kind="relationship" relationship="viewControllers" id="VLb-iS-oE7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ir-u2-06L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1837" y="173"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="0Rb-Xr-l4q">
+            <objects>
+                <viewController id="XD7-tb-oGA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iqc-qt-z3f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="umK-BE-mbu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-unselected" selectedImage="profile-selected" id="egf-ci-hwk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jgU-2t-bB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-889" y="1360"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="map-selected" width="19" height="25"/>
+        <image name="map-unselected" width="21" height="27"/>
+        <image name="profile-selected" width="25" height="25"/>
+        <image name="profile-unselected" width="27" height="27"/>
+        <image name="workout-selected" width="19" height="25"/>
+        <image name="workout-unselected" width="19" height="25"/>
+    </resources>
 </document>
