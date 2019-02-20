@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */; };
 		CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF621221B32E500E70446 /* AppDelegate.swift */; };
 		CA3DF627221B32E500E70446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF625221B32E500E70446 /* Main.storyboard */; };
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
 		CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62B221B32E600E70446 /* Assets.xcassets */; };
 		CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */; };
+		CA5036ED221DF05500411484 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Signin.storyboard */; };
+		CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EE221DF06F00411484 /* LoginViewController.swift */; };
+		CA5036F1221DF06F00411484 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EF221DF06F00411484 /* RegisterViewController.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
+		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
+		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.release.xcconfig"; sourceTree = "<group>"; };
+		7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.debug.xcconfig"; sourceTree = "<group>"; };
+		B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LosingWait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3DF61E221B32E500E70446 /* LosingWait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LosingWait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3DF621221B32E500E70446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA3DF626221B32E500E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -23,7 +32,12 @@
 		CA3DF62B221B32E600E70446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA3DF62E221B32E600E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA3DF630221B32E600E70446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA5036EC221DF05500411484 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
+		CA5036EE221DF06F00411484 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA5036EF221DF06F00411484 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7096258A8AE85687ABB49504 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */,
+				1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CA3DF615221B32E500E70446 = {
 			isa = PBXGroup;
 			children = (
 				CA3DF620221B32E500E70446 /* LosingWait */,
 				CA3DF61F221B32E500E70446 /* Products */,
+				7096258A8AE85687ABB49504 /* Pods */,
+				FE2D0E78508A46404818D1FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +85,49 @@
 				CA3DF621221B32E500E70446 /* AppDelegate.swift */,
 				CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */,
 				CA3DF625221B32E500E70446 /* Main.storyboard */,
+				CA5036F2221DF07400411484 /* Registration */,
+				CAC072BD221B3DDE0065BF72 /* Profile */,
+				CAC072C0221B3F420065BF72 /* UI */,
 				CA3DF62B221B32E600E70446 /* Assets.xcassets */,
 				CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */,
 				CA3DF630221B32E600E70446 /* Info.plist */,
 				CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */,
 			);
 			path = LosingWait;
+			sourceTree = "<group>";
+		};
+		CA5036F2221DF07400411484 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				CA5036EC221DF05500411484 /* Signin.storyboard */,
+				CA5036EF221DF06F00411484 /* RegisterViewController.swift */,
+				CA5036EE221DF06F00411484 /* LoginViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		CAC072BD221B3DDE0065BF72 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CAC072C0221B3F420065BF72 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		FE2D0E78508A46404818D1FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA3DF633221B32E600E70446 /* Build configuration list for PBXNativeTarget "LosingWait" */;
 			buildPhases = (
+				027D4A4735224979BCD95097 /* [CP] Check Pods Manifest.lock */,
 				CA3DF61A221B32E500E70446 /* Sources */,
 				CA3DF61B221B32E500E70446 /* Frameworks */,
 				CA3DF61C221B32E500E70446 /* Resources */,
+				8C67A0DBA01A46CC7B2095E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5036ED221DF05500411484 /* Signin.storyboard in Resources */,
 				CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */,
 				CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */,
 				CA3DF627221B32E500E70446 /* Main.storyboard in Resources */,
@@ -133,14 +199,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		027D4A4735224979BCD95097 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LosingWait-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C67A0DBA01A46CC7B2095E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CA3DF61A221B32E500E70446 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
+				CA5036F1221DF06F00411484 /* RegisterViewController.swift in Sources */,
 				CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */,
+				CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */,
 				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
+				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +399,7 @@
 		};
 		CA3DF634221B32E600E70446 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +418,7 @@
 		};
 		CA3DF635221B32E600E70446 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
