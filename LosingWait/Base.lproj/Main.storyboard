@@ -10,22 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workout-->
-        <scene sceneID="eJ0-sp-Sh1">
-            <objects>
-                <viewController id="A2A-9A-HKp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jaR-hX-B3G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="WSY-y3-Utp"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Workout" image="workout-unselected" selectedImage="workout-selected" id="QcN-Vs-d8U"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJu-UZ-Shc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-888" y="508"/>
-        </scene>
         <!--Map-->
         <scene sceneID="Dmf-vJ-EY8">
             <objects>
@@ -42,6 +26,16 @@
             </objects>
             <point key="canvasLocation" x="-888" y="-159"/>
         </scene>
+        <!--Workouts-->
+        <scene sceneID="gNg-yp-qie">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Workouts" id="27M-MV-xpo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="u2F-2f-NTi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3aT-7K-C20" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-882" y="335"/>
+        </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="pXB-1E-1bP">
             <objects>
@@ -53,7 +47,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="AxN-IB-XAS" kind="relationship" relationship="viewControllers" id="bJV-hY-WYp"/>
-                        <segue destination="A2A-9A-HKp" kind="relationship" relationship="viewControllers" id="48c-og-AVi"/>
+                        <segue destination="27M-MV-xpo" kind="relationship" relationship="viewControllers" id="KaA-kN-Jvx"/>
                         <segue destination="4yI-f1-H75" kind="relationship" relationship="viewControllers" id="xEt-4P-EeB"/>
                     </connections>
                 </tabBarController>
@@ -225,12 +219,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fZu-0x-XHp">
                                 <rect key="frame" x="0.0" y="33.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Losing Wait iOS 
+                                <string key="text">Losing Wait iOS 
 Any redistribution or reproduction of part or all of the contents in any form is prohibited other than the following:
 
 You may not, except with our express written permission, distribute or commercially exploit the content.
 
-Open Source Listing  These applications are under use of the MIT License.</mutableString>
+Open Source Listing  These applications are under use of the MIT License.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -257,7 +251,5 @@ Open Source Listing  These applications are under use of the MIT License.</m
         <image name="map-unselected" width="21" height="27"/>
         <image name="profile-selected" width="25" height="25"/>
         <image name="profile-unselected" width="27" height="27"/>
-        <image name="workout-selected" width="19" height="25"/>
-        <image name="workout-unselected" width="19" height="25"/>
     </resources>
 </document>
