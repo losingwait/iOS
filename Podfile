@@ -3,4 +3,6 @@ target 'LosingWait' do
 
   pod 'SkyFloatingLabelTextField'
   pod 'NotificationBannerSwift'
+  pod 'Alamofire'
+
 end
