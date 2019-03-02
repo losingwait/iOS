@@ -42,6 +42,25 @@ class ActiveWorkoutViewController: UIViewController {
         player?.pause()
     }
     
+    @IBAction func videoTapped(_ sender: UITapGestureRecognizer) {
+        if player == nil {
+            return
+        }
+        
+        if player!.isPlaying {
+            self.player?.pause()
+            UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                self.videoView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }, completion: nil)
+            
+        } else {
+            self.player?.play()
+            UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                self.videoView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }, completion: nil)
+        }
+    }
+    
     func configurePopupItem() {
         let back = UIBarButtonItem(image: #imageLiteral(resourceName: "prev-mini"), style: .plain, target: nil, action: nil)
         let next = UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: nil, action: nil)
@@ -53,7 +72,7 @@ class ActiveWorkoutViewController: UIViewController {
     func initializeVideoPlayerWithVideo(){
         videoView.backgroundColor = .lightGray
         
-        playerItem =  AVPlayerItem(url: URL(string: "https://videos.bodybuilding.com/video/mp4/70000/71792l.mp4")!)
+        playerItem =  AVPlayerItem(url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!)
         player = AVPlayer(playerItem: playerItem)
         player?.allowsExternalPlayback = true
 

@@ -10,6 +10,8 @@ import UIKit
 
 class WorkoutBrowseListViewController: UITableViewController {
     
+    var data: [Muscle]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,12 +20,12 @@ class WorkoutBrowseListViewController: UITableViewController {
 extension WorkoutBrowseListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Exercise.samples.count
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        cell.textLabel?.text = Exercise.samples[indexPath.row].name
+        //cell.textLabel?.text = data[indexPath.row]?.name
         return cell
     }
 }
