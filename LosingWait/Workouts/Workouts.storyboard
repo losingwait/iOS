@@ -254,7 +254,7 @@
                     <connections>
                         <outlet property="categoryTableView" destination="oE3-Ab-Bud" id="dI6-XC-EO6"/>
                         <outlet property="collectionView" destination="xfW-p6-Ueq" id="dir-E3-e5B"/>
-                        <segue destination="gSF-Ca-uxP" kind="show" identifier="showDetail" id="Aaw-dP-Awo"/>
+                        <segue destination="gSF-Ca-uxP" kind="show" identifier="showDetails" id="Aaw-dP-Awo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uL-8f-MfI" userLabel="First Responder" sceneMemberID="firstResponder"/>

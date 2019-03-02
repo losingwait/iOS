@@ -17,6 +17,8 @@
 		CA1B073E222482610029E71B /* Bannerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B073D222482610029E71B /* Bannerable.swift */; };
 		CA3152D5221F668F00770832 /* WKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D4221F668F00770832 /* WKManager.swift */; };
 		CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D6221F6D9B00770832 /* Muscle.swift */; };
+		CA31669D222A2BB70048D788 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; };
+		CA31669E222A2BB70048D788 /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF621221B32E500E70446 /* AppDelegate.swift */; };
 		CA3DF627221B32E500E70446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF625221B32E500E70446 /* Main.storyboard */; };
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
@@ -35,6 +37,37 @@
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CA31669B222A2BAB0048D788 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 39DB52E51B5823330061C589;
+			remoteInfo = LNPopupController;
+		};
+		CA31669F222A2BB70048D788 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 39DB52E41B5823330061C589;
+			remoteInfo = LNPopupController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA3166A1222A2BB70048D788 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA31669E222A2BB70048D788 /* LNPopupController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.release.xcconfig"; sourceTree = "<group>"; };
 		7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +81,7 @@
 		CA1B073D222482610029E71B /* Bannerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bannerable.swift; sourceTree = "<group>"; };
 		CA3152D4221F668F00770832 /* WKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKManager.swift; sourceTree = "<group>"; };
 		CA3152D6221F6D9B00770832 /* Muscle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
+		CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = Popup/LNPopupController.xcodeproj; sourceTree = "<group>"; };
 		CA3DF61E221B32E500E70446 /* LosingWait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LosingWait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3DF621221B32E500E70446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA3DF626221B32E500E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */,
+				CA31669D222A2BB70048D788 /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,9 +146,18 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		CA316698222A2BAB0048D788 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA31669C222A2BAB0048D788 /* LNPopupController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CA3DF615221B32E500E70446 = {
 			isa = PBXGroup;
 			children = (
+				CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */,
 				CA3DF620221B32E500E70446 /* LosingWait */,
 				CA3DF61F221B32E500E70446 /* Products */,
 				7096258A8AE85687ABB49504 /* Pods */,
@@ -208,10 +252,12 @@
 				CA3DF61B221B32E500E70446 /* Frameworks */,
 				CA3DF61C221B32E500E70446 /* Resources */,
 				8C67A0DBA01A46CC7B2095E3 /* [CP] Embed Pods Frameworks */,
+				CA3166A1222A2BB70048D788 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA3166A0222A2BB70048D788 /* PBXTargetDependency */,
 			);
 			name = LosingWait;
 			productName = LosingWait;
@@ -244,12 +290,28 @@
 			mainGroup = CA3DF615221B32E500E70446;
 			productRefGroup = CA3DF61F221B32E500E70446 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CA316698222A2BAB0048D788 /* Products */;
+					ProjectRef = CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CA3DF61D221B32E500E70446 /* LosingWait */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CA31669C222A2BAB0048D788 /* LNPopupController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LNPopupController.framework;
+			remoteRef = CA31669B222A2BAB0048D788 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CA3DF61C221B32E500E70446 /* Resources */ = {
@@ -344,6 +406,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA3166A0222A2BB70048D788 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LNPopupController;
+			targetProxy = CA31669F222A2BB70048D788 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CA3DF625221B32E500E70446 /* Main.storyboard */ = {

@@ -17,10 +17,6 @@ class WorkoutBrowseListViewController: UITableViewController {
 
 extension WorkoutBrowseListViewController {
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 55
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Exercise.samples.count
     }

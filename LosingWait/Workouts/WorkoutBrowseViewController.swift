@@ -21,6 +21,7 @@ class WorkoutBrowseViewController: UIViewController {
         
         collectionView.dataSource = self
         categoryTableView.dataSource = self
+        categoryTableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
