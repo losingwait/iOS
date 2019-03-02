@@ -19,6 +19,7 @@
 		CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D6221F6D9B00770832 /* Muscle.swift */; };
 		CA31669D222A2BB70048D788 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; };
 		CA31669E222A2BB70048D788 /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */; };
 		CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF621221B32E500E70446 /* AppDelegate.swift */; };
 		CA3DF627221B32E500E70446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF625221B32E500E70446 /* Main.storyboard */; };
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		CA3152D4221F668F00770832 /* WKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKManager.swift; sourceTree = "<group>"; };
 		CA3152D6221F6D9B00770832 /* Muscle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
 		CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = Popup/LNPopupController.xcodeproj; sourceTree = "<group>"; };
+		CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutViewController.swift; sourceTree = "<group>"; };
 		CA3DF61E221B32E500E70446 /* LosingWait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LosingWait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3DF621221B32E500E70446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA3DF626221B32E500E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */,
 				CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */,
 				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
+				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA5036F1221DF06F00411484 /* RegisterViewController.swift in Sources */,
+				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
 				CA1B073C2224815F0029E71B /* Exercise.swift in Sources */,
 				CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */,

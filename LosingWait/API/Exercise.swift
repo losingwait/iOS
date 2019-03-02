@@ -24,6 +24,12 @@ struct Exercise {
     static let samples = [
         Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0),
     ]
+    
+    var viewController: ActiveWorkoutViewController {
+        let storyboard = UIStoryboard(name: "Workouts", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController
+        return vc
+    }
 }
 
 extension Exercise: Bannerable {

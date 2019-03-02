@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LNPopupController
 
 class WorkoutBrowseViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +21,7 @@ class WorkoutBrowseViewController: UIViewController {
         title = "Browse"
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         categoryTableView.dataSource = self
         categoryTableView.delegate = self
     }
@@ -65,5 +67,19 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
 
         Exercise.samples[0].configure(banner: cell)
         return cell
+    }
+}
+
+extension WorkoutBrowseViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let exercise = Exercise.samples[indexPath.item]
+        let vc = exercise.viewController
+        
+        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
+        tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
+        tabBarController?.popupBar.imageView.layer.cornerRadius = 5
+        tabBarController?.openPopup(animated: true, completion: nil)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

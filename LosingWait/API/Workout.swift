@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mike JS. Choi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Workout {
     let id: String
