@@ -74,3 +74,14 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+extension WorkoutViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 40
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+}

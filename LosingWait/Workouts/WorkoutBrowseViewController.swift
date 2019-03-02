@@ -8,64 +8,61 @@
 
 import UIKit
 
-class WorkoutBrowseViewController: UITableViewController {
+class WorkoutBrowseViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var categoryTableView: UITableView!
     
-    let sections = ["Muscle", "Equipment"]
-    var muscles: [Muscle] = []
-    var equipments: [Equipment] = []
+    let catagories = ["Workout", "Muscle", "Equipment"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WKManager.getMuscles { muscles in
-            self.muscles = muscles
-            self.tableView.reloadData()
-        }
+        title = "Browse"
         
-        WKManager.getEquipments { equipments in
-            self.equipments = equipments
-            self.tableView.reloadData()
+        collectionView.dataSource = self
+        categoryTableView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+        if segue.identifier == "showDetails" {
+            let vc = segue.destination as? WorkoutBrowseListViewController
         }
+        */
     }
 }
 
-extension WorkoutBrowseViewController {
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+extension WorkoutBrowseViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return catagories.count
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = .white
-        
-        let sectionLabel = UILabel(frame: CGRect(x: 18, y: 15, width:
-            tableView.bounds.size.width, height: tableView.bounds.size.height))
-        sectionLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        sectionLabel.textColor = .black
-        sectionLabel.text = sections[section]
-        sectionLabel.sizeToFit()
-        headerView.addSubview(sectionLabel)
-        
-        return headerView
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 55
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? muscles.count : equipments.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        
-        if indexPath.section == 0 {
-            cell.textLabel?.text = muscles[indexPath.row].name
-        } else {
-            cell.textLabel?.text = equipments[indexPath.row].name
+        cell.textLabel?.text = catagories[indexPath.row]
+        return cell
+    }
+}
+
+extension WorkoutBrowseViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showDetails", sender: self)
+    }
+}
+
+extension WorkoutBrowseViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Exercise.samples.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.reuseIdentifier, for: indexPath) as? BannerCollectionViewCell else {
+            return UICollectionViewCell()
         }
+
+        Exercise.samples[0].configure(banner: cell)
         return cell
     }
 }

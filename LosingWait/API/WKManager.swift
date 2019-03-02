@@ -10,14 +10,16 @@ import Alamofire
 
 struct WKManager {
     
-    static func getMuscles(completion: @escaping ([Muscle]) -> ()) {
+    static let shared = WKManager()
+    
+    let parameters: Parameters = ["key": "value"]
+    let headers: HTTPHeaders = [
+        "Authorization": "Token c502d5d6401f53edcaf74fb6506e5c1c731a3b20",
+        "Accept": "application/json"
+    ]
+    
+    func getMuscles(completion: @escaping ([Muscle]) -> ()) {
         let endpoint = URL(string: "https://wger.de/api/v2/muscle/")!
-        let parameters: Parameters = ["key": "value"]
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "Token c502d5d6401f53edcaf74fb6506e5c1c731a3b20",
-            "Accept": "application/json"
-        ]
         
         Alamofire.request(endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
@@ -34,14 +36,8 @@ struct WKManager {
         }
     }
     
-    static func getEquipments(completion: @escaping ([Equipment]) -> ()) {
+    func getEquipments(completion: @escaping ([Equipment]) -> ()) {
         let endpoint = URL(string: "https://wger.de/api/v2/equipment/")!
-        let parameters: Parameters = ["key": "value"]
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "Token c502d5d6401f53edcaf74fb6506e5c1c731a3b20",
-            "Accept": "application/json"
-        ]
         
         Alamofire.request(endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
