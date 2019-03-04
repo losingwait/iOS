@@ -11,7 +11,7 @@ struct Equipment {
     let id: Int
     
     init(response: [String : Any]) {
-        id = response["id"] as! Int
+        id = response["_id"] as! Int
         name = response["name"] as! String
     }
 }
