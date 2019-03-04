@@ -10,18 +10,16 @@ import Alamofire
 
 struct WKManager {
     
-    static let shared = WKManager()
+//    static let shared = WKManager()
     
-    let parameters: Parameters = ["key": "value"]
-    let headers: HTTPHeaders = [
-        "Authorization": "Token c502d5d6401f53edcaf74fb6506e5c1c731a3b20",
-        "Accept": "application/json"
-    ]
-    
-    func getMuscles(completion: @escaping ([Muscle]) -> ()) {
-        let endpoint = URL(string: "https://wger.de/api/v2/muscle/")!
+    static func getMuscles(completion: @escaping ([Muscle]) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
         
-        Alamofire.request(endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -30,27 +28,13 @@ struct WKManager {
                 print(error)
             }
             
-            guard let response = response.value as? [String : Any] else { return }
-            guard let results = response["results"] as? [[String : Any]] else { return }
+            guard let json = response.value as? [String : [String : String]] else { return }
+            var results = Array<Dictionary<String, String>>()
+            for(_, value) in json {
+                results.append(value)
+            }
             completion(results.compactMap(Muscle.init))
         }
     }
     
-    func getEquipments(completion: @escaping ([Equipment]) -> ()) {
-        let endpoint = URL(string: "https://wger.de/api/v2/equipment/")!
-        
-        Alamofire.request(endpoint, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-            case .failure(let error):
-                BannerNotification.fatalError(msg: "Could not access server").show()
-                print(error)
-            }
-            
-            guard let response = response.value as? [String : Any] else { return }
-            guard let results = response["results"] as? [[String : Any]] else { return }
-            completion(results.compactMap(Equipment.init))
-        }
-    }
 }

@@ -14,6 +14,7 @@ class WorkoutBrowseViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     let catagories = ["Workout", "Muscle", "Equipment"]
+    var selectedCategory = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,10 @@ class WorkoutBrowseViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
         if segue.identifier == "showDetails" {
             let vc = segue.destination as? WorkoutBrowseListViewController
+            vc?.category = selectedCategory
         }
-        */
     }
 }
 
@@ -50,6 +50,7 @@ extension WorkoutBrowseViewController: UITableViewDataSource {
 extension WorkoutBrowseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedCategory = indexPath.row
         performSegue(withIdentifier: "showDetails", sender: self)
     }
 }

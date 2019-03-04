@@ -8,10 +8,10 @@
 
 struct Equipment {
     let name: String
-    let id: Int
+    let id: String
     
     init(response: [String : Any]) {
-        id = response["id"] as! Int
+        id = response["_id"] as! String
         name = response["name"] as! String
     }
 }
