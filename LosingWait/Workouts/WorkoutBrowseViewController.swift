@@ -77,8 +77,8 @@ extension WorkoutBrowseViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let exercise = Exercise.samples[indexPath.item]
-        let vc = exercise.viewController
+        let workout = Workout.samples[indexPath.item]
+        let vc = workout.viewController
         
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
         tabBarController?.popupBar.imageView.layer.cornerRadius = 5

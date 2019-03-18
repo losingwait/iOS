@@ -33,6 +33,13 @@ struct Workout: Displayable {
                     ],
                 duration: 1000),
     ]
+    
+    var viewController: ActiveWorkoutViewController {
+        let storyboard = UIStoryboard(name: "CurrentWorkout", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController
+        vc.workout = self
+        return vc
+    }
 }
 
 extension Workout: Bannerable {

@@ -19,7 +19,9 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
     
+    var workout: Workout?
     var exercise: Exercise?
+    
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     var timer: Timer?
@@ -27,6 +29,9 @@ class ActiveWorkoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alternatesTableView.dataSource = self
+        alternatesTableView.delegate = self
         
         configurePopupItem()
         initializeVideoPlayerWithVideo()
@@ -70,6 +75,17 @@ class ActiveWorkoutViewController: UIViewController {
         }
     }
 }
+
+extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
     
 extension ActiveWorkoutViewController {
    
@@ -94,9 +110,10 @@ extension ActiveWorkoutViewController {
     func configurePopupItem() {
         let back = UIBarButtonItem(image: #imageLiteral(resourceName: "prev-mini"), style: .plain, target: nil, action: nil)
         let next = UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: nil, action: nil)
+        
         popupItem.image = #imageLiteral(resourceName: "arnold-chest")
-        popupItem.rightBarButtonItems = [back, next]
-        popupItem.title = exercise?.name
+        popupItem.rightBarButtonItems = workout == nil ? [] : [back, next]
+        popupItem.title = workout == nil ? exercise?.name : workout?.name
     }
     
     func initializeVideoPlayerWithVideo(){

@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="ActiveWorkoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z2e-PH-k7Y" customClass="ActiveWorkoutViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TFz-BY-Pwu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTb-wc-6SM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="mO0-HQ-tj0" userLabel="Overall Stack">
                                         <rect key="frame" x="0.0" y="60" width="375" height="976.5"/>
@@ -123,10 +123,28 @@
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c9l-LU-uJ0">
                                                 <rect key="frame" x="0.0" y="676.5" width="375" height="300"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="Yfr-by-zbg"/>
                                                 </constraints>
+                                                <color key="sectionIndexBackgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                                <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="IEi-m3-Mp7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Up Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-3b-7ND">
+                                                            <rect key="frame" x="15" y="140.5" width="86.5" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="cOP-3b-7ND" firstAttribute="leading" secondItem="IEi-m3-Mp7" secondAttribute="leading" constant="15" id="Mol-dZ-NJa"/>
+                                                        <constraint firstItem="cOP-3b-7ND" firstAttribute="centerY" secondItem="IEi-m3-Mp7" secondAttribute="centerY" id="r6E-Bu-qSD"/>
+                                                    </constraints>
+                                                </view>
                                             </tableView>
                                         </subviews>
                                         <constraints>
@@ -153,6 +171,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BDO-js-Xem"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="alternatesTableView" destination="c9l-LU-uJ0" id="szy-Hg-X7w"/>
                         <outlet property="elapsedLabel" destination="dGt-no-pMO" id="RPp-bW-6rR"/>
@@ -170,7 +189,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2925.5999999999999" y="509.59520239880067"/>
+            <point key="canvasLocation" x="2925.5999999999999" y="509.14542728635683"/>
         </scene>
     </scenes>
 </document>
