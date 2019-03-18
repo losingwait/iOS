@@ -27,7 +27,7 @@ struct Exercise: Displayable {
     ]
     
     var viewController: ActiveWorkoutViewController {
-        let storyboard = UIStoryboard(name: "Workouts", bundle: nil)
+        let storyboard = UIStoryboard(name: "CurrentWorkout", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController
         vc.exercise = self
         return vc

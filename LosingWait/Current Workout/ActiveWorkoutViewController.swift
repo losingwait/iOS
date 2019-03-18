@@ -22,6 +22,8 @@ class ActiveWorkoutViewController: UIViewController {
     var exercise: Exercise?
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
+    var timer: Timer?
+    var timeElapsed: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,9 @@ class ActiveWorkoutViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        createTimer()
+        
         player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
         if player != nil {
             player?.play()
@@ -40,6 +45,8 @@ class ActiveWorkoutViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
+        timer?.invalidate()
         player?.pause()
         player?.currentItem?.removeObserver(self, forKeyPath: "status")
     }
@@ -61,6 +68,27 @@ class ActiveWorkoutViewController: UIViewController {
                 self.videoView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }, completion: nil)
         }
+    }
+}
+    
+extension ActiveWorkoutViewController {
+   
+    func createTimer() {
+        if timer == nil {
+            let timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+            RunLoop.current.add(timer, forMode: .common)
+            timer.tolerance = 0.1
+            self.timer = timer
+        }
+    }
+    
+    @objc func updateTimer() {
+        timeElapsed += 1
+        elapsedLabel.text = timeElapsed.stringTime
     }
     
     func configurePopupItem() {

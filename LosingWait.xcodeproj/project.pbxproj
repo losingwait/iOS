@@ -35,6 +35,7 @@
 		CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */; };
 		CA79D6C8221F63B80055317B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C7221F63B80055317B /* Injectable.swift */; };
 		CA996567224019E6009BF4F0 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA996566224019E6009BF4F0 /* Displayable.swift */; };
+		CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
@@ -103,6 +104,7 @@
 		CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseViewController.swift; sourceTree = "<group>"; };
 		CA79D6C7221F63B80055317B /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		CA996566224019E6009BF4F0 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
+		CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
@@ -133,9 +135,9 @@
 		CA1B072B22246EF30029E71B /* Current Workout */ = {
 			isa = PBXGroup;
 			children = (
-				CA1B072C2224701C0029E71B /* UIView+Utils.swift */,
-				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
 				CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */,
+				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
+				CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */,
 			);
 			path = "Current Workout";
 			sourceTree = "<group>";
@@ -144,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				CA3152D4221F668F00770832 /* WKManager.swift */,
-				CA3166A6222B21EE0048D788 /* AVPlayer+Extension.swift */,
 				CA996566224019E6009BF4F0 /* Displayable.swift */,
 				CA3152D6221F6D9B00770832 /* Muscle.swift */,
 				CA48C64C22208E5C0062BD89 /* Equipment.swift */,
@@ -193,6 +194,7 @@
 				CA5036F2221DF07400411484 /* Registration */,
 				CAC072BD221B3DDE0065BF72 /* Profile */,
 				CAC072C0221B3F420065BF72 /* UI */,
+				CA99656B22401CEE009BF4F0 /* Utilities */,
 				CA3152D3221F667B00770832 /* API */,
 				CA3DF62B221B32E600E70446 /* Assets.xcassets */,
 				CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */,
@@ -222,6 +224,15 @@
 				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
 			);
 			path = Workouts;
+			sourceTree = "<group>";
+		};
+		CA99656B22401CEE009BF4F0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CA3166A6222B21EE0048D788 /* AVPlayer+Extension.swift */,
+				CA1B072C2224701C0029E71B /* UIView+Utils.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CAC072BD221B3DDE0065BF72 /* Profile */ = {
@@ -401,6 +412,7 @@
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
 				CA3166A7222B21EE0048D788 /* AVPlayer+Extension.swift in Sources */,
+				CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */,
 				CA1B073C2224815F0029E71B /* Exercise.swift in Sources */,
 				CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */,
 				CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */,
