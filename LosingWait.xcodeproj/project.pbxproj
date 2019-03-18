@@ -27,9 +27,8 @@
 		CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62B221B32E600E70446 /* Assets.xcassets */; };
 		CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */; };
 		CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48C64C22208E5C0062BD89 /* Equipment.swift */; };
-		CA5036ED221DF05500411484 /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Signin.storyboard */; };
+		CA5036ED221DF05500411484 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Login.storyboard */; };
 		CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EE221DF06F00411484 /* LoginViewController.swift */; };
-		CA5036F1221DF06F00411484 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EF221DF06F00411484 /* RegisterViewController.swift */; };
 		CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */; };
 		CA79D6C4221F60180055317B /* Workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA79D6C3221F60180055317B /* Workouts.storyboard */; };
 		CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */; };
@@ -98,9 +97,8 @@
 		CA3DF62E221B32E600E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA3DF630221B32E600E70446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA48C64C22208E5C0062BD89 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
-		CA5036EC221DF05500411484 /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
+		CA5036EC221DF05500411484 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CA5036EE221DF06F00411484 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CA5036EF221DF06F00411484 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		CA79D6C3221F60180055317B /* Workouts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workouts.storyboard; sourceTree = "<group>"; };
 		CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseViewController.swift; sourceTree = "<group>"; };
@@ -212,8 +210,7 @@
 		CA5036F2221DF07400411484 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				CA5036EC221DF05500411484 /* Signin.storyboard */,
-				CA5036EF221DF06F00411484 /* RegisterViewController.swift */,
+				CA5036EC221DF05500411484 /* Login.storyboard */,
 				CA5036EE221DF06F00411484 /* LoginViewController.swift */,
 			);
 			path = Registration;
@@ -361,7 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */,
-				CA5036ED221DF05500411484 /* Signin.storyboard in Resources */,
+				CA5036ED221DF05500411484 /* Login.storyboard in Resources */,
 				CA79D6C4221F60180055317B /* Workouts.storyboard in Resources */,
 				CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */,
 				CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */,
@@ -430,7 +427,6 @@
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
-				CA5036F1221DF06F00411484 /* RegisterViewController.swift in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
 				CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,

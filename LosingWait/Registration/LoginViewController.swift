@@ -89,5 +89,6 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
                 BannerNotification.fatalError(msg: "Password must be longer than 5 characters").show()
             }
         }
+        
     }
 }
