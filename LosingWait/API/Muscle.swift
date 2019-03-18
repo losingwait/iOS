@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mike JS. Choi. All rights reserved.
 //
 
-struct Muscle {
+struct Muscle: Displayable {
     let name: String
     let id: String
     

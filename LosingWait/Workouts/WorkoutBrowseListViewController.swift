@@ -10,22 +10,19 @@ import UIKit
 
 class WorkoutBrowseListViewController: UITableViewController {
     
-    var category:Int = 0
-    var muscles: [Muscle] = []
+    var category: String!
+    var items: [Displayable] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(category == 0) {
-            title = "Workouts"
-        } else if(category == 1) {
-            title = "Muscles"
+        title = category
+    
+        if category == "Muscle" {
             WKManager.getMuscles { muscles in
-                self.muscles = muscles
+                self.items = muscles
                 self.tableView.reloadData()
             }
-        } else if(category == 2) {
-            title = "Equipment"
         }
     }
 }
@@ -33,19 +30,12 @@ class WorkoutBrowseListViewController: UITableViewController {
 extension WorkoutBrowseListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return category == 1 ? muscles.count : 0
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        
-        if(category == 0) {
-            // list workouts here
-        } else if(category == 1) {
-            cell.textLabel?.text = muscles[indexPath.row].name
-        } else if(category == 2) {
-            // list equipment here
-        }
+        cell.textLabel?.text = items[indexPath.row].name
         return cell
     }
 }

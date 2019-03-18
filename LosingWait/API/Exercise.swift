@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-struct Exercise {
+struct Exercise: Displayable {
     let id: String
     let name: String
     let description: String
-    let imageName: String
+    let imageName: String?
     
     let category: String
     let machine: String
@@ -36,9 +36,13 @@ struct Exercise {
 
 extension Exercise: Bannerable {
     func configure(banner: BannerCollectionViewCell) {
+        if imageName == nil {
+            fatalError("This exercise is not bannerable")
+        }
+        
         banner.categoryLabel.text = "FEATURED EXERCISE"
         banner.bannerLabel.text = name
         banner.descriptionLabel.text = description
-        banner.imageView.image = UIImage(named: imageName)
+        banner.imageView.image = UIImage(named: imageName!)
     }
 }

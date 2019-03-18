@@ -14,8 +14,8 @@ class WorkoutBrowseViewController: UIViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     let workoutStoryboard = UIStoryboard(name: "Workouts", bundle: nil)
-    let catagories = ["Workout", "Muscle", "Equipment"]
-    var selectedCategory = 0
+    let catagories = ["Workout", "Single Exercises", "Muscle", "Equipment"]
+    var selectedCategory: String?
     var currentViewController: UIViewController?
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ extension WorkoutBrowseViewController: UITableViewDataSource {
 extension WorkoutBrowseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedCategory = indexPath.row
+        selectedCategory = catagories[indexPath.row]
         performSegue(withIdentifier: "showDetails", sender: self)
     }
 }
@@ -60,7 +60,7 @@ extension WorkoutBrowseViewController: UITableViewDelegate {
 extension WorkoutBrowseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Exercise.samples.count
+        return Workout.samples.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,7 +68,7 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        Exercise.samples[indexPath.row].configure(banner: cell)
+        Workout.samples[indexPath.row].configure(banner: cell)
         return cell
     }
 }

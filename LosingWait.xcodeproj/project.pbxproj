@@ -34,6 +34,7 @@
 		CA79D6C4221F60180055317B /* Workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA79D6C3221F60180055317B /* Workouts.storyboard */; };
 		CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */; };
 		CA79D6C8221F63B80055317B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C7221F63B80055317B /* Injectable.swift */; };
+		CA996567224019E6009BF4F0 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA996566224019E6009BF4F0 /* Displayable.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
@@ -101,6 +102,7 @@
 		CA79D6C3221F60180055317B /* Workouts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workouts.storyboard; sourceTree = "<group>"; };
 		CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseViewController.swift; sourceTree = "<group>"; };
 		CA79D6C7221F63B80055317B /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		CA996566224019E6009BF4F0 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				CA3152D4221F668F00770832 /* WKManager.swift */,
 				CA3166A6222B21EE0048D788 /* AVPlayer+Extension.swift */,
+				CA996566224019E6009BF4F0 /* Displayable.swift */,
 				CA3152D6221F6D9B00770832 /* Muscle.swift */,
 				CA48C64C22208E5C0062BD89 /* Equipment.swift */,
 				CA1B07392224812B0029E71B /* Workout.swift */,
@@ -409,6 +412,7 @@
 				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
+				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
