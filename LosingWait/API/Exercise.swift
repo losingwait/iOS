@@ -23,11 +23,13 @@ struct Exercise {
     
     static let samples = [
         Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0),
+        Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0),
     ]
     
     var viewController: ActiveWorkoutViewController {
         let storyboard = UIStoryboard(name: "Workouts", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController
+        vc.exercise = self
         return vc
     }
 }

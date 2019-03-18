@@ -19,7 +19,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
     
-    var workout: Workout?
+    var exercise: Exercise?
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     
@@ -32,6 +32,7 @@ class ActiveWorkoutViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
         if player != nil {
             player?.play()
         }
@@ -40,6 +41,7 @@ class ActiveWorkoutViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         player?.pause()
+        player?.currentItem?.removeObserver(self, forKeyPath: "status")
     }
     
     @IBAction func videoTapped(_ sender: UITapGestureRecognizer) {
@@ -66,7 +68,7 @@ class ActiveWorkoutViewController: UIViewController {
         let next = UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: nil, action: nil)
         popupItem.image = #imageLiteral(resourceName: "arnold-chest")
         popupItem.rightBarButtonItems = [back, next]
-        popupItem.title = "Hello World"
+        popupItem.title = exercise?.name
     }
     
     func initializeVideoPlayerWithVideo(){
@@ -80,8 +82,6 @@ class ActiveWorkoutViewController: UIViewController {
         layer.frame = videoView.bounds
         layer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(layer)
-        
-        player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -90,8 +90,7 @@ class ActiveWorkoutViewController: UIViewController {
             let playerObject = object as? AVPlayerItem,
             playerObject == currentPlayer.currentItem,
             keyPath == "status" {
-            
-            if currentPlayer.currentItem!.status == .readyToPlay {
+            if playerObject.status == .readyToPlay {
                 currentPlayer.play()
                 currentPlayer.rate = 1.0
             }

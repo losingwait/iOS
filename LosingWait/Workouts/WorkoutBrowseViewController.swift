@@ -13,8 +13,10 @@ class WorkoutBrowseViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var categoryTableView: UITableView!
     
+    let workoutStoryboard = UIStoryboard(name: "Workouts", bundle: nil)
     let catagories = ["Workout", "Muscle", "Equipment"]
     var selectedCategory = 0
+    var currentViewController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ extension WorkoutBrowseViewController: UITableViewDelegate {
 extension WorkoutBrowseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Exercise.samples.count + 1
+        return Exercise.samples.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,7 +68,7 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        Exercise.samples[0].configure(banner: cell)
+        Exercise.samples[indexPath.row].configure(banner: cell)
         return cell
     }
 }
@@ -74,13 +76,12 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
 extension WorkoutBrowseViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         let exercise = Exercise.samples[indexPath.item]
         let vc = exercise.viewController
         
-        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
         tabBarController?.popupBar.imageView.layer.cornerRadius = 5
-        tabBarController?.openPopup(animated: true, completion: nil)
-        collectionView.deselectItem(at: indexPath, animated: true)
+        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
     }
 }
