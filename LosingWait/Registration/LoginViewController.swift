@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import Alamofire
 
 final class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var emailTextField: SkyFloatingLabelTextField!
@@ -74,6 +75,8 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction private func confirm() {
         let invalidEmail = BannerNotification.fatalError(msg: "Invalid email")
+        let loginFailed = BannerNotification.fatalError(msg: "Login failed")
+        
         guard let email = emailTextField.text else {
             invalidEmail.show()
             return
@@ -87,8 +90,42 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         if let password = passwordTextField.text {
             if password.count < 5 {
                 BannerNotification.fatalError(msg: "Password must be longer than 5 characters").show()
+                return
             }
         }
+
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/users/login")!
+        let parameters: Parameters = ["email": email]
         
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : String] else { return }
+            if let _ = json["message"] {
+                loginFailed.show()
+                return
+            }
+            
+            print("Login Successful")
+            UserDefaults.standard.set(json["email"], forKey: "email")
+            UserDefaults.standard.set(json["_id"], forKey: "id")
+            UserDefaults.standard.set(json["name"], forKey: "name")
+            UserDefaults.standard.set(true, forKey: "loggedIn")
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabBarController")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
     }
 }
