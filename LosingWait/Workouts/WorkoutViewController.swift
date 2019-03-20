@@ -33,9 +33,12 @@ class WorkoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        extendedLayoutIncludesOpaqueBars = true
         
         tableView.delegate = self
         tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
@@ -75,13 +78,18 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension WorkoutViewController: UICollectionViewDataSource {
+extension WorkoutViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return Workout.samples.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.configure(Workout.samples[indexPath.item])
+        return cell
     }
 }

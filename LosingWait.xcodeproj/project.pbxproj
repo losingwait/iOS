@@ -40,6 +40,7 @@
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
 		CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33532242AA4800564D34 /* MapViewController.swift */; };
+		CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 		CAFB33532242AA4800564D34 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +224,8 @@
 			children = (
 				CA79D6C3221F60180055317B /* Workouts.storyboard */,
 				CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */,
-				CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */,
-				CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */,
-				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
+				CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */,
+				CAFB33552242C03D00564D34 /* Browse */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -261,6 +262,16 @@
 				CAFB33532242AA4800564D34 /* MapViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		CAFB33552242C03D00564D34 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */,
+				CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */,
+				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
+			);
+			path = Browse;
 			sourceTree = "<group>";
 		};
 		FE2D0E78508A46404818D1FB /* Frameworks */ = {
@@ -435,6 +446,7 @@
 				CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */,
 				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
+				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
