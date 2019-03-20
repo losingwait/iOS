@@ -13,18 +13,32 @@
         <!--Map-->
         <scene sceneID="Dmf-vJ-EY8">
             <objects>
-                <viewController id="AxN-IB-XAS" sceneMemberID="viewController">
+                <viewController id="AxN-IB-XAS" customClass="MapViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVd-Xg-7zO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="viV-R5-1qw">
+                                <rect key="frame" x="0.0" y="40" width="375" height="579"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96456772089004517" green="0.9373355507850647" blue="0.88233596086502075" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="viV-R5-1qw" firstAttribute="leading" secondItem="rw3-T9-WVp" secondAttribute="leading" id="600-fI-WWd"/>
+                            <constraint firstItem="viV-R5-1qw" firstAttribute="top" secondItem="pVd-Xg-7zO" secondAttribute="top" constant="40" id="Jkb-FE-0aw"/>
+                            <constraint firstItem="viV-R5-1qw" firstAttribute="trailing" secondItem="rw3-T9-WVp" secondAttribute="trailing" id="KO2-i9-Tkn"/>
+                            <constraint firstItem="rw3-T9-WVp" firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" constant="-1" id="aLk-a1-Bc0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rw3-T9-WVp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map-unselected" selectedImage="map-selected" id="UK9-5b-L2I"/>
+                    <connections>
+                        <outlet property="mapImageView" destination="viV-R5-1qw" id="grX-3u-8DC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHX-5D-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-888" y="-159"/>
+            <point key="canvasLocation" x="-888.79999999999995" y="-159.67016491754123"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="gNg-yp-qie">
@@ -247,8 +261,9 @@ Open Source Listing  These applications are under use of the MIT License.</s
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="1125" height="2001"/>
         <image name="map-selected" width="19" height="25"/>
-        <image name="map-unselected" width="21" height="27"/>
+        <image name="map-unselected" width="20" height="27"/>
         <image name="profile-selected" width="25" height="25"/>
         <image name="profile-unselected" width="27" height="27"/>
     </resources>
