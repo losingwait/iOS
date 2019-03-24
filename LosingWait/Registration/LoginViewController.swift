@@ -95,7 +95,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/users/login")!
-        let parameters: Parameters = ["email": email]
+        let parameters: Parameters = ["email": email, "password": passwordTextField.text!]
         
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -110,11 +110,13 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(error)
             }
             
-            guard let json = response.value as? [String : String] else { return }
-            if let _ = json["message"] {
+            let code = response.response?.statusCode
+            if(code == 401) {
                 loginFailed.show()
                 return
             }
+            
+            guard let json = response.value as? [String : String] else { return }
             
             print("Login Successful")
             UserDefaults.standard.set(json["email"], forKey: "email")
