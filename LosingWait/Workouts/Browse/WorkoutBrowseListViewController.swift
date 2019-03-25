@@ -23,6 +23,11 @@ class WorkoutBrowseListViewController: UITableViewController {
                 self.items = muscles
                 self.tableView.reloadData()
             }
+        } else if category == "Equipment" {
+            WKManager.getEquipment { equipment in
+                self.items = equipment
+                self.tableView.reloadData()
+            }
         }
     }
 }
