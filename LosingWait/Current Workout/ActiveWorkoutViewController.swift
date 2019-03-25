@@ -27,6 +27,24 @@ class ActiveWorkoutViewController: UIViewController {
     var timer: Timer?
     var timeElapsed: TimeInterval = 0
     
+    var paused = false
+    
+    lazy var pauseItem: UIBarButtonItem = {
+        UIBarButtonItem(image: #imageLiteral(resourceName: "pause-mini"), style: .plain, target: self, action: #selector(togglePause))
+    }()
+    
+    lazy var playItem: UIBarButtonItem = {
+        UIBarButtonItem(image: #imageLiteral(resourceName: "play-mini"), style: .plain, target: self, action: #selector(togglePause))
+    }()
+
+    lazy var backItem: UIBarButtonItem = {
+        UIBarButtonItem(image: #imageLiteral(resourceName: "prev-mini"), style: .plain, target: self, action: nil)
+    }()
+    
+    lazy var nextItem: UIBarButtonItem = {
+        UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: nil)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +73,80 @@ class ActiveWorkoutViewController: UIViewController {
         player?.pause()
         player?.currentItem?.removeObserver(self, forKeyPath: "status")
     }
+}
+
+extension ActiveWorkoutViewController {
+   
+    func createTimer() {
+        if timer == nil {
+            let timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+            RunLoop.current.add(timer, forMode: .common)
+            timer.tolerance = 0.1
+            self.timer = timer
+        }
+    }
+    
+    @objc func updateTimer() {
+        timeElapsed += 1
+        elapsedLabel.text = timeElapsed.stringTime
+    }
+    
+    @objc func togglePause() {
+        videoTapped(UITapGestureRecognizer(target: nil, action: nil))
+        
+        if paused {
+            popupItem.rightBarButtonItems = [pauseItem]
+        } else {
+            popupItem.rightBarButtonItems = [playItem]
+        }
+        
+        paused = !paused
+    }
+    
+    func configurePopupItem() {
+        popupItem.image = #imageLiteral(resourceName: "arnold-chest")
+        
+        if workout == nil {
+            popupItem.rightBarButtonItems = [pauseItem]
+        } else {
+            popupItem.rightBarButtonItems = [backItem, nextItem]
+        }
+        
+        popupItem.title = workout == nil ? exercise?.name : workout?.name
+    }
+    
+    func initializeVideoPlayerWithVideo(){
+        videoView.backgroundColor = .lightGray
+        
+        playerItem =  AVPlayerItem(url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!)
+        player = AVPlayer(playerItem: playerItem)
+        player?.allowsExternalPlayback = true
+
+        let layer = AVPlayerLayer(player: player)
+        layer.frame = videoView.bounds
+        layer.videoGravity = .resizeAspectFill
+        videoView.layer.addSublayer(layer)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if let currentPlayer = player,
+            let playerObject = object as? AVPlayerItem,
+            playerObject == currentPlayer.currentItem,
+            keyPath == "status" {
+            if playerObject.status == .readyToPlay {
+                currentPlayer.play()
+                currentPlayer.rate = 1.0
+            }
+        }
+    }
+}
+
+extension ActiveWorkoutViewController {
     
     @IBAction func videoTapped(_ sender: UITapGestureRecognizer) {
         if player == nil {
@@ -84,61 +176,5 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
-    }
-}
-    
-extension ActiveWorkoutViewController {
-   
-    func createTimer() {
-        if timer == nil {
-            let timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                         target: self,
-                                         selector: #selector(updateTimer),
-                                         userInfo: nil,
-                                         repeats: true)
-            RunLoop.current.add(timer, forMode: .common)
-            timer.tolerance = 0.1
-            self.timer = timer
-        }
-    }
-    
-    @objc func updateTimer() {
-        timeElapsed += 1
-        elapsedLabel.text = timeElapsed.stringTime
-    }
-    
-    func configurePopupItem() {
-        let back = UIBarButtonItem(image: #imageLiteral(resourceName: "prev-mini"), style: .plain, target: nil, action: nil)
-        let next = UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: nil, action: nil)
-        
-        popupItem.image = #imageLiteral(resourceName: "arnold-chest")
-        popupItem.rightBarButtonItems = workout == nil ? [] : [back, next]
-        popupItem.title = workout == nil ? exercise?.name : workout?.name
-    }
-    
-    func initializeVideoPlayerWithVideo(){
-        videoView.backgroundColor = .lightGray
-        
-        playerItem =  AVPlayerItem(url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!)
-        player = AVPlayer(playerItem: playerItem)
-        player?.allowsExternalPlayback = true
-
-        let layer = AVPlayerLayer(player: player)
-        layer.frame = videoView.bounds
-        layer.videoGravity = .resizeAspectFill
-        videoView.layer.addSublayer(layer)
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if let currentPlayer = player,
-            let playerObject = object as? AVPlayerItem,
-            playerObject == currentPlayer.currentItem,
-            keyPath == "status" {
-            if playerObject.status == .readyToPlay {
-                currentPlayer.play()
-                currentPlayer.rate = 1.0
-            }
-        }
     }
 }

@@ -16,6 +16,9 @@
 		CA1B073A2224812B0029E71B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B07392224812B0029E71B /* Workout.swift */; };
 		CA1B073C2224815F0029E71B /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B073B2224815F0029E71B /* Exercise.swift */; };
 		CA1B073E222482610029E71B /* Bannerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B073D222482610029E71B /* Bannerable.swift */; };
+		CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21E181224970B800498412 /* WorkoutDetailViewController.swift */; };
+		CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */; };
+		CA21E1882249739000498412 /* WorkoutCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */; };
 		CA3152D5221F668F00770832 /* WKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D4221F668F00770832 /* WKManager.swift */; };
 		CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D6221F6D9B00770832 /* Muscle.swift */; };
 		CA31669D222A2BB70048D788 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; };
@@ -86,6 +89,9 @@
 		CA1B07392224812B0029E71B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		CA1B073B2224815F0029E71B /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		CA1B073D222482610029E71B /* Bannerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bannerable.swift; sourceTree = "<group>"; };
+		CA21E181224970B800498412 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
+		CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailTableViewCell.swift; sourceTree = "<group>"; };
+		CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionDataSource.swift; sourceTree = "<group>"; };
 		CA3152D4221F668F00770832 /* WKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKManager.swift; sourceTree = "<group>"; };
 		CA3152D6221F6D9B00770832 /* Muscle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
 		CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = Popup/LNPopupController.xcodeproj; sourceTree = "<group>"; };
@@ -144,6 +150,15 @@
 				CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */,
 			);
 			path = "Current Workout";
+			sourceTree = "<group>";
+		};
+		CA21E1892249796100498412 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CA21E181224970B800498412 /* WorkoutDetailViewController.swift */,
+				CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		CA3152D3221F667B00770832 /* API */ = {
@@ -225,6 +240,8 @@
 				CA79D6C3221F60180055317B /* Workouts.storyboard */,
 				CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */,
 				CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */,
+				CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */,
+				CA21E1892249796100498412 /* Detail */,
 				CAFB33552242C03D00564D34 /* Browse */,
 			);
 			path = Workouts;
@@ -431,6 +448,7 @@
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
+				CA21E1882249739000498412 /* WorkoutCollectionDataSource.swift in Sources */,
 				CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
 				CA3166A7222B21EE0048D788 /* AVPlayer+Extension.swift in Sources */,
@@ -448,6 +466,8 @@
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
 				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
+				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
+				CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
 			);

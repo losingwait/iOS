@@ -29,16 +29,24 @@ class WorkoutViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
     let workoutStoryboard = UIStoryboard(name: "Workouts", bundle: nil)
+    
+    lazy var dataSource: WorkoutCollectionDataSource = {
+        let dataSource = WorkoutCollectionDataSource(with: Workout.samples)
+        return dataSource
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         extendedLayoutIncludesOpaqueBars = true
         
         tableView.delegate = self
         tableView.dataSource = self
         collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView.dataSource = dataSource
     }
 }
 
@@ -78,18 +86,16 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension WorkoutViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension WorkoutViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Workout.samples.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
-            return UICollectionViewCell()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = workoutStoryboard.instantiateViewController(withIdentifier: "WorkoutDetailViewController") as? WorkoutDetailViewController else {
+            return
         }
         
-        cell.configure(Workout.samples[indexPath.item])
-        return cell
+        let selectedWorkout = dataSource.workouts[indexPath.row]
+        vc.workout = selectedWorkout
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
