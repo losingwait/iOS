@@ -41,7 +41,7 @@ class ProfileViewController: UITableViewController, MFMailComposeViewControllerD
         tableView.deselectRow(at: indexPath, animated: true)
         
         // Report Section
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
             if indexPath.row == 0 {
                 sendFeedback(title: "Losing Wait iOS Application Bug Report")
             } else if indexPath.row == 1 {
@@ -49,12 +49,31 @@ class ProfileViewController: UITableViewController, MFMailComposeViewControllerD
             } else {
                 return
             }
+        } else if indexPath.section == 2 {
+            let alert = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                print("Logged out")
+                let defaults = UserDefaults.standard
+                defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle:nil)
+                
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(nextViewController, animated:true, completion:nil)
+                
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     }
+    
 }
 
 extension ProfileViewController: MFMessageComposeViewControllerDelegate {
