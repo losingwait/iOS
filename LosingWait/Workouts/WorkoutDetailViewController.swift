@@ -52,7 +52,7 @@ extension WorkoutDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkoutDetailTableViewCell.identifier, for: indexPath) as? WorkoutDetailTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseTableViewCell.identifier, for: indexPath) as? ExerciseTableViewCell else {
             return UITableViewCell()
         }
         
@@ -66,7 +66,7 @@ extension WorkoutDetailViewController: UITableViewDataSource {
 extension WorkoutDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return WorkoutDetailTableViewCell.height
+        return ExerciseTableViewCell.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

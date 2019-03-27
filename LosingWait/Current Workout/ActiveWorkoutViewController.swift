@@ -22,12 +22,13 @@ class ActiveWorkoutViewController: UIViewController {
     var workout: Workout?
     var exercise: Exercise?
     
-    var player: AVPlayer?
+    var player: AVQueuePlayer?
     var playerItem: AVPlayerItem?
     var timer: Timer?
     var timeElapsed: TimeInterval = 0
     
     var paused = false
+    var exerciseIdxOffset = 1
     
     lazy var pauseItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "pause-mini"), style: .plain, target: self, action: #selector(togglePause))
@@ -52,26 +53,51 @@ class ActiveWorkoutViewController: UIViewController {
         alternatesTableView.delegate = self
         
         configurePopupItem()
-        initializeVideoPlayerWithVideo()
+        
+        videoView.backgroundColor = .lightGray
+        
+        if let excercise = self.exercise {
+            setActive(exercise: excercise)
+        } else {
+            setActive(exercise: workout?.exercies.first)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         createTimer()
-        
-        player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
-        if player != nil {
+      
+        if player != nil && !paused {
             player?.play()
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         timer?.invalidate()
         player?.pause()
         player?.currentItem?.removeObserver(self, forKeyPath: "status")
+    }
+    
+    func setActive(exercise: Exercise?) {
+        timeElapsed = 0
+        
+        guard let exercise = exercise else {
+            // RESET VIEW
+            return
+        }
+        
+        exerciseLabel.text = exercise.name
+        setsLabel.text = "3"
+        repsLabel.text = "\(exercise.reps)"
+        playVideo(with: exercise.url)
     }
 }
 
@@ -119,11 +145,11 @@ extension ActiveWorkoutViewController {
         popupItem.title = workout == nil ? exercise?.name : workout?.name
     }
     
-    func initializeVideoPlayerWithVideo(){
-        videoView.backgroundColor = .lightGray
+    func playVideo(with url: URL) {
+        player?.removeAllItems()
         
-        playerItem =  AVPlayerItem(url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!)
-        player = AVPlayer(playerItem: playerItem)
+        playerItem = AVPlayerItem(url: url)
+        player = AVQueuePlayer(playerItem: playerItem)
         player?.allowsExternalPlayback = true
 
         let layer = AVPlayerLayer(player: player)
@@ -170,11 +196,42 @@ extension ActiveWorkoutViewController {
 
 extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ExerciseTableViewCell.height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        player?.currentItem?.removeObserver(self, forKeyPath: "status")
+        
+        exerciseIdxOffset += indexPath.row + 1
+        
+        guard let selectedExercise = workout?.exercies[exerciseIdxOffset - 1] else {
+            return
+        }
+        
+        setActive(exercise: selectedExercise)
+        player?.currentItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+        
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        let rowCnt = (workout?.exercies.count ?? 0) - exerciseIdxOffset
+        return max(0, rowCnt)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseTableViewCell.identifier, for: indexPath) as? ExerciseTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let exercise = workout?.exercies[exerciseIdxOffset + indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(with: exercise, isCurrentWorkout: true)
+        return cell
     }
 }

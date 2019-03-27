@@ -21,9 +21,14 @@ struct Exercise: Displayable {
     let reps: Int
     let duration: TimeInterval
     
+    let url: URL
+    
     static let samples = [
-        Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0),
-        Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0),
+        Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
+        Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
+        Exercise(id: "bcda", name: "Lat Pulldown", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
+        Exercise(id: "bcda", name: "Squats", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
+        
     ]
     
     var viewController: ActiveWorkoutViewController {

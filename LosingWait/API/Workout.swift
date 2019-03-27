@@ -21,16 +21,10 @@ struct Workout: Displayable {
     
     static let samples = [
         Workout(id: "abc", imageName: "arnold-chest", name: "Get cut", description: "Get the body you want", category: "Cut",
-                exercies: [
-                    Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0),
-                    Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0),
-                ],
+                exercies: Exercise.samples,
                 duration: 1000),
         Workout(id: "abc", imageName: "arnold-chest", name: "Get swole", description: "You should go pro, bro", category: "Mass",
-                exercies: [
-                    Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0),
-                    Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0)
-                    ],
+                exercies: Exercise.samples,
                 duration: 1000),
     ]
     

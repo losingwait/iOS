@@ -152,15 +152,6 @@
 			path = "Current Workout";
 			sourceTree = "<group>";
 		};
-		CA21E1892249796100498412 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				CA21E181224970B800498412 /* WorkoutDetailViewController.swift */,
-				CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
 		CA3152D3221F667B00770832 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,9 +230,10 @@
 			children = (
 				CA79D6C3221F60180055317B /* Workouts.storyboard */,
 				CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */,
+				CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */,
 				CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */,
 				CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */,
-				CA21E1892249796100498412 /* Detail */,
+				CA21E181224970B800498412 /* WorkoutDetailViewController.swift */,
 				CAFB33552242C03D00564D34 /* Browse */,
 			);
 			path = Workouts;
