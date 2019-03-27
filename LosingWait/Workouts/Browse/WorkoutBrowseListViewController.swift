@@ -33,6 +33,11 @@ class WorkoutBrowseListViewController: UITableViewController {
                 self.items = workouts
                 self.tableView.reloadData()
             }
+        } else if category == "Single Exercises" {
+            WKManager.getSingleExercises { exercises in
+                self.items = exercises
+                self.tableView.reloadData()
+            }
         }
         
     }

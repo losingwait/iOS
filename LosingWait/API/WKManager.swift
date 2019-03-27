@@ -78,17 +78,37 @@ struct WKManager {
                 print(error)
             }
             
-//            print(response)
             guard let json = response.value as? [String : [String : Any]] else { return }
-//            print(json)
             var results = Array<Dictionary<String, Any>>()
             for(_, value) in json {
                 results.append(value)
-//                print(value["array_exercises_dictionary"])
+            }
+            completion(results.compactMap(Workout_API.init))
+        }
+    }
+    
+    static func getSingleExercises(completion: @escaping ([Exercise_API]) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
             }
             
-//            print(results)
-            completion(results.compactMap(Workout_API.init))
+            guard let json = response.value as? [String : [String : Any]] else { return }
+            var results = Array<Dictionary<String, Any>>()
+            for(_, value) in json {
+                results.append(value)
+            }
+            completion(results.compactMap(Exercise_API.init))
         }
     }
     
