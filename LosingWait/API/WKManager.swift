@@ -37,8 +37,8 @@ struct WKManager {
         }
     }
     
-    static func getEquipment(completion: @escaping ([Equipment]) -> ()) {
-        let endpoint = URL(string: "https://losing-wait.herokuapp.com/machines/all/all")!
+    static func getMachineGroups(completion: @escaping ([MachineGroup]) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/machine_groups/all/all")!
         
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -58,7 +58,57 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Equipment.init))
+            completion(results.compactMap(MachineGroup.init))
+        }
+    }
+    
+    static func getWorkouts(completion: @escaping ([Workout_API]) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else { return }
+            var results = Array<Dictionary<String, Any>>()
+            for(_, value) in json {
+                results.append(value)
+            }
+            completion(results.compactMap(Workout_API.init))
+        }
+    }
+    
+    static func getSingleExercises(completion: @escaping ([Exercise_API]) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else { return }
+            var results = Array<Dictionary<String, Any>>()
+            for(_, value) in json {
+                results.append(value)
+            }
+            completion(results.compactMap(Exercise_API.init))
         }
     }
     

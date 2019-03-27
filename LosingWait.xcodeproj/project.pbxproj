@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */; };
 		942420A422419D0300DB8736 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942420A322419D0300DB8736 /* User.swift */; };
+		94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC5224B3F29003260EC /* MachineGroup.swift */; };
+		94E5BCC8224B710A003260EC /* Workout_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC7224B710A003260EC /* Workout_API.swift */; };
+		94E5BCCA224B7115003260EC /* Exercise_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC9224B7115003260EC /* Exercise_API.swift */; };
 		CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B072C2224701C0029E71B /* UIView+Utils.swift */; };
 		CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */; };
 		CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */; };
@@ -81,6 +84,9 @@
 		1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.release.xcconfig"; sourceTree = "<group>"; };
 		7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.debug.xcconfig"; sourceTree = "<group>"; };
 		942420A322419D0300DB8736 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		94E5BCC5224B3F29003260EC /* MachineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineGroup.swift; sourceTree = "<group>"; };
+		94E5BCC7224B710A003260EC /* Workout_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout_API.swift; sourceTree = "<group>"; };
+		94E5BCC9224B7115003260EC /* Exercise_API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise_API.swift; sourceTree = "<group>"; };
 		B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LosingWait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1B072C2224701C0029E71B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentWorkout.storyboard; sourceTree = "<group>"; };
@@ -156,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				CA3152D4221F668F00770832 /* WKManager.swift */,
+				94E5BCC7224B710A003260EC /* Workout_API.swift */,
+				94E5BCC9224B7115003260EC /* Exercise_API.swift */,
+				94E5BCC5224B3F29003260EC /* MachineGroup.swift */,
 				CA996566224019E6009BF4F0 /* Displayable.swift */,
 				CA3152D6221F6D9B00770832 /* Muscle.swift */,
 				942420A322419D0300DB8736 /* User.swift */,
@@ -449,6 +458,7 @@
 				942420A422419D0300DB8736 /* User.swift in Sources */,
 				CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */,
 				CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */,
+				94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */,
 				CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */,
 				CA3152D5221F668F00770832 /* WKManager.swift in Sources */,
 				CA1B073E222482610029E71B /* Bannerable.swift in Sources */,
@@ -456,9 +466,11 @@
 				CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */,
 				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
+				94E5BCC8224B710A003260EC /* Workout_API.swift in Sources */,
 				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
 				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
+				94E5BCCA224B7115003260EC /* Exercise_API.swift in Sources */,
 				CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,

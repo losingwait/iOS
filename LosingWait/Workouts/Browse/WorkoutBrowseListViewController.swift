@@ -24,11 +24,22 @@ class WorkoutBrowseListViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         } else if category == "Equipment" {
-            WKManager.getEquipment { equipment in
+            WKManager.getMachineGroups { equipment in
                 self.items = equipment
                 self.tableView.reloadData()
             }
+        } else if category == "Workout" {
+            WKManager.getWorkouts { workouts in
+                self.items = workouts
+                self.tableView.reloadData()
+            }
+        } else if category == "Single Exercises" {
+            WKManager.getSingleExercises { exercises in
+                self.items = exercises
+                self.tableView.reloadData()
+            }
         }
+        
     }
 }
 
