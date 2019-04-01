@@ -82,6 +82,8 @@ class ActiveWorkoutViewController: UIViewController {
         } else {
             setActive(exercise: workout?.exercises.first)
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -119,5 +119,4 @@ class WKManager {
             completion(true)
         }
     }
-    
 }
