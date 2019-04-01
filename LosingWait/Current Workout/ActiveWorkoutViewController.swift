@@ -80,7 +80,7 @@ class ActiveWorkoutViewController: UIViewController {
         if let excercise = self.exercise {
             setActive(exercise: excercise)
         } else {
-            setActive(exercise: workout?.exercies.first)
+            setActive(exercise: workout?.exercises.first)
         }
     }
     
@@ -116,7 +116,7 @@ class ActiveWorkoutViewController: UIViewController {
         exerciseLabel.text = exercise.name
         setsLabel.text = "3"
         repsLabel.text = "\(exercise.reps)"
-        playVideo(with: exercise.url)
+        playVideo(with: URL(string: exercise.exercise_media!)!)
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -124,7 +124,7 @@ class ActiveWorkoutViewController: UIViewController {
             currentExerciseIdx -= 1
         }
         
-        setActive(exercise: workout?.exercies[currentExerciseIdx])
+        setActive(exercise: workout?.exercises[currentExerciseIdx])
         alternatesTableView.reloadData()
     }
     
@@ -133,7 +133,7 @@ class ActiveWorkoutViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        guard let exercises = workout?.exercies else {
+        guard let exercises = workout?.exercises else {
             return
         }
         
@@ -141,7 +141,7 @@ class ActiveWorkoutViewController: UIViewController {
             currentExerciseIdx += 1
         }
         
-        setActive(exercise: workout?.exercies[currentExerciseIdx])
+        setActive(exercise: workout?.exercises[currentExerciseIdx])
         alternatesTableView.reloadData()
     }
 }
@@ -199,7 +199,7 @@ extension ActiveWorkoutViewController {
         if workout == nil {
             popupItem.title = exercise?.name
         } else {
-            let currentExercise = workout?.exercies[currentExerciseIdx]
+            let currentExercise = workout?.exercises[currentExerciseIdx]
             popupItem.title = currentExercise?.name
             popupItem.subtitle = workout?.name
         }
@@ -262,7 +262,7 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
         tableView.deselectRow(at: indexPath, animated: true)
         
         currentExerciseIdx += indexPath.row + 1
-        guard let selectedExercise = workout?.exercies[currentExerciseIdx] else {
+        guard let selectedExercise = workout?.exercises[currentExerciseIdx] else {
             return
         }
         
@@ -272,7 +272,7 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowCnt = (workout?.exercies.count ?? 0) - currentExerciseIdx - 1
+        let rowCnt = (workout?.exercises.count ?? 0) - currentExerciseIdx - 1
         return max(0, rowCnt)
     }
     
@@ -281,7 +281,7 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
             return UITableViewCell()
         }
         
-        guard let exercise = workout?.exercies[currentExerciseIdx + indexPath.row + 1] else {
+        guard let exercise = workout?.exercises[currentExerciseIdx + indexPath.row + 1] else {
             return UITableViewCell()
         }
         

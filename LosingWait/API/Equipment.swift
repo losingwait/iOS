@@ -14,6 +14,10 @@ struct Equipment: Displayable {
     let station_id: String
     let in_use: Bool
     
+    static var all: [Equipment] = {
+        return []
+    }()
+    
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String

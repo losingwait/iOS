@@ -10,44 +10,39 @@ import Foundation
 import UIKit
 
 struct Exercise: Displayable {
-    let id: String
     let name: String
-    let description: String
-    let imageName: String?
+    let id: String
     
-    let category: String
-    let machine: String
-
-    let reps: Int
-    let duration: TimeInterval
+    var muscle_id: String?
+    var machine_group_id: String?
+    var exercise_media: String?
     
-    let url: URL
+    var reps: String?
+    var sets: String?
     
-    static let samples = [
-        Exercise(id: "abcd", name: "Bench Press", description: "Go up and down", imageName: "arnold-chest", category: "Chest", machine: "Rack", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
-        Exercise(id: "bcda", name: "Dead Lift", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
-        Exercise(id: "bcda", name: "Lat Pulldown", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
-        Exercise(id: "bcda", name: "Squats", description: "Lift heavy stuff", imageName: "arnold-chest", category: "Lower Body", machine: "Dumbell", reps: 10, duration: 100.0, url: URL(string: "https://content.jwplatform.com/videos/FcwwX2gf-1zuboWt3.mp4")!),
-        
-    ]
+    static var all: [Exercise] = {
+        return []
+    }()
+    
+    init(response: [String : Any]) {
+        id = response["_id"] as! String
+        name = response["name"] as! String
+        muscle_id = response["muscle_id"] as? String
+        machine_group_id = response["machine_group_id"] as? String
+        exercise_media = response["exercise_media"] as? String
+    }
+    
+    init(id: String, name: String, reps: String, sets: String) {
+        self.id = id
+        self.name = name
+        self.reps = reps
+        self.sets = sets
+    }
     
     var viewController: ActiveWorkoutViewController {
         let storyboard = UIStoryboard(name: "CurrentWorkout", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController
         vc.exercise = self
         return vc
-    }
-}
-
-extension Exercise: Bannerable {
-    func configure(banner: BannerCollectionViewCell) {
-        if imageName == nil {
-            fatalError("This exercise is not bannerable")
-        }
-        
-        banner.categoryLabel.text = "FEATURED EXERCISE"
-        banner.bannerLabel.text = name
-        banner.descriptionLabel.text = description
-        banner.imageView.image = UIImage(named: imageName!)
     }
 }

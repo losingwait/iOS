@@ -15,8 +15,7 @@ class TileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     
     func configure(_ workout: Workout) {
-        imageview.image = UIImage(named: workout.imageName!)
+        imageview.image = workout.image
         titleLabel.text = workout.name
-        detailLabel.text = workout.category
     }
 }

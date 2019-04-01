@@ -9,24 +9,30 @@
 import UIKit
 
 struct Workout: Displayable {
-    let id: String
-    let imageName: String?
-    
     let name: String
+    let id: String
     let description: String
-    let category: String
+    let exercises_dict_array: [[String: Any]]
+    var exercises: [Exercise]
+    let difficulty: String
+    let workout_image_url: String
     
-    let exercies: [Exercise]
-    let duration: TimeInterval
+    init(response: [String : Any]) {
+        id = response["_id"] as! String
+        name = response["name"] as! String
+        description = response["description"] as! String
+        difficulty = response["difficulty"] as! String
+        workout_image_url = response["workout_image"] as! String
+        exercises = []
+        exercises_dict_array = response["array_exercises_dictionary"] as! [[String: Any]]
+        for ex in exercises_dict_array {
+            exercises.append(Exercise(id: ex["_id"] as! String, name: ex["name"] as! String, reps: ex["reps"] as! String, sets: ex["sets"] as! String))
+        }
+    }
     
-    static let samples = [
-        Workout(id: "abc", imageName: "arnold-chest", name: "Get cut", description: "Get the body you want", category: "Cut",
-                exercies: Exercise.samples,
-                duration: 1000),
-        Workout(id: "abc", imageName: "arnold-chest", name: "Get swole", description: "You should go pro, bro", category: "Mass",
-                exercies: Exercise.samples,
-                duration: 1000),
-    ]
+    static var all: [Workout] = {
+        return []
+    }()
     
     var viewController: ActiveWorkoutViewController {
         let storyboard = UIStoryboard(name: "CurrentWorkout", bundle: nil)
@@ -34,16 +40,31 @@ struct Workout: Displayable {
         vc.workout = self
         return vc
     }
+    
+    var image: UIImage {
+        let url = URL(string: workout_image_url)
+        do {
+            let data = try Data(contentsOf: url!)
+            return UIImage(data: data)!
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        return UIImage()
+    }
 }
 
-extension Workout: Bannerable {
+extension Workout {
     func configure(banner: BannerCollectionViewCell) {
-        if imageName == nil {
-            fatalError("This workout is not bannerable")
-        }
         banner.categoryLabel.text = "FEATURED WORKOUT"
         banner.bannerLabel.text = name
         banner.descriptionLabel.text = description
-        banner.imageView.image = UIImage(named: imageName!)
+        
+        let url = URL(string: workout_image_url)
+        do {
+            let data = try Data(contentsOf: url!)
+            banner.imageView.image = UIImage(data: data)
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
     }
 }

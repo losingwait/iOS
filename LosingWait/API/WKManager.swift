@@ -11,6 +11,8 @@ import Alamofire
 struct WKManager {
     
 //    static let shared = WKManager()
+    var muscles: [Muscle]
+    
     
     static func getMuscles(completion: @escaping ([Muscle]) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
@@ -62,7 +64,7 @@ struct WKManager {
         }
     }
     
-    static func getWorkouts(completion: @escaping ([Workout_API]) -> ()) {
+    static func getWorkouts(completion: @escaping ([Workout]) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
         
         let headers: HTTPHeaders = [
@@ -83,11 +85,11 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Workout_API.init))
+            completion(results.compactMap(Workout.init))
         }
     }
     
-    static func getSingleExercises(completion: @escaping ([Exercise_API]) -> ()) {
+    static func getSingleExercises(completion: @escaping ([Exercise]) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises/all/all")!
         
         let headers: HTTPHeaders = [
@@ -108,7 +110,7 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Exercise_API.init))
+            completion(results.compactMap(Exercise.init))
         }
     }
     

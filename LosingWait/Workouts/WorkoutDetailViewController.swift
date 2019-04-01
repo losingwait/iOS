@@ -30,9 +30,8 @@ class WorkoutDetailViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        imageView.image = UIImage(named: selectedWorkout.imageName!)
+        imageView.image = workout?.image
         nameLabel.text = selectedWorkout.name
-        authorLabel.text = selectedWorkout.category
         detailLabel.text = selectedWorkout.description
     }
     
@@ -48,7 +47,7 @@ class WorkoutDetailViewController: UIViewController {
 extension WorkoutDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout?.exercies.count ?? 0
+        return workout?.exercises.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +55,7 @@ extension WorkoutDetailViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let exercise = workout?.exercies[indexPath.row]
+        let exercise = workout?.exercises[indexPath.row]
         cell.numberLabel.text = "\(indexPath.row + 1)"
         cell.nameLabel.text = exercise?.name
         return cell
@@ -72,7 +71,7 @@ extension WorkoutDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let exercise = workout!.exercies[indexPath.row]
+        let exercise = workout!.exercises[indexPath.row]
         let vc = exercise.viewController
         
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
