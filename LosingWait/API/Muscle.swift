@@ -10,10 +10,6 @@ struct Muscle: Displayable {
     let name: String
     let id: String
     
-    static var all: [Muscle] = {
-        return []
-    }()
-    
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String

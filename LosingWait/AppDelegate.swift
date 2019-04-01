@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        WKManager.shared.getMuscles{finished in print("got muscles")}
+        WKManager.shared.getWorkouts{finished in print("got workouts")}
+        WKManager.shared.getMachineGroups{finished in print("got machine groups")}
+        WKManager.shared.getSingleExercises{finished in print("got single exercises")}
+        
         let defaults = UserDefaults.standard
         let loggedIn = defaults.bool(forKey: "loggedIn")
         if(!loggedIn) {

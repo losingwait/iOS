@@ -19,25 +19,17 @@ class WorkoutBrowseListViewController: UITableViewController {
         title = category
     
         if category == "Muscle" {
-            WKManager.getMuscles { muscles in
-                self.items = muscles
-                self.tableView.reloadData()
-            }
+            self.items = WKManager.shared.muscles!
+            self.tableView.reloadData()
         } else if category == "Equipment" {
-            WKManager.getMachineGroups { equipment in
-                self.items = equipment
-                self.tableView.reloadData()
-            }
+            self.items = WKManager.shared.machine_groups!
+            self.tableView.reloadData()
         } else if category == "Workout" {
-            WKManager.getWorkouts { workouts in
-                self.items = workouts
-                self.tableView.reloadData()
-            }
+            self.items = WKManager.shared.workouts!
+            self.tableView.reloadData()
         } else if category == "Single Exercises" {
-            WKManager.getSingleExercises { exercises in
-                self.items = exercises
-                self.tableView.reloadData()
-            }
+            self.items = WKManager.shared.exercises!
+            self.tableView.reloadData()
         }
         
     }

@@ -60,7 +60,7 @@ extension WorkoutBrowseViewController: UITableViewDelegate {
 extension WorkoutBrowseViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Workout.all.count
+        return WKManager.shared.workouts!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,7 +68,7 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        Workout.all[indexPath.row].configure(banner: cell)
+        WKManager.shared.workouts![indexPath.row].configure(banner: cell)
         return cell
     }
 }
@@ -77,7 +77,7 @@ extension WorkoutBrowseViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let workout = Workout.all[indexPath.item]
+        let workout = WKManager.shared.workouts![indexPath.item]
         let vc = workout.viewController
         
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)

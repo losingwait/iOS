@@ -20,10 +20,6 @@ struct Exercise: Displayable {
     var reps: String?
     var sets: String?
     
-    static var all: [Exercise] = {
-        return []
-    }()
-    
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String

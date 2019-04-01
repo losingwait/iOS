@@ -33,7 +33,7 @@ class WorkoutViewController: UIViewController {
     let workoutStoryboard = UIStoryboard(name: "Workouts", bundle: nil)
     
     lazy var dataSource: WorkoutCollectionDataSource = {
-        let dataSource = WorkoutCollectionDataSource(with: Workout.all)
+        let dataSource = WorkoutCollectionDataSource(with: WKManager.shared.workouts!)
         return dataSource
     }()
 

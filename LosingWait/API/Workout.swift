@@ -30,10 +30,6 @@ struct Workout: Displayable {
         }
     }
     
-    static var all: [Workout] = {
-        return []
-    }()
-    
     var viewController: ActiveWorkoutViewController {
         let storyboard = UIStoryboard(name: "CurrentWorkout", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ActiveWorkoutViewController") as! ActiveWorkoutViewController

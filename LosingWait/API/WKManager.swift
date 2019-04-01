@@ -8,13 +8,15 @@
 
 import Alamofire
 
-struct WKManager {
+class WKManager {
     
-//    static let shared = WKManager()
-    var muscles: [Muscle]
+    static let shared = WKManager()
+    var muscles: [Muscle]?
+    var machine_groups: [MachineGroup]?
+    var workouts: [Workout]?
+    var exercises: [Exercise]?
     
-    
-    static func getMuscles(completion: @escaping ([Muscle]) -> ()) {
+    func getMuscles(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
         
         let headers: HTTPHeaders = [
@@ -35,11 +37,12 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Muscle.init))
+            self.muscles = results.compactMap(Muscle.init)
+            completion(true)
         }
     }
     
-    static func getMachineGroups(completion: @escaping ([MachineGroup]) -> ()) {
+    func getMachineGroups(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/machine_groups/all/all")!
         
         let headers: HTTPHeaders = [
@@ -60,11 +63,12 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(MachineGroup.init))
+            self.machine_groups = results.compactMap(MachineGroup.init)
+            completion(true)
         }
     }
     
-    static func getWorkouts(completion: @escaping ([Workout]) -> ()) {
+    func getWorkouts(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
         
         let headers: HTTPHeaders = [
@@ -85,11 +89,12 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Workout.init))
+            self.workouts = results.compactMap(Workout.init)
+            completion(true)
         }
     }
     
-    static func getSingleExercises(completion: @escaping ([Exercise]) -> ()) {
+    func getSingleExercises(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises/all/all")!
         
         let headers: HTTPHeaders = [
@@ -110,7 +115,8 @@ struct WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Exercise.init))
+            self.exercises = results.compactMap(Exercise.init)
+            completion(true)
         }
     }
     
