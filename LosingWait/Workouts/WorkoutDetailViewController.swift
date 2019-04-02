@@ -71,9 +71,12 @@ extension WorkoutDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let exercise = workout!.exercises[indexPath.row]
-        let vc = exercise.viewController
+        let name = workout!.exercises[indexPath.row].name
+        guard let targetExercise = WKManager.shared.exercises?.filter({ $0.name == name }).first else {
+            fatalError("Couldn't find exercise with name \(name)")
+        }
         
+        let vc = targetExercise.viewController
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
         tabBarController?.popupBar.imageView.layer.cornerRadius = 5
         tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)

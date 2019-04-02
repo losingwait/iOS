@@ -27,7 +27,7 @@ class MapPopoverViewController: UIViewController {
     var occupied: Bool {
         set {
             _occupied = newValue
-            statusLabel.text = newValue ? "Occupied" : "Open"
+            statusLabel.text = newValue ? "Occupied" : "Available"
             statusLabel.textColor = newValue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         } get {
             return _occupied ?? false

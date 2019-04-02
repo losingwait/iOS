@@ -42,6 +42,7 @@
 		CA79D6C8221F63B80055317B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C7221F63B80055317B /* Injectable.swift */; };
 		CA996567224019E6009BF4F0 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA996566224019E6009BF4F0 /* Displayable.swift */; };
 		CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */; };
+		CAA8CF42225304660018923C /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8CF41225304660018923C /* ExpandableCell.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
@@ -119,6 +120,7 @@
 		CA79D6C7221F63B80055317B /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		CA996566224019E6009BF4F0 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		CAA8CF41225304660018923C /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */,
 				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
 				CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */,
+				CAA8CF41225304660018923C /* ExpandableCell.swift */,
 			);
 			path = "Current Workout";
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				CA79D6C8221F63B80055317B /* Injectable.swift in Sources */,
 				CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */,
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
+				CAA8CF42225304660018923C /* ExpandableCell.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
