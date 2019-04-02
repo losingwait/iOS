@@ -115,18 +115,18 @@
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Czd-Zx-Xff">
-                                <rect key="frame" x="200" y="76" width="58" height="44"/>
+                                <rect key="frame" x="200" y="76" width="64" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dumbell" translatesAutoresizingMaskIntoConstraints="NO" id="q1F-lI-By2">
-                                        <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="cEd-w4-aU0"/>
                                             <constraint firstAttribute="width" secondItem="q1F-lI-By2" secondAttribute="height" multiplier="1:1" id="oIR-W2-R4f"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bench Press" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-MD-bF0">
-                                        <rect key="frame" x="0.0" y="33" width="58" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dumbell Rack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-MD-bF0">
+                                        <rect key="frame" x="0.0" y="33" width="64" height="11"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                         <color key="textColor" red="0.34365507960319519" green="0.5559614896774292" blue="0.93337273597717285" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -161,7 +161,7 @@
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-BH-Vsc">
-                                <rect key="frame" x="174" y="314" width="34.5" height="44"/>
+                                <rect key="frame" x="174" y="314" width="34.5" height="54.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack" translatesAutoresizingMaskIntoConstraints="NO" id="AiI-p6-x6H">
@@ -171,17 +171,14 @@
                                             <constraint firstAttribute="width" secondItem="AiI-p6-x6H" secondAttribute="height" multiplier="1:1" id="ScI-ZK-URO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curling Station" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWd-fb-LeR">
-                                        <rect key="frame" x="0.0" y="33" width="34.5" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curling Station" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWd-fb-LeR">
+                                        <rect key="frame" x="0.0" y="33" width="34.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                         <color key="textColor" white="0.5624970279" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="YpY-7w-K3V" appends="YES" id="wLe-Te-AHH"/>
-                                </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-Ti-FNV">
                                 <rect key="frame" x="220" y="410" width="53" height="44"/>
@@ -202,23 +199,27 @@
                                     </label>
                                 </subviews>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="c4C-hF-EH1" appends="YES" id="R19-0Y-28Z"/>
+                                    <outletCollection property="gestureRecognizers" destination="QwX-r7-TzA" appends="YES" id="SAD-z3-LBm"/>
+                                </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-bA-Iv9">
-                                <rect key="frame" x="16" y="341" width="61.5" height="297.5"/>
+                                <rect key="frame" x="16" y="341" width="60.5" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-Z7-xyy">
-                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="54.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="p75-MK-ADl">
-                                                <rect key="frame" x="18.5" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="p75-MK-ADl" secondAttribute="height" multiplier="1:1" id="O9u-Tf-blw"/>
                                                     <constraint firstAttribute="width" constant="25" id="xm1-24-0aB"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-Oa-So6">
-                                                <rect key="frame" x="9.5" y="33" width="43" height="21.5"/>
+                                                <rect key="frame" x="9" y="33" width="43" height="21.5"/>
                                                 <string key="text">Lateral 
 Pulldown</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
@@ -232,17 +233,17 @@ Pulldown</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-Gi-JJZ">
-                                        <rect key="frame" x="0.0" y="84.5" width="61.5" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="60.5" height="54.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="L2K-2h-mS2">
-                                                <rect key="frame" x="18.5" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="L2K-2h-mS2" secondAttribute="height" multiplier="1:1" id="nHW-vB-QgQ"/>
                                                     <constraint firstAttribute="width" constant="25" id="rnk-Iq-NFO"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-bu-kZA">
-                                                <rect key="frame" x="0.5" y="33" width="60.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="33" width="60.5" height="21.5"/>
                                                 <string key="text">Incline
 Bench PRess</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
@@ -256,17 +257,17 @@ Bench PRess</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VcV-LY-Adt">
-                                        <rect key="frame" x="0.0" y="169" width="61.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="169" width="60.5" height="44"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="ZOc-lS-2ui">
-                                                <rect key="frame" x="18.5" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="IdQ-3L-g5Z"/>
                                                     <constraint firstAttribute="width" secondItem="ZOc-lS-2ui" secondAttribute="height" multiplier="1:1" id="zkK-lY-NAr"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chest Fly" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-AL-Zjd">
-                                                <rect key="frame" x="9" y="33" width="44" height="11"/>
+                                                <rect key="frame" x="8.5" y="33" width="44" height="11"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                 <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -278,19 +279,23 @@ Bench PRess</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f90-a2-1rs">
-                                        <rect key="frame" x="0.0" y="243" width="61.5" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="243" width="60.5" height="63"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-IB-Hpw">
-                                                <rect key="frame" x="18.5" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="W3J-1s-18I"/>
                                                     <constraint firstAttribute="width" secondItem="lm1-IB-Hpw" secondAttribute="height" multiplier="1:1" id="pr9-UV-awt"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yX3-gY-Wnh">
-                                                <rect key="frame" x="0.0" y="33" width="61.5" height="21.5"/>
-                                                <string key="text">Hamstring 
-Curl Machine</string>
+                                                <rect key="frame" x="6.5" y="33" width="48" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="3Ba-sC-VsW"/>
+                                                    <constraint firstAttribute="width" constant="48" id="Y1Q-d9-B1R"/>
+                                                </constraints>
+                                                <string key="text">Leg Curl
+Machine</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                 <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -375,11 +380,6 @@ Area</string>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="lU1-dc-kzK"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="YpY-7w-K3V">
-                    <connections>
-                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="Lpc-pS-d6E"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="gRW-Ma-2pQ">
                     <connections>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="b7g-Hd-JyM"/>
@@ -403,6 +403,12 @@ Area</string>
                 <tapGestureRecognizer id="2gV-zR-XB6">
                     <connections>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="NAu-LP-btm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="c4C-hF-EH1"/>
+                <tapGestureRecognizer id="QwX-r7-TzA">
+                    <connections>
+                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="ZcR-KR-Gfv"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -508,8 +514,11 @@ Area</string>
                     <size key="freeformSize" width="270" height="180"/>
                     <connections>
                         <outlet property="lastCheckinLabel" destination="AVY-pa-Bqi" id="jmn-5U-CuW"/>
+                        <outlet property="nameLabel" destination="u5B-mQ-g8z" id="WsC-eW-0Ma"/>
                         <outlet property="queueButton" destination="PBj-df-9du" id="Tyy-0a-s7I"/>
                         <outlet property="queueLabel" destination="sfW-Uy-L2A" id="Nxa-VY-D9g"/>
+                        <outlet property="stackView" destination="WBx-W1-8OB" id="Gb4-gp-rBG"/>
+                        <outlet property="statusLabel" destination="pwL-ie-A2u" id="vHu-QH-FCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUF-Ko-BoH" userLabel="First Responder" sceneMemberID="firstResponder"/>

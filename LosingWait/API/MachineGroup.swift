@@ -10,10 +10,15 @@ struct MachineGroup: Displayable {
     let name: String
     let id: String
     let location: Int
+    var queue: [Int]?
     
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String
         location = response["location"] as! Int
+        
+        if let queue = response["queue"] as? [Int] {
+            self.queue = queue
+        }
     }
 }

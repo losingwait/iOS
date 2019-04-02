@@ -21,6 +21,7 @@
 		CA21E1882249739000498412 /* WorkoutCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */; };
 		CA2FB16522529C2700189EAC /* AlwaysPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FB16422529C2700189EAC /* AlwaysPopover.swift */; };
 		CA2FB1672252BE4A00189EAC /* MapPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FB1662252BE4A00189EAC /* MapPopoverViewController.swift */; };
+		CA2FB16C2252C35500189EAC /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FB16B2252C35500189EAC /* Machine.swift */; };
 		CA3152D5221F668F00770832 /* WKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D4221F668F00770832 /* WKManager.swift */; };
 		CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3152D6221F6D9B00770832 /* Muscle.swift */; };
 		CA31669D222A2BB70048D788 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA31669C222A2BAB0048D788 /* LNPopupController.framework */; };
@@ -96,6 +97,7 @@
 		CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionDataSource.swift; sourceTree = "<group>"; };
 		CA2FB16422529C2700189EAC /* AlwaysPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopover.swift; sourceTree = "<group>"; };
 		CA2FB1662252BE4A00189EAC /* MapPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPopoverViewController.swift; sourceTree = "<group>"; };
+		CA2FB16B2252C35500189EAC /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		CA3152D4221F668F00770832 /* WKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKManager.swift; sourceTree = "<group>"; };
 		CA3152D6221F6D9B00770832 /* Muscle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
 		CA316697222A2BAB0048D788 /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = Popup/LNPopupController.xcodeproj; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				CA3152D4221F668F00770832 /* WKManager.swift */,
 				94E5BCC5224B3F29003260EC /* MachineGroup.swift */,
+				CA2FB16B2252C35500189EAC /* Machine.swift */,
 				CA996566224019E6009BF4F0 /* Displayable.swift */,
 				CA3152D6221F6D9B00770832 /* Muscle.swift */,
 				CA48C64C22208E5C0062BD89 /* Equipment.swift */,
@@ -451,6 +454,7 @@
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
 				CA3166A7222B21EE0048D788 /* AVPlayer+Extension.swift in Sources */,
 				CA2FB16522529C2700189EAC /* AlwaysPopover.swift in Sources */,
+				CA2FB16C2252C35500189EAC /* Machine.swift in Sources */,
 				CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */,
 				CA1B073C2224815F0029E71B /* Exercise.swift in Sources */,
 				CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */,
