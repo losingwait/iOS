@@ -51,6 +51,12 @@ class ActiveWorkoutViewController: UIViewController {
         }
     }
     
+    lazy var alternateExerciseInteraction: UIPreviewInteraction = {
+        let interaction = UIPreviewInteraction(view: self.alternatesTableView)
+        interaction.delegate = self
+        return interaction
+    }()
+    
     lazy var pauseItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "pause-mini"), style: .plain, target: self, action: #selector(togglePause))
     }()
@@ -66,7 +72,7 @@ class ActiveWorkoutViewController: UIViewController {
     lazy var nextItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: #selector(next(_:)))
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,8 +88,6 @@ class ActiveWorkoutViewController: UIViewController {
         } else {
             setActive(exercise: workout?.exercises.first)
         }
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -110,15 +114,17 @@ class ActiveWorkoutViewController: UIViewController {
     func setActive(exercise: Exercise?) {
         timeElapsed = 0
         
-        guard let exercise = exercise else {
-            // RESET VIEW
+        guard let exercise = exercise,
+            let allExercises = WKManager.shared.exercises,
+            let targetExercise = allExercises.filter({ $0.name == exercise.name }).first else {
+            // RESET VIEW??
             return
         }
         
-        exerciseLabel.text = exercise.name
-        setsLabel.text = "3"
-        repsLabel.text = "\(exercise.reps)"
-        playVideo(with: URL(string: exercise.exercise_media!)!)
+        exerciseLabel.text = targetExercise.name
+        setsLabel.text = "\(targetExercise.sets ?? "-")"
+        repsLabel.text = "\(targetExercise.reps ?? "-")"
+        playVideo(with: URL(string: targetExercise.exercise_media!)!)
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -287,7 +293,16 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
             return UITableViewCell()
         }
         
-        cell.configure(with: exercise, isCurrentWorkout: true)
+        cell.configure(with: exercise, isCurrentWorkout: true, index: indexPath)
         return cell
+    }
+}
+
+extension ActiveWorkoutViewController: UIPreviewInteractionDelegate {
+    
+    func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
+    }
+    
+    func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
     }
 }

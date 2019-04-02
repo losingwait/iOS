@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AlwaysPresentAsPopover : NSObject, UIPopoverPresentationControllerDelegate {
+class AlwaysPresentAsPopover: NSObject, UIPopoverPresentationControllerDelegate {
 
     private static let sharedInstance = AlwaysPresentAsPopover()
     
@@ -27,5 +27,4 @@ class AlwaysPresentAsPopover : NSObject, UIPopoverPresentationControllerDelegate
         presentationController.delegate = AlwaysPresentAsPopover.sharedInstance
         return presentationController
     }
-    
 }

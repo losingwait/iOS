@@ -54,7 +54,6 @@ class MapPopoverViewController: UIViewController {
         let newlineStripped = name.components(separatedBy: .whitespacesAndNewlines).filter( {$0.count != 0 }).joined(separator: " ")
         nameLabel.text = newlineStripped
         
-        
         WKManager.shared.getMachineGroups { ok in
             guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(newlineStripped) }).first else {
                 self.queueLabel.text = "?"

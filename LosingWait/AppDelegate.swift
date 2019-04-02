@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WKManager.shared.getSingleExercises{finished in print("got single exercises")}
         
         let defaults = UserDefaults.standard
-        //let loggedIn = defaults.bool(forKey: "loggedIn")
-        let loggedIn = true
+        let loggedIn = defaults.bool(forKey: "loggedIn")
         if(!loggedIn) {
             self.window = UIWindow(frame: UIScreen.main.bounds)
 

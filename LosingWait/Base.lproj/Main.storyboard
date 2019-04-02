@@ -207,23 +207,21 @@
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-bA-Iv9">
-                                <rect key="frame" x="16" y="341" width="60.5" height="306"/>
+                                <rect key="frame" x="16" y="341" width="58" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-Z7-xyy">
-                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="54.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="p75-MK-ADl">
-                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="p75-MK-ADl" secondAttribute="height" multiplier="1:1" id="O9u-Tf-blw"/>
                                                     <constraint firstAttribute="width" constant="25" id="xm1-24-0aB"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-Oa-So6">
-                                                <rect key="frame" x="9" y="33" width="43" height="21.5"/>
-                                                <string key="text">Lateral 
-Pulldown</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lat Machine" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-Oa-So6">
+                                                <rect key="frame" x="9.5" y="33" width="39.5" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                 <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -235,19 +233,19 @@ Pulldown</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-Gi-JJZ">
-                                        <rect key="frame" x="0.0" y="84.5" width="60.5" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="58" height="54.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="L2K-2h-mS2">
-                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="L2K-2h-mS2" secondAttribute="height" multiplier="1:1" id="nHW-vB-QgQ"/>
                                                     <constraint firstAttribute="width" constant="25" id="rnk-Iq-NFO"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-bu-kZA">
-                                                <rect key="frame" x="0.0" y="33" width="60.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="33" width="58" height="21.5"/>
                                                 <string key="text">Incline
-Bench PRess</string>
+Bench Press</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                 <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -259,17 +257,17 @@ Bench PRess</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VcV-LY-Adt">
-                                        <rect key="frame" x="0.0" y="169" width="60.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="169" width="58" height="44"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="ZOc-lS-2ui">
-                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="IdQ-3L-g5Z"/>
                                                     <constraint firstAttribute="width" secondItem="ZOc-lS-2ui" secondAttribute="height" multiplier="1:1" id="zkK-lY-NAr"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chest Fly" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-AL-Zjd">
-                                                <rect key="frame" x="8.5" y="33" width="44" height="11"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fly Machine" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJT-AL-Zjd">
+                                                <rect key="frame" x="1" y="33" width="56" height="11"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                 <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -281,17 +279,17 @@ Bench PRess</string>
                                         </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f90-a2-1rs">
-                                        <rect key="frame" x="0.0" y="243" width="60.5" height="63"/>
+                                        <rect key="frame" x="0.0" y="243" width="58" height="63"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-IB-Hpw">
-                                                <rect key="frame" x="18" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="W3J-1s-18I"/>
                                                     <constraint firstAttribute="width" secondItem="lm1-IB-Hpw" secondAttribute="height" multiplier="1:1" id="pr9-UV-awt"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yX3-gY-Wnh">
-                                                <rect key="frame" x="6.5" y="33" width="48" height="30"/>
+                                                <rect key="frame" x="5" y="33" width="48" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Ba-sC-VsW"/>
                                                     <constraint firstAttribute="width" constant="48" id="Y1Q-d9-B1R"/>

@@ -36,7 +36,13 @@ class WorkoutDetailViewController: UIViewController {
     }
     
     @IBAction func startWorkout(_ sender: Any) {
+        guard let vc = workout?.viewController else {
+            return
+        }
         
+        tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
+        tabBarController?.popupBar.imageView.layer.cornerRadius = 5
+        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
     }
     
     @IBAction func viewBrochure(_ sender: Any) {
@@ -55,9 +61,11 @@ extension WorkoutDetailViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let exercise = workout?.exercises[indexPath.row]
-        cell.numberLabel.text = "\(indexPath.row + 1)"
-        cell.nameLabel.text = exercise?.name
+        guard let exercise = workout?.exercises[indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(with: exercise, isCurrentWorkout: false, index: indexPath)
         return cell
     }
 }
