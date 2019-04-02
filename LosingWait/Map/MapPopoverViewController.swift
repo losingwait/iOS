@@ -11,7 +11,9 @@ import UIKit
 class MapPopoverViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var muscleLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    
     @IBOutlet weak var queueLabel: UILabel!
     @IBOutlet weak var lastCheckinLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -71,6 +73,10 @@ class MapPopoverViewController: UIViewController {
                 return
             }
             
+            if let muscles = WKManager.shared.muscles,
+                let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
+                self.muscleLabel.text = targetMuscle.name
+            }
             self.occupied = targetMachine.in_use
             self.statusLabel.isHidden = false
             self.stackView.isHidden = false

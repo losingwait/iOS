@@ -179,6 +179,9 @@
                                     </label>
                                 </subviews>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2Iy-4O-4dc" appends="YES" id="fF1-U6-anU"/>
+                                </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-Ti-FNV">
                                 <rect key="frame" x="220" y="410" width="53" height="44"/>
@@ -201,7 +204,6 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="c4C-hF-EH1" appends="YES" id="R19-0Y-28Z"/>
-                                    <outletCollection property="gestureRecognizers" destination="QwX-r7-TzA" appends="YES" id="SAD-z3-LBm"/>
                                 </connections>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-bA-Iv9">
@@ -375,11 +377,6 @@ Area</string>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="1ua-dk-Pj6"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Sai-iT-oLL">
-                    <connections>
-                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="lU1-dc-kzK"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="gRW-Ma-2pQ">
                     <connections>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="b7g-Hd-JyM"/>
@@ -405,10 +402,19 @@ Area</string>
                         <action selector="iconTapped:" destination="AxN-IB-XAS" id="NAu-LP-btm"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="c4C-hF-EH1"/>
-                <tapGestureRecognizer id="QwX-r7-TzA">
+                <tapGestureRecognizer id="c4C-hF-EH1">
                     <connections>
-                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="ZcR-KR-Gfv"/>
+                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="tt5-9Y-8Nb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2Iy-4O-4dc">
+                    <connections>
+                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="Yan-cA-bWJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Sai-iT-oLL">
+                    <connections>
+                        <action selector="iconTapped:" destination="AxN-IB-XAS" id="lU1-dc-kzK"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -422,12 +428,6 @@ Area</string>
                         <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bench Press" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5B-mQ-g8z">
-                                <rect key="frame" x="16" y="16" width="102" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E5b-n2-LS5">
                                 <rect key="frame" x="184.5" y="16" width="67.5" height="18"/>
                                 <subviews>
@@ -457,7 +457,7 @@ Area</string>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-W1-8OB">
-                                <rect key="frame" x="18" y="60.5" width="234" height="47.5"/>
+                                <rect key="frame" x="18" y="62.5" width="234" height="47.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-rn-wvd">
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="47.5"/>
@@ -495,16 +495,32 @@ Area</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tXu-tG-iVz">
+                                <rect key="frame" x="18" y="16" width="102" height="39"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bench Press" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4n-Pd-4Il">
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrE-Jf-bmY">
+                                        <rect key="frame" x="0.0" y="24.5" width="102" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PBj-df-9du" firstAttribute="top" secondItem="WBx-W1-8OB" secondAttribute="bottom" constant="16" id="Aqk-vo-MhU"/>
-                            <constraint firstItem="u5B-mQ-g8z" firstAttribute="leading" secondItem="DaY-56-mJT" secondAttribute="leading" constant="16" id="CS9-MB-cE3"/>
+                            <constraint firstItem="tXu-tG-iVz" firstAttribute="leading" secondItem="DaY-56-mJT" secondAttribute="leading" constant="18" id="61v-jm-IeD"/>
+                            <constraint firstItem="PBj-df-9du" firstAttribute="top" secondItem="WBx-W1-8OB" secondAttribute="bottom" constant="14" id="Aqk-vo-MhU"/>
+                            <constraint firstItem="tXu-tG-iVz" firstAttribute="top" secondItem="DaY-56-mJT" secondAttribute="top" constant="16" id="Dgl-Sg-XZh"/>
                             <constraint firstItem="WBx-W1-8OB" firstAttribute="leading" secondItem="DaY-56-mJT" secondAttribute="leading" constant="18" id="HHF-P4-EdV"/>
                             <constraint firstItem="DaY-56-mJT" firstAttribute="trailing" secondItem="E5b-n2-LS5" secondAttribute="trailing" constant="18" id="S7v-wj-cdS"/>
-                            <constraint firstItem="pwL-ie-A2u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u5B-mQ-g8z" secondAttribute="trailing" constant="12" id="ZrH-sG-PkT"/>
                             <constraint firstItem="DaY-56-mJT" firstAttribute="trailing" secondItem="WBx-W1-8OB" secondAttribute="trailing" constant="18" id="hQV-MO-hrm"/>
-                            <constraint firstItem="u5B-mQ-g8z" firstAttribute="top" secondItem="DaY-56-mJT" secondAttribute="top" constant="16" id="n8U-Cg-EYO"/>
                             <constraint firstItem="PBj-df-9du" firstAttribute="centerX" secondItem="DaY-56-mJT" secondAttribute="centerX" id="s1w-ox-16f"/>
                             <constraint firstItem="DaY-56-mJT" firstAttribute="bottom" secondItem="PBj-df-9du" secondAttribute="bottom" constant="16" id="vkD-IB-y9B"/>
                             <constraint firstItem="E5b-n2-LS5" firstAttribute="top" secondItem="DaY-56-mJT" secondAttribute="top" constant="16" id="zvf-TG-xbC"/>
@@ -514,7 +530,8 @@ Area</string>
                     <size key="freeformSize" width="270" height="180"/>
                     <connections>
                         <outlet property="lastCheckinLabel" destination="AVY-pa-Bqi" id="jmn-5U-CuW"/>
-                        <outlet property="nameLabel" destination="u5B-mQ-g8z" id="WsC-eW-0Ma"/>
+                        <outlet property="muscleLabel" destination="zrE-Jf-bmY" id="TBK-uJ-vjN"/>
+                        <outlet property="nameLabel" destination="W4n-Pd-4Il" id="GdN-dQ-ofO"/>
                         <outlet property="queueButton" destination="PBj-df-9du" id="Tyy-0a-s7I"/>
                         <outlet property="queueLabel" destination="sfW-Uy-L2A" id="Nxa-VY-D9g"/>
                         <outlet property="stackView" destination="WBx-W1-8OB" id="Gb4-gp-rBG"/>
