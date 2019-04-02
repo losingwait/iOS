@@ -51,12 +51,6 @@ class ActiveWorkoutViewController: UIViewController {
         }
     }
     
-    lazy var alternateExerciseInteraction: UIPreviewInteraction = {
-        let interaction = UIPreviewInteraction(view: self.alternatesTableView)
-        interaction.delegate = self
-        return interaction
-    }()
-    
     lazy var pauseItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "pause-mini"), style: .plain, target: self, action: #selector(togglePause))
     }()
@@ -117,13 +111,12 @@ class ActiveWorkoutViewController: UIViewController {
         guard let exercise = exercise,
             let allExercises = WKManager.shared.exercises,
             let targetExercise = allExercises.filter({ $0.name == exercise.name }).first else {
-            // RESET VIEW??
             return
         }
         
         exerciseLabel.text = targetExercise.name
-        setsLabel.text = "\(targetExercise.sets ?? "-")"
-        repsLabel.text = "\(targetExercise.reps ?? "-")"
+        setsLabel.text = exercise.sets ?? "-"
+        repsLabel.text = exercise.reps ?? "-"
         playVideo(with: URL(string: targetExercise.exercise_media!)!)
     }
     
@@ -289,20 +282,14 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
             return UITableViewCell()
         }
         
-        guard let exercise = workout?.exercises[currentExerciseIdx + indexPath.row + 1] else {
+        guard let exercise = workout?.exercises[currentExerciseIdx + indexPath.row + 1],
+            let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
             return UITableViewCell()
         }
         
-        cell.configure(with: exercise, isCurrentWorkout: true, index: indexPath)
+        cell.configure(with: targetExercise, isCurrentWorkout: true, index: indexPath)
+        cell.repLabel.text = exercise.repDescription
+        cell.setLabel.text = exercise.setDescription
         return cell
-    }
-}
-
-extension ActiveWorkoutViewController: UIPreviewInteractionDelegate {
-    
-    func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
-    }
-    
-    func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
     }
 }

@@ -42,3 +42,17 @@ struct Exercise: Displayable {
         return vc
     }
 }
+
+extension Exercise {
+    var setDescription: String {
+        return "\(sets ?? "-") Sets"
+    }
+    
+    var repDescription: String {
+        if reps == "To Failure" {
+            return reps ?? "-"
+        } else {
+            return "\(reps ?? "-") Sets"
+        }
+    }
+}
