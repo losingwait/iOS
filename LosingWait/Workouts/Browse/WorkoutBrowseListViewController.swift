@@ -16,6 +16,8 @@ class WorkoutBrowseListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.view.backgroundColor = .white
+        
         title = category
     
         if category == "Muscle" {
