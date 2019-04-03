@@ -82,6 +82,8 @@ class ActiveWorkoutViewController: UIViewController {
         } else {
             setActive(exercise: workout?.exercises.first)
         }
+        
+        registerForPreviewing(with: self, sourceView: alternatesTableView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -291,5 +293,54 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
         cell.repLabel.text = exercise.repDescription
         cell.setLabel.text = exercise.setDescription
         return cell
+    }
+}
+
+extension ActiveWorkoutViewController : UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = alternatesTableView.indexPathForRow(at: location),
+            let cell = alternatesTableView.cellForRow(at: indexPath) else {
+            return nil
+        }
+        
+        previewingContext.previewingGestureRecognizerForFailureRelationship.addObserver(self, forKeyPath: "state", options: .new, context: nil)
+        
+        let detailViewController = UIViewController()
+        detailViewController.view.backgroundColor = .blue
+        detailViewController.preferredContentSize = CGSize(width: 0.0, height: 300.0)
+        previewingContext.sourceRect = cell.frame
+        return detailViewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let object = object else {
+            return
+        }
+        
+        if keyPath == "state" {
+            let newValue = change![NSKeyValueChangeKey.newKey] as! Int
+            let state = UIGestureRecognizer.State(rawValue: newValue)!
+            switch state {
+            case .began, .changed:
+                (object as! UIGestureRecognizer).isEnabled = false
+                print("began|changed")
+                
+            case .ended, .failed, .cancelled:
+                print("ended|cancelled")
+                //(object as AnyObject).removeObserver(self, forKeyPath: "state")
+                
+                DispatchQueue.main.async(execute: {
+                    (object as! UIGestureRecognizer).isEnabled = true
+                })
+
+            case .possible:
+                break
+            }
+        }
     }
 }
