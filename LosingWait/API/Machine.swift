@@ -16,6 +16,6 @@ struct Machine: Decodable {
         id = response["_id"] as! String
         name = response["name"] as! String
         muscle_id = response["muscle_id"] as! String
-        in_use = response["in_use"] as! Bool
+        in_use = response["in_use"] as! String == "open"
     }
 }

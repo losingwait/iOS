@@ -36,13 +36,14 @@
 		CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48C64C22208E5C0062BD89 /* Equipment.swift */; };
 		CA5036ED221DF05500411484 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Login.storyboard */; };
 		CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EE221DF06F00411484 /* LoginViewController.swift */; };
+		CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */; };
+		CA77C4AB2256D56400E04EFF /* ExpandableTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA77C4AA2256D56300E04EFF /* ExpandableTableHeaderView.xib */; };
 		CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */; };
 		CA79D6C4221F60180055317B /* Workouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA79D6C3221F60180055317B /* Workouts.storyboard */; };
 		CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */; };
 		CA79D6C8221F63B80055317B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C7221F63B80055317B /* Injectable.swift */; };
 		CA996567224019E6009BF4F0 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA996566224019E6009BF4F0 /* Displayable.swift */; };
 		CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */; };
-		CAA8CF42225304660018923C /* ExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8CF41225304660018923C /* ExpandableCell.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
@@ -114,13 +115,14 @@
 		CA48C64C22208E5C0062BD89 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		CA5036EC221DF05500411484 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CA5036EE221DF06F00411484 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderView.swift; sourceTree = "<group>"; };
+		CA77C4AA2256D56300E04EFF /* ExpandableTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableTableHeaderView.xib; sourceTree = "<group>"; };
 		CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		CA79D6C3221F60180055317B /* Workouts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workouts.storyboard; sourceTree = "<group>"; };
 		CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseViewController.swift; sourceTree = "<group>"; };
 		CA79D6C7221F63B80055317B /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		CA996566224019E6009BF4F0 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
-		CAA8CF41225304660018923C /* ExpandableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCell.swift; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
@@ -156,7 +158,8 @@
 				CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */,
 				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
 				CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */,
-				CAA8CF41225304660018923C /* ExpandableCell.swift */,
+				CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */,
+				CA77C4AA2256D56300E04EFF /* ExpandableTableHeaderView.xib */,
 			);
 			path = "Current Workout";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */,
 				CA5036ED221DF05500411484 /* Login.storyboard in Resources */,
 				CA79D6C4221F60180055317B /* Workouts.storyboard in Resources */,
+				CA77C4AB2256D56400E04EFF /* ExpandableTableHeaderView.xib in Resources */,
 				CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */,
 				CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */,
 				CA3DF627221B32E500E70446 /* Main.storyboard in Resources */,
@@ -447,9 +451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA79D6C8221F63B80055317B /* Injectable.swift in Sources */,
+				CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */,
 				CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */,
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
-				CAA8CF42225304660018923C /* ExpandableCell.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,

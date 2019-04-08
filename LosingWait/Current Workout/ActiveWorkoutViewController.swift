@@ -19,6 +19,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
     
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
     var workout: Workout?
@@ -66,12 +67,16 @@ class ActiveWorkoutViewController: UIViewController {
     lazy var nextItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: #selector(next(_:)))
     }()
+    
+    var collapsedSections: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         alternatesTableView.dataSource = self
         alternatesTableView.delegate = self
+        alternatesTableView?.sectionHeaderHeight = 55
+        alternatesTableView?.register(ExpandableTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: ExpandableTableHeaderView.identifier)
         
         configurePopupItem()
 
@@ -83,7 +88,7 @@ class ActiveWorkoutViewController: UIViewController {
             setActive(exercise: workout?.exercises.first)
         }
         
-        registerForPreviewing(with: self, sourceView: alternatesTableView)
+        favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -133,6 +138,10 @@ class ActiveWorkoutViewController: UIViewController {
     
     @IBAction func toggleWorkoutPause(_ sender: Any) {
         togglePause()
+    }
+    
+    @IBAction func favoritePressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
     
     @IBAction func next(_ sender: Any) {
@@ -237,7 +246,7 @@ extension ActiveWorkoutViewController {
             return
         }
         
-        setMediaState(play: !(player!.isPlaying))
+        togglePause()
     }
     
     func setMediaState(play: Bool) {
@@ -255,10 +264,41 @@ extension ActiveWorkoutViewController {
     }
 }
 
+extension ActiveWorkoutViewController: HeaderViewDelegate {
+    func toggleSection(header: ExpandableTableHeaderView, section: Int) {
+        if collapsedSections.contains(section) {
+            collapsedSections.remove(at: collapsedSections.index(of: section)!)
+        } else {
+            collapsedSections.append(section)
+        }
+        
+        alternatesTableView.beginUpdates()
+        alternatesTableView.reloadSections([section], with: .fade)
+        alternatesTableView.endUpdates()
+    }
+}
+
 extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ExerciseTableViewCell.height
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ExpandableTableHeaderView.identifier) as? ExpandableTableHeaderView {
+            guard let exercise = workout?.exercises[currentExerciseIdx + section + 1],
+                let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
+                    return UIView()
+            }
+            headerView.configure(with: targetExercise, index: section)
+            headerView.repLabel.text = exercise.repDescription
+            headerView.setLabel.text = exercise.setDescription
+            headerView.section = section
+            headerView.delegate = self
+            return headerView
+        }
+    
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -274,9 +314,18 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
         tableView.reloadData()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        let sectionCnt = (workout?.exercises.count ?? 0) - currentExerciseIdx - 1
+        return max(0, sectionCnt)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rowCnt = (workout?.exercises.count ?? 0) - currentExerciseIdx - 1
-        return max(0, rowCnt)
+        if collapsedSections.contains(section) {
+            // Number of alternate exercises
+            return 1
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -293,54 +342,5 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
         cell.repLabel.text = exercise.repDescription
         cell.setLabel.text = exercise.setDescription
         return cell
-    }
-}
-
-extension ActiveWorkoutViewController : UIViewControllerPreviewingDelegate {
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        guard let indexPath = alternatesTableView.indexPathForRow(at: location),
-            let cell = alternatesTableView.cellForRow(at: indexPath) else {
-            return nil
-        }
-        
-        previewingContext.previewingGestureRecognizerForFailureRelationship.addObserver(self, forKeyPath: "state", options: .new, context: nil)
-        
-        let detailViewController = UIViewController()
-        detailViewController.view.backgroundColor = .blue
-        detailViewController.preferredContentSize = CGSize(width: 0.0, height: 300.0)
-        previewingContext.sourceRect = cell.frame
-        return detailViewController
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard let object = object else {
-            return
-        }
-        
-        if keyPath == "state" {
-            let newValue = change![NSKeyValueChangeKey.newKey] as! Int
-            let state = UIGestureRecognizer.State(rawValue: newValue)!
-            switch state {
-            case .began, .changed:
-                (object as! UIGestureRecognizer).isEnabled = false
-                print("began|changed")
-                
-            case .ended, .failed, .cancelled:
-                print("ended|cancelled")
-                //(object as AnyObject).removeObserver(self, forKeyPath: "state")
-                
-                DispatchQueue.main.async(execute: {
-                    (object as! UIGestureRecognizer).isEnabled = true
-                })
-
-            case .possible:
-                break
-            }
-        }
     }
 }
