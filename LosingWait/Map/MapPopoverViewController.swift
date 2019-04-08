@@ -24,8 +24,7 @@ class MapPopoverViewController: UIViewController {
     
     var machineName: String?
     var thisMachineGroup: MachineGroup?
-    
-    var status: String?
+    var status: MachineStatus?
     
     var _occupied: Bool?
     var occupied: Bool {
@@ -113,7 +112,7 @@ class MapPopoverViewController: UIViewController {
         nameLabel.text = newlineStripped
         
         WKManager.shared.getMachineGroups { ok in
-            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(newlineStripped) }).first else {
+            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(newlineStripped) || newlineStripped.contains($0.name) }).first else {
                 self.queueLabel.text = "?"
                 return
             }
@@ -140,12 +139,10 @@ class MapPopoverViewController: UIViewController {
                 let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
                 self.muscleLabel.text = targetMuscle.name
             }
-            if(targetMachine.in_use == "open") {
-                self.occupied = false;
-            } else {
-                self.occupied = true;
-            }
+            
+            self.occupied = targetMachine.in_use == .occupied
             self.status = targetMachine.in_use
+            self.lastCheckinLabel.text = targetMachine.sinceLastCheckIn
             self.statusLabel.isHidden = false
             self.stackView.isHidden = false
         }

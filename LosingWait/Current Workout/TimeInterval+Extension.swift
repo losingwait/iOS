@@ -34,4 +34,14 @@ extension TimeInterval {
             return "\(seconds)s"
         }
     }
+
+    var humanized: String {
+        if hours != 0 {
+            return "\(hours) hours"
+        } else if minutes != 0 {
+            return "\(minutes) mins"
+        } else {
+            return "\(seconds) seconds"
+        }
+    }
 }
