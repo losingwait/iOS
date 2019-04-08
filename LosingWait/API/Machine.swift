@@ -6,10 +6,22 @@
 //  Copyright © 2019 Mike JS. Choi. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 enum MachineStatus: String, Codable {
     case open, queued, occupied
+    
+    var color: UIColor {
+        switch self {
+        case .open:
+            return  #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1)
+        case .queued:
+            return #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        case .occupied:
+            return  #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        }
+    }
 }
 
 struct Machine: Decodable {

@@ -24,16 +24,13 @@ class MapPopoverViewController: UIViewController {
     
     var machineName: String?
     var thisMachineGroup: MachineGroup?
-    var status: MachineStatus?
-    
-    var _occupied: Bool?
-    var occupied: Bool {
-        set {
-            _occupied = newValue
-            statusLabel.text = newValue ? "Occupied" : "Available"
-            statusLabel.textColor = newValue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        } get {
-            return _occupied ?? false
+    var status: MachineStatus? {
+        didSet {
+            guard let status = status else {
+                return
+            }
+            statusLabel.text = status.rawValue.capitalized
+            statusLabel.textColor = status.color
         }
     }
     
@@ -43,7 +40,7 @@ class MapPopoverViewController: UIViewController {
         set {
             _inQueue = newValue
             queueButton.setTitle(newValue ? "Leave queue" : "Get in queue", for: UIButton.State.normal)
-            queueButton.setTitleColor(newValue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), for: UIButton.State.normal)
+            queueButton.setTitleColor(newValue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: UIButton.State.normal)
         } get {
             return _inQueue ?? false
         }
@@ -140,7 +137,6 @@ class MapPopoverViewController: UIViewController {
                 self.muscleLabel.text = targetMuscle.name
             }
             
-            self.occupied = targetMachine.in_use == .occupied
             self.status = targetMachine.in_use
             self.lastCheckinLabel.text = targetMachine.sinceLastCheckIn
             self.statusLabel.isHidden = false
