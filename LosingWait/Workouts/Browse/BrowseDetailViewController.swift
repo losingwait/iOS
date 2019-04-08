@@ -13,7 +13,7 @@ class BrowseDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("in browse detail view controller")
         // Do any additional setup after loading the view.
     }
     

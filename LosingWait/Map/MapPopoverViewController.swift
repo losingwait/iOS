@@ -25,8 +25,6 @@ class MapPopoverViewController: UIViewController {
     var machineName: String?
     var thisMachineGroup: MachineGroup?
     
-    var status: String?
-    
     var _occupied: Bool?
     var occupied: Bool {
         set {
@@ -140,12 +138,7 @@ class MapPopoverViewController: UIViewController {
                 let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
                 self.muscleLabel.text = targetMuscle.name
             }
-            if(targetMachine.in_use == "open") {
-                self.occupied = false;
-            } else {
-                self.occupied = true;
-            }
-            self.status = targetMachine.in_use
+            self.occupied = targetMachine.in_use
             self.statusLabel.isHidden = false
             self.stackView.isHidden = false
         }
