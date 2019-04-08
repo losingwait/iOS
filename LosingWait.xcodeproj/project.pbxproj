@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */; };
+		9446C7E7225746F10093554D /* BrowseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C7E6225746F10093554D /* BrowseDetailViewController.swift */; };
 		94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC5224B3F29003260EC /* MachineGroup.swift */; };
 		CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B072C2224701C0029E71B /* UIView+Utils.swift */; };
 		CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */; };
@@ -33,7 +34,6 @@
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
 		CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62B221B32E600E70446 /* Assets.xcassets */; };
 		CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */; };
-		CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48C64C22208E5C0062BD89 /* Equipment.swift */; };
 		CA5036ED221DF05500411484 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Login.storyboard */; };
 		CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EE221DF06F00411484 /* LoginViewController.swift */; };
 		CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */; };
@@ -85,6 +85,7 @@
 /* Begin PBXFileReference section */
 		1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.release.xcconfig"; sourceTree = "<group>"; };
 		7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.debug.xcconfig"; sourceTree = "<group>"; };
+		9446C7E6225746F10093554D /* BrowseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseDetailViewController.swift; sourceTree = "<group>"; };
 		94E5BCC5224B3F29003260EC /* MachineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineGroup.swift; sourceTree = "<group>"; };
 		B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LosingWait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1B072C2224701C0029E71B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		CA3DF62B221B32E600E70446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA3DF62E221B32E600E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA3DF630221B32E600E70446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA48C64C22208E5C0062BD89 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		CA5036EC221DF05500411484 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CA5036EE221DF06F00411484 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderView.swift; sourceTree = "<group>"; };
@@ -172,7 +172,6 @@
 				CA2FB16B2252C35500189EAC /* Machine.swift */,
 				CA996566224019E6009BF4F0 /* Displayable.swift */,
 				CA3152D6221F6D9B00770832 /* Muscle.swift */,
-				CA48C64C22208E5C0062BD89 /* Equipment.swift */,
 				CA1B07392224812B0029E71B /* Workout.swift */,
 				CA1B073B2224815F0029E71B /* Exercise.swift */,
 				CA1B073D222482610029E71B /* Bannerable.swift */,
@@ -294,6 +293,7 @@
 				CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */,
 				CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */,
 				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
+				9446C7E6225746F10093554D /* BrowseDetailViewController.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -465,7 +465,6 @@
 				CA2FB16C2252C35500189EAC /* Machine.swift in Sources */,
 				CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */,
 				CA1B073C2224815F0029E71B /* Exercise.swift in Sources */,
-				CA48C64D22208E5C0062BD89 /* Equipment.swift in Sources */,
 				CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */,
 				CA2FB1672252BE4A00189EAC /* MapPopoverViewController.swift in Sources */,
 				94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */,
@@ -479,6 +478,7 @@
 				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
 				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
+				9446C7E7225746F10093554D /* BrowseDetailViewController.swift in Sources */,
 				CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
@@ -636,8 +636,9 @@
 			baseConfigurationReference = 7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J57M62A98;
+				DEVELOPMENT_TEAM = 2BHZ8BSJQW;
 				INFOPLIST_FILE = LosingWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,6 +646,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjc.LosingWait;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -655,8 +657,9 @@
 			baseConfigurationReference = 1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7J57M62A98;
+				DEVELOPMENT_TEAM = 2BHZ8BSJQW;
 				INFOPLIST_FILE = LosingWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -664,6 +667,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjc.LosingWait;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

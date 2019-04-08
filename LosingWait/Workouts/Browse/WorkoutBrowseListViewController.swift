@@ -33,6 +33,13 @@ class WorkoutBrowseListViewController: UITableViewController {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let vc = segue.destination as? BrowseDetailViewController
+            
+        }
+    }
 }
 
 extension WorkoutBrowseListViewController {
@@ -45,5 +52,10 @@ extension WorkoutBrowseListViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row].name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // logic here
+//        performSegue(withIdentifier: "showDetails", sender: self)
     }
 }

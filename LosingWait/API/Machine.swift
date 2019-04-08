@@ -7,10 +7,12 @@
 //
 
 struct Machine: Decodable {
-    let id: String
     let name: String
+    let id: String
     let muscle_id: String
-    let in_use: Bool
+    let machine_group_id: String
+    let station_id: String
+    let in_use: String
     
     init(response: [String : Any]) {
         id = response["_id"] as! String
