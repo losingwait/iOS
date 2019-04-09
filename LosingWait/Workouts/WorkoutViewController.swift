@@ -27,6 +27,7 @@ enum WorkoutSegue: Int {
 
 class WorkoutViewController: UIViewController {
     
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
     
@@ -40,13 +41,19 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        extendedLayoutIncludesOpaqueBars = true
-        
         tableView.delegate = self
         tableView.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = dataSource
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        if scrollView.contentOffset.y < -88 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: -88), animated: false)
+        }
     }
 }
 
@@ -59,15 +66,20 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         
+        var vc: UIViewController!
+        
         switch segue {
         case .Browse:
-            let vc = workoutStoryboard.instantiateViewController(withIdentifier: segue.description) as! WorkoutBrowseViewController
-            navigationController?.pushViewController(vc, animated: true)
+            vc = workoutStoryboard.instantiateViewController(withIdentifier: segue.description) as! WorkoutBrowseViewController
         case .Favorites:
-            print("not implemented")
+            vc = workoutStoryboard.instantiateViewController(withIdentifier: "TileVC") as! TileCollectionViewController
+            (vc as! TileCollectionViewController).type = .myWorkouts
         case .Recent:
-            print("not implemented")
+            vc = workoutStoryboard.instantiateViewController(withIdentifier: "TileVC") as! TileCollectionViewController
+            (vc as! TileCollectionViewController).type = .recentlyViewed
         }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,7 +98,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension WorkoutViewController: UICollectionViewDelegate {
+extension WorkoutViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = workoutStoryboard.instantiateViewController(withIdentifier: "WorkoutDetailViewController") as? WorkoutDetailViewController else {
@@ -97,5 +109,10 @@ extension WorkoutViewController: UICollectionViewDelegate {
         vc.workout = selectedWorkout
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (view.frame.width - (18 * 3)) / 2
+        return CGSize(width: cellWidth, height: cellWidth + 40)
     }
 }

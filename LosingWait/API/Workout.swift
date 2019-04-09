@@ -49,7 +49,12 @@ struct Workout: Displayable {
     }
 }
 
-extension Workout {
+extension Workout: Equatable {
+    
+    static func == (lhs: Workout, rhs: Workout) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     func configure(banner: BannerCollectionViewCell) {
         banner.categoryLabel.text = "FEATURED WORKOUT"
         banner.bannerLabel.text = name

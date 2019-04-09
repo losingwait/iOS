@@ -15,31 +15,39 @@ class WorkoutDetailViewController: UIViewController {
     @IBOutlet private weak var authorLabel: UILabel!
     @IBOutlet private weak var detailLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var addedButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
-    var workout: Workout?
+    var workout: Workout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let selectedWorkout = workout else {
-            fatalError("Pls provide a workout when showing this VC")
-        }
-        
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
         tableView.dataSource = self
         tableView.delegate = self
         
-        imageView.image = workout?.image
-        nameLabel.text = selectedWorkout.name
-        detailLabel.text = selectedWorkout.description
+        imageView.image = workout.image
+        nameLabel.text = workout.name
+        detailLabel.text = workout.description
+        
+        let isFavorite = UserDefaults.standard.favoriteWorkouts.contains(workout)
+        favoriteButton.isHidden = isFavorite
+        addedButton.isHidden = !isFavorite
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @IBAction func favoriteWorkout(_ sender: Any) {
+        UserDefaults.standard.favorite(workout: workout)
+        favoriteButton.isHidden = true
+        addedButton.isHidden = false
     }
     
     @IBAction func startWorkout(_ sender: Any) {
-        guard let vc = workout?.viewController else {
-            return
-        }
-        
+        let vc = workout.viewController
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
         tabBarController?.popupBar.imageView.layer.cornerRadius = 5
         tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
@@ -53,7 +61,7 @@ class WorkoutDetailViewController: UIViewController {
 extension WorkoutDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout?.exercises.count ?? 0
+        return workout.exercises.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +87,7 @@ extension WorkoutDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let name = workout!.exercises[indexPath.row].name
+        let name = workout.exercises[indexPath.row].name
         guard let targetExercise = WKManager.shared.exercises?.filter({ $0.name == name }).first else {
             fatalError("Couldn't find exercise with name \(name)")
         }

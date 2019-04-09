@@ -34,6 +34,7 @@
 		CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */; };
 		CA3DF62C221B32E600E70446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62B221B32E600E70446 /* Assets.xcassets */; };
 		CA3DF62F221B32E600E70446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */; };
+		CA4849BB225C3BC2005881FB /* TileCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4849BA225C3BC2005881FB /* TileCollectionViewController.swift */; };
 		CA5036ED221DF05500411484 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5036EC221DF05500411484 /* Login.storyboard */; };
 		CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5036EE221DF06F00411484 /* LoginViewController.swift */; };
 		CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */; };
@@ -47,6 +48,7 @@
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
+		CAE5721C225BD9B9001E9C2C /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE5721B225BD9B9001E9C2C /* UserDefaults+Extensions.swift */; };
 		CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33532242AA4800564D34 /* MapViewController.swift */; };
 		CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +115,7 @@
 		CA3DF62B221B32E600E70446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA3DF62E221B32E600E70446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA3DF630221B32E600E70446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA4849BA225C3BC2005881FB /* TileCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewController.swift; sourceTree = "<group>"; };
 		CA5036EC221DF05500411484 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CA5036EE221DF06F00411484 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderView.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
+		CAE5721B225BD9B9001E9C2C /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		CAFB33532242AA4800564D34 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +226,7 @@
 				CA3152D3221F667B00770832 /* API */,
 				CA3DF62B221B32E600E70446 /* Assets.xcassets */,
 				CA3DF62D221B32E600E70446 /* LaunchScreen.storyboard */,
+				CAE5721B225BD9B9001E9C2C /* UserDefaults+Extensions.swift */,
 				CA3DF630221B32E600E70446 /* Info.plist */,
 				CA3DF628221B32E500E70446 /* LosingWait.xcdatamodeld */,
 			);
@@ -242,10 +247,11 @@
 			children = (
 				CA79D6C3221F60180055317B /* Workouts.storyboard */,
 				CA79D6BF221F5E3A0055317B /* WorkoutViewController.swift */,
-				CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */,
-				CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */,
 				CA21E1872249739000498412 /* WorkoutCollectionDataSource.swift */,
 				CA21E181224970B800498412 /* WorkoutDetailViewController.swift */,
+				CA21E183224971AB00498412 /* WorkoutDetailTableViewCell.swift */,
+				CA4849BA225C3BC2005881FB /* TileCollectionViewController.swift */,
+				CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */,
 				CAFB33552242C03D00564D34 /* Browse */,
 			);
 			path = Workouts;
@@ -454,6 +460,7 @@
 				CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */,
 				CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */,
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
+				CA4849BB225C3BC2005881FB /* TileCollectionViewController.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
@@ -469,6 +476,7 @@
 				CA2FB1672252BE4A00189EAC /* MapPopoverViewController.swift in Sources */,
 				94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */,
 				CA3DF622221B32E500E70446 /* AppDelegate.swift in Sources */,
+				CAE5721C225BD9B9001E9C2C /* UserDefaults+Extensions.swift in Sources */,
 				CA3152D5221F668F00770832 /* WKManager.swift in Sources */,
 				CA1B073E222482610029E71B /* Bannerable.swift in Sources */,
 				CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */,
