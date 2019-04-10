@@ -19,6 +19,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
     
+    @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
@@ -80,7 +81,7 @@ class ActiveWorkoutViewController: UIViewController {
         
         configurePopupItem()
 
-        videoView.backgroundColor = .lightGray
+        videoView.backgroundColor = .black
         
         if let excercise = self.exercise {
             setActive(exercise: excercise)
@@ -89,6 +90,8 @@ class ActiveWorkoutViewController: UIViewController {
         }
         
         favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(videoFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -121,6 +124,8 @@ class ActiveWorkoutViewController: UIViewController {
             return
         }
         
+        self.exercise = targetExercise
+        
         exerciseLabel.text = targetExercise.name
         setsLabel.text = exercise.sets ?? "-"
         repsLabel.text = exercise.reps ?? "-"
@@ -142,6 +147,13 @@ class ActiveWorkoutViewController: UIViewController {
     
     @IBAction func favoritePressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func replayPressed(_ sender: Any) {
+        guard let currentExercise = exercise else {
+            return
+        }
+        playVideo(with: URL(string: currentExercise.exercise_media!)!)
     }
     
     @IBAction func next(_ sender: Any) {
@@ -218,6 +230,7 @@ extension ActiveWorkoutViewController {
     }
     
     func playVideo(with url: URL) {
+        replayButton.isHidden = true
         player?.removeAllItems()
         
         playerItem = AVPlayerItem(url: url)
@@ -236,6 +249,10 @@ extension ActiveWorkoutViewController {
         layer.frame = videoView.bounds
         layer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(layer)
+    }
+    
+    @objc func videoFinishedPlaying() {
+        replayButton.isHidden = false
     }
 }
 

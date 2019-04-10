@@ -29,7 +29,11 @@ extension TimeInterval {
         if hours != 0 {
             return "\(hours):\(minutes):\(seconds):"
         } else if minutes != 0 {
-            return "\(minutes):\(seconds)"
+            if seconds >= 10 {
+                return "\(minutes):\(seconds)"
+            } else {
+                return "\(minutes):0\(seconds)"
+            }
         } else {
             return "\(seconds)s"
         }

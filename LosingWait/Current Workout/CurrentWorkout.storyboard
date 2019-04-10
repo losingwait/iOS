@@ -26,10 +26,25 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJW-SC-TZv" userLabel="Video View">
                                                 <rect key="frame" x="37.5" y="0.0" width="300" height="300"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpl-Zo-5w8">
+                                                        <rect key="frame" x="90" y="90" width="120" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Mpl-Zo-5w8" secondAttribute="height" multiplier="1:1" id="r2M-FC-Oo8"/>
+                                                        </constraints>
+                                                        <state key="normal" image="replay"/>
+                                                        <connections>
+                                                            <action selector="replayPressed:" destination="Z2e-PH-k7Y" eventType="touchUpInside" id="pCJ-1S-30E"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstItem="Mpl-Zo-5w8" firstAttribute="centerY" secondItem="uJW-SC-TZv" secondAttribute="centerY" id="1Ss-an-QOT"/>
                                                     <constraint firstAttribute="width" secondItem="uJW-SC-TZv" secondAttribute="height" multiplier="1:1" id="8GY-4e-RCz"/>
+                                                    <constraint firstItem="Mpl-Zo-5w8" firstAttribute="centerX" secondItem="uJW-SC-TZv" secondAttribute="centerX" id="MrV-uW-6Jl"/>
+                                                    <constraint firstItem="Mpl-Zo-5w8" firstAttribute="width" secondItem="uJW-SC-TZv" secondAttribute="width" multiplier="0.4" id="guY-2i-IMW"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -355,6 +370,7 @@
                         <outlet property="exerciseLabel" destination="dPq-p3-flN" id="kiv-9X-pxG"/>
                         <outlet property="favoriteButton" destination="RR7-dt-iHE" id="ZcV-NV-AFI"/>
                         <outlet property="playButton" destination="BuQ-pU-zGA" id="PQn-zu-Xv2"/>
+                        <outlet property="replayButton" destination="Mpl-Zo-5w8" id="W8i-JC-Ibd"/>
                         <outlet property="repsLabel" destination="g6a-UC-1nc" id="wHZ-uE-Gxa"/>
                         <outlet property="setsLabel" destination="ZVE-zZ-R6h" id="aup-KZ-IUS"/>
                         <outlet property="videoView" destination="uJW-SC-TZv" id="UtC-Zv-Phd"/>
@@ -401,6 +417,7 @@
         <image name="next" width="200" height="122"/>
         <image name="pause" width="212" height="254"/>
         <image name="prev" width="200" height="122"/>
+        <image name="replay" width="70" height="79"/>
         <image name="star_selected" width="150" height="144"/>
         <image name="star_unselected" width="50" height="48"/>
     </resources>
