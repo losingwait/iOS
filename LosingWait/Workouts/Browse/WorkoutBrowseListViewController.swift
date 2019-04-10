@@ -12,6 +12,7 @@ class WorkoutBrowseListViewController: UITableViewController {
     
     var category: String!
     var items: [Displayable] = []
+    var clicked: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,15 @@ class WorkoutBrowseListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetails" {
-            let vc = segue.destination as? BrowseDetailViewController
-            
+        if segue.identifier == "machineDetails" {
+            let vc = segue.destination as? MachineGroupDetailViewController
+            vc?.group = items[clicked] as? MachineGroup
+        } else if segue.identifier == "muscleDetails" {
+            print("muscle segue not done yet")
+        } else if segue.identifier == "workoutDetails" {
+            print("workout segue not done yet")
+        } else if segue.identifier == "exerciseDetails" {
+            print("exercise segue not done yet")
         }
     }
 }
@@ -56,6 +63,16 @@ extension WorkoutBrowseListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // logic here
-//        performSegue(withIdentifier: "showDetails", sender: self)
+//        print(items[indexPath.row].name + " clicked")
+        clicked = indexPath.row
+        if category == "Muscle" {
+//            performSegue(withIdentifier: "muscleDetails", sender: self)
+        } else if category == "Equipment" {
+            performSegue(withIdentifier: "machineDetails", sender: self)
+        } else if category == "Workout" {
+//            performSegue(withIdentifier: "workoutDetails", sender: self)
+        } else if category == "Single Exercises" {
+//            performSegue(withIdentifier: "exerciseDetails", sender: self)
+        }
     }
 }
