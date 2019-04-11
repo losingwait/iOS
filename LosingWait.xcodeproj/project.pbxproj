@@ -50,6 +50,7 @@
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
 		CAE5721C225BD9B9001E9C2C /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE5721B225BD9B9001E9C2C /* UserDefaults+Extensions.swift */; };
+		CAF92079225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF92078225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift */; };
 		CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33532242AA4800564D34 /* MapViewController.swift */; };
 		CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
 		CAE5721B225BD9B9001E9C2C /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		CAF92078225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActiveWorkoutTableViewDataSource+Delegate.swift"; sourceTree = "<group>"; };
 		CAFB33532242AA4800564D34 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CAFB33562242C05400564D34 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			children = (
 				CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */,
 				CA3166A4222A2D6E0048D788 /* ActiveWorkoutViewController.swift */,
+				CAF92078225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift */,
 				CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */,
 				CA77C4A82256D55400E04EFF /* ExpandableTableHeaderView.swift */,
 				CA77C4AA2256D56300E04EFF /* ExpandableTableHeaderView.xib */,
@@ -492,6 +495,7 @@
 				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
 				9446C7E7225746F10093554D /* MachineGroupDetailViewController.swift in Sources */,
 				CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */,
+				CAF92079225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
 			);

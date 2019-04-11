@@ -166,6 +166,10 @@
                                                                 <state key="normal" title="Bench Press 1"/>
                                                             </button>
                                                         </subviews>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="LJa-IZ-lXg" appends="YES" id="qq6-F4-We0"/>
+                                                        </connections>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -392,6 +396,11 @@
                         <action selector="videoTapped:" destination="Z2e-PH-k7Y" id="kgn-Z9-i2k"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="LJa-IZ-lXg">
+                    <connections>
+                        <action selector="locationPressed:" destination="Z2e-PH-k7Y" id="3mw-Xo-znw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2925.5999999999999" y="509.14542728635683"/>
         </scene>
@@ -426,7 +435,7 @@
         <image name="next" width="200" height="122"/>
         <image name="pause" width="212" height="254"/>
         <image name="prev" width="200" height="122"/>
-        <image name="replay" width="70" height="79"/>
+        <image name="replay" width="280" height="316"/>
         <image name="star_selected" width="150" height="144"/>
         <image name="star_unselected" width="50" height="48"/>
     </resources>
