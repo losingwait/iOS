@@ -404,31 +404,6 @@
             </objects>
             <point key="canvasLocation" x="2925.5999999999999" y="509.14542728635683"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ugG-UL-jgI">
-            <objects>
-                <viewController storyboardIdentifier="Pop" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DEH-Ir-dQJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lA0-pI-GiV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGt-ak-B7l">
-                                <rect key="frame" x="166" y="140" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="iqv-6W-KsQ"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="300"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Kg-Ff-hYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3812" y="660.2698650674663"/>
-        </scene>
     </scenes>
     <resources>
         <image name="location" width="116" height="128"/>

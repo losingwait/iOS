@@ -20,6 +20,9 @@ class MapPopoverViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var queueButton: UIButton!
     
+    @IBOutlet weak var oneDumbbellStackView: UIStackView!
+    @IBOutlet weak var twoDumbellStackView: UIStackView!
+    
     static let identifier = "MapPopoverViewController"
     
     var machineName: String?
@@ -108,8 +111,30 @@ class MapPopoverViewController: UIViewController {
         let newlineStripped = name.components(separatedBy: .whitespacesAndNewlines).filter( {$0.count != 0 }).joined(separator: " ")
         nameLabel.text = newlineStripped
         
+        
+        if newlineStripped == "Dumbbell Rack" {
+            _ = stackView.arrangedSubviews.map({ if !$0.isHidden { $0.isHidden = true } })
+            muscleLabel.isHidden = true
+            queueButton.isHidden = true
+            oneDumbbellStackView.isHidden = false
+            twoDumbellStackView.isHidden = false
+            stackView.isHidden = false
+            updateDumbellStatus()
+        } else {
+            updateStatus(for: newlineStripped)
+        }
+    }
+}
+
+extension MapPopoverViewController {
+    
+    func updateDumbellStatus() {
+        
+    }
+    
+    func updateStatus(for machineName: String) {
         WKManager.shared.getMachineGroups { ok in
-            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(newlineStripped) || newlineStripped.contains($0.name) }).first else {
+            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(machineName) || machineName.contains($0.name) }).first else {
                 self.queueLabel.text = "?"
                 return
             }
@@ -128,7 +153,7 @@ class MapPopoverViewController: UIViewController {
         }
         
         WKManager.shared.getMachines { machines in
-            guard let targetMachine = machines.filter({ $0.name.contains(newlineStripped) }).first else {
+            guard let targetMachine = machines.filter({ $0.name.contains(machineName) }).first else {
                 return
             }
             

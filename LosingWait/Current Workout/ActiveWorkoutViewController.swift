@@ -203,7 +203,9 @@ extension ActiveWorkoutViewController {
     }
     
     func configurePopupItem() {
-        popupItem.image = #imageLiteral(resourceName: "arnold-chest")
+        popupBar.imageView.contentMode = .scaleAspectFill
+        popupBar.imageView.layer.cornerRadius = 8
+        popupItem.image = workout?.image
         
         if workout == nil {
             popupItem.rightBarButtonItems = [pauseItem]

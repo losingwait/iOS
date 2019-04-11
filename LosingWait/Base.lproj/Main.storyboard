@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-1" translatesAutoresizingMaskIntoConstraints="NO" id="viV-R5-1qw">
-                                <rect key="frame" x="0.0" y="40" width="375" height="579"/>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" image="map-1" translatesAutoresizingMaskIntoConstraints="NO" id="viV-R5-1qw">
+                                <rect key="frame" x="0.0" y="40" width="375" height="578"/>
                                 <gestureRecognizers/>
+                                <viewLayoutGuide key="safeArea" id="aan-Vc-0NX"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2xe-gJ-kyB">
-                                <rect key="frame" x="20" y="103" width="63.5" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2xe-gJ-kyB">
+                                <rect key="frame" x="34" y="50" width="63.5" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="HS3-kW-qeW">
                                         <rect key="frame" x="19.5" y="0.0" width="25" height="25"/>
@@ -45,32 +45,8 @@
                                     <outletCollection property="gestureRecognizers" destination="Mhg-ff-lOo" appends="YES" id="b6w-y9-M2z"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-bu-rqK">
-                                <rect key="frame" x="104" y="175" width="46" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="4u5-ur-OjZ">
-                                        <rect key="frame" x="10.5" y="0.0" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="JFk-Vz-gkc"/>
-                                            <constraint firstAttribute="width" secondItem="4u5-ur-OjZ" secondAttribute="height" multiplier="1:1" id="Qff-zd-Bnr"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leg Press" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-NZ-zoy">
-                                        <rect key="frame" x="0.0" y="33" width="46" height="11"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                        <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="bVh-gS-wZO" appends="YES" id="HGa-RC-p6z"/>
-                                </connections>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vBH-om-MxG">
-                                <rect key="frame" x="284" y="265" width="69.5" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vBH-om-MxG">
+                                <rect key="frame" x="285.5" y="265" width="69.5" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="O1k-UT-OGV">
                                         <rect key="frame" x="22.5" y="0.0" width="25" height="25"/>
@@ -91,9 +67,8 @@
                                     <outletCollection property="gestureRecognizers" destination="Sai-iT-oLL" appends="YES" id="yx1-OM-4p5"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RsU-9D-82g">
-                                <rect key="frame" x="289" y="186" width="58" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RsU-9D-82g">
+                                <rect key="frame" x="297" y="164" width="58" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack" translatesAutoresizingMaskIntoConstraints="NO" id="rfH-JQ-D3C">
                                         <rect key="frame" x="16.5" y="0.0" width="25" height="25"/>
@@ -114,19 +89,18 @@
                                     <outletCollection property="gestureRecognizers" destination="W0w-11-hos" appends="YES" id="Ock-vX-zRz"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Czd-Zx-Xff">
-                                <rect key="frame" x="200" y="76" width="64" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Czd-Zx-Xff">
+                                <rect key="frame" x="209" y="50" width="70" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dumbell" translatesAutoresizingMaskIntoConstraints="NO" id="q1F-lI-By2">
-                                        <rect key="frame" x="19.5" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="22.5" y="0.0" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="cEd-w4-aU0"/>
                                             <constraint firstAttribute="width" secondItem="q1F-lI-By2" secondAttribute="height" multiplier="1:1" id="oIR-W2-R4f"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dumbell Rack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-MD-bF0">
-                                        <rect key="frame" x="0.0" y="33" width="64" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dumbbell Rack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5s-MD-bF0">
+                                        <rect key="frame" x="0.0" y="33" width="70" height="11"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                         <color key="textColor" red="0.34365507960319519" green="0.5559614896774292" blue="0.93337273597717285" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -137,9 +111,8 @@
                                     <outletCollection property="gestureRecognizers" destination="2tS-AX-oV1" appends="YES" id="87p-bS-4M8"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-7U-xcT">
-                                <rect key="frame" x="22" y="175" width="52" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-7U-xcT">
+                                <rect key="frame" x="34" y="164" width="52" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack" translatesAutoresizingMaskIntoConstraints="NO" id="T5T-GK-j1g">
                                         <rect key="frame" x="13.5" y="0.0" width="25" height="25"/>
@@ -160,12 +133,11 @@
                                     <outletCollection property="gestureRecognizers" destination="hEy-yx-f84" appends="YES" id="Hn9-el-agX"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-BH-Vsc">
-                                <rect key="frame" x="174" y="314" width="34.5" height="54.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-BH-Vsc">
+                                <rect key="frame" x="170.5" y="260" width="34.5" height="54.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack" translatesAutoresizingMaskIntoConstraints="NO" id="AiI-p6-x6H">
-                                        <rect key="frame" x="5" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="4.5" y="0.0" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Puq-ty-ul8"/>
                                             <constraint firstAttribute="width" secondItem="AiI-p6-x6H" secondAttribute="height" multiplier="1:1" id="ScI-ZK-URO"/>
@@ -183,9 +155,8 @@
                                     <outletCollection property="gestureRecognizers" destination="2Iy-4O-4dc" appends="YES" id="fF1-U6-anU"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-Ti-FNV">
-                                <rect key="frame" x="220" y="410" width="53" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c2v-Ti-FNV">
+                                <rect key="frame" x="217.5" y="362" width="53" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rack" translatesAutoresizingMaskIntoConstraints="NO" id="v5h-jp-1f6">
                                         <rect key="frame" x="14" y="0.0" width="25" height="25"/>
@@ -206,9 +177,8 @@
                                     <outletCollection property="gestureRecognizers" destination="c4C-hF-EH1" appends="YES" id="R19-0Y-28Z"/>
                                 </connections>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-bA-Iv9">
-                                <rect key="frame" x="16" y="341" width="58" height="306"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UzF-bA-Iv9">
+                                <rect key="frame" x="20" y="274" width="58" height="306"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-Z7-xyy">
                                         <rect key="frame" x="0.0" y="0.0" width="58" height="54.5"/>
@@ -308,9 +278,8 @@ Machine</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-pC-kP6">
-                                <rect key="frame" x="239" y="595" width="66" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-pC-kP6">
+                                <rect key="frame" x="269" y="493.5" width="66" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-52-WIy">
                                         <rect key="frame" x="20.5" y="0.0" width="25" height="25"/>
@@ -333,16 +302,58 @@ Area</string>
                                     <outletCollection property="gestureRecognizers" destination="2gV-zR-XB6" appends="YES" id="6Za-OX-HKe"/>
                                 </connections>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-bu-rqK">
+                                <rect key="frame" x="116" y="164" width="46" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="4u5-ur-OjZ">
+                                        <rect key="frame" x="10.5" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="JFk-Vz-gkc"/>
+                                            <constraint firstAttribute="width" secondItem="4u5-ur-OjZ" secondAttribute="height" multiplier="1:1" id="Qff-zd-Bnr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leg Press" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-NZ-zoy">
+                                        <rect key="frame" x="0.0" y="33" width="46" height="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                        <color key="textColor" red="0.93265193700000004" green="0.72991162539999999" blue="0.34889420869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bVh-gS-wZO" appends="YES" id="HGa-RC-p6z"/>
+                                </connections>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.96456772089004517" green="0.9373355507850647" blue="0.88233596086502075" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="viV-R5-1qw" firstAttribute="leading" secondItem="rw3-T9-WVp" secondAttribute="leading" id="600-fI-WWd"/>
+                            <constraint firstItem="UzF-bA-Iv9" firstAttribute="centerY" secondItem="pVd-Xg-7zO" secondAttribute="centerY" multiplier="1.28" id="05I-Mo-LD8"/>
+                            <constraint firstItem="U3r-pC-kP6" firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" multiplier="0.87" id="3Bn-aV-gHm"/>
+                            <constraint firstItem="UzF-bA-Iv9" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leading" constant="20" id="3gy-Os-gdW"/>
+                            <constraint firstItem="viV-R5-1qw" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leading" id="600-fI-WWd"/>
+                            <constraint firstItem="2xe-gJ-kyB" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leadingMargin" constant="18" id="7b3-Jg-tC6"/>
+                            <constraint firstItem="2dF-bu-rqK" firstAttribute="leading" secondItem="Ot0-7U-xcT" secondAttribute="trailing" constant="30" id="AqF-sW-EWQ"/>
+                            <constraint firstItem="RsU-9D-82g" firstAttribute="centerY" secondItem="2dF-bu-rqK" secondAttribute="centerY" id="DJD-sD-Ez8"/>
+                            <constraint firstItem="pwj-JO-nvy" firstAttribute="trailing" secondItem="RsU-9D-82g" secondAttribute="trailing" constant="20" id="IYK-aC-aB3"/>
                             <constraint firstItem="viV-R5-1qw" firstAttribute="top" secondItem="pVd-Xg-7zO" secondAttribute="top" constant="40" id="Jkb-FE-0aw"/>
-                            <constraint firstItem="viV-R5-1qw" firstAttribute="trailing" secondItem="rw3-T9-WVp" secondAttribute="trailing" id="KO2-i9-Tkn"/>
-                            <constraint firstItem="rw3-T9-WVp" firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" constant="-1" id="aLk-a1-Bc0"/>
+                            <constraint firstItem="M6M-BH-Vsc" firstAttribute="centerY" secondItem="vBH-om-MxG" secondAttribute="centerY" id="K2I-Xg-hwx"/>
+                            <constraint firstItem="Czd-Zx-Xff" firstAttribute="top" secondItem="pVd-Xg-7zO" secondAttribute="topMargin" constant="30" id="K6g-NS-WQJ"/>
+                            <constraint firstItem="viV-R5-1qw" firstAttribute="trailing" secondItem="pVd-Xg-7zO" secondAttribute="trailing" id="KO2-i9-Tkn"/>
+                            <constraint firstItem="Czd-Zx-Xff" firstAttribute="centerX" secondItem="pVd-Xg-7zO" secondAttribute="centerX" multiplier="1.3" id="Q4L-eg-fa3"/>
+                            <constraint firstItem="2dF-bu-rqK" firstAttribute="top" secondItem="Ot0-7U-xcT" secondAttribute="top" id="VwN-26-zjc"/>
+                            <constraint firstItem="Ot0-7U-xcT" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leadingMargin" constant="18" id="W0c-vE-2eP"/>
+                            <constraint firstItem="2xe-gJ-kyB" firstAttribute="centerY" secondItem="Czd-Zx-Xff" secondAttribute="centerY" id="WM8-lQ-x2T"/>
+                            <constraint firstItem="vBH-om-MxG" firstAttribute="top" secondItem="RsU-9D-82g" secondAttribute="bottom" constant="57" id="ZIm-hE-0XO"/>
+                            <constraint firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" constant="49" id="aLk-a1-Bc0"/>
+                            <constraint firstItem="c2v-Ti-FNV" firstAttribute="centerX" secondItem="pwj-JO-nvy" secondAttribute="centerX" multiplier="1.3" id="eWQ-pJ-mFd"/>
+                            <constraint firstItem="c2v-Ti-FNV" firstAttribute="centerY" secondItem="UzF-bA-Iv9" secondAttribute="centerY" multiplier="0.9" id="gZ5-sy-B7L"/>
+                            <constraint firstAttribute="trailing" secondItem="U3r-pC-kP6" secondAttribute="trailing" constant="40" id="jtV-Yz-NwZ"/>
+                            <constraint firstItem="pwj-JO-nvy" firstAttribute="trailing" secondItem="vBH-om-MxG" secondAttribute="trailing" constant="20" id="lHM-SV-U5r"/>
+                            <constraint firstItem="Ot0-7U-xcT" firstAttribute="top" secondItem="2xe-gJ-kyB" secondAttribute="bottom" constant="70" id="pwE-Nq-MQr"/>
+                            <constraint firstItem="M6M-BH-Vsc" firstAttribute="centerX" secondItem="pwj-JO-nvy" secondAttribute="centerX" id="qzY-6p-yeN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rw3-T9-WVp"/>
+                        <viewLayoutGuide key="safeArea" id="pwj-JO-nvy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map-unselected" selectedImage="map-selected" id="UK9-5b-L2I"/>
                     <connections>
@@ -457,7 +468,43 @@ Area</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WBx-W1-8OB">
                                 <rect key="frame" x="18" y="62.5" width="234" height="47.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-rn-wvd">
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nJi-tu-Bxi" userLabel="Dumbbell #1">
+                                        <rect key="frame" x="-10" y="0.0" width="10" height="47.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-Oo-eXW">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="aRg-Oo-eXW" secondAttribute="height" multiplier="1:1" id="q4C-tz-ng2"/>
+                                                    <constraint firstAttribute="width" constant="10" id="y32-fx-NSN"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 Pounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX9-fb-nss">
+                                                <rect key="frame" x="0.0" y="10" width="10" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="chO-w8-toa" userLabel="Dumbbell #2">
+                                        <rect key="frame" x="-10" y="0.0" width="10" height="47.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="Gyb-jn-pIM">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="BhT-4c-NxF"/>
+                                                    <constraint firstAttribute="width" secondItem="Gyb-jn-pIM" secondAttribute="height" multiplier="1:1" id="qLy-jo-O71"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Pounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-ho-ehY">
+                                                <rect key="frame" x="0.0" y="10" width="10" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-rn-wvd" userLabel="Queue">
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="47.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-Uy-L2A">
@@ -474,7 +521,7 @@ Area</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Czq-kF-RH5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Czq-kF-RH5" userLabel="Since...">
                                         <rect key="frame" x="117" y="0.0" width="117" height="47.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-pa-Bqi">
@@ -530,10 +577,12 @@ Area</string>
                         <outlet property="lastCheckinLabel" destination="AVY-pa-Bqi" id="jmn-5U-CuW"/>
                         <outlet property="muscleLabel" destination="zrE-Jf-bmY" id="TBK-uJ-vjN"/>
                         <outlet property="nameLabel" destination="W4n-Pd-4Il" id="GdN-dQ-ofO"/>
+                        <outlet property="oneDumbbellStackView" destination="nJi-tu-Bxi" id="VWu-9c-Yzh"/>
                         <outlet property="queueButton" destination="PBj-df-9du" id="Tyy-0a-s7I"/>
                         <outlet property="queueLabel" destination="sfW-Uy-L2A" id="Nxa-VY-D9g"/>
                         <outlet property="stackView" destination="WBx-W1-8OB" id="Gb4-gp-rBG"/>
                         <outlet property="statusLabel" destination="pwL-ie-A2u" id="vHu-QH-FCw"/>
+                        <outlet property="twoDumbellStackView" destination="chO-w8-toa" id="fIh-zf-KZn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUF-Ko-BoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -784,6 +833,7 @@ Open Source Listing  These applications are under use of the MIT License.</s
     <resources>
         <image name="body" width="144" height="144"/>
         <image name="dumbell" width="162" height="162"/>
+        <image name="green_dot" width="12" height="12"/>
         <image name="machine" width="105" height="105"/>
         <image name="map-1" width="1125" height="2001"/>
         <image name="map-selected" width="19" height="25"/>
