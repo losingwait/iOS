@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7BD1BD5E517E6E4A6B8A4B1D /* Pods_LosingWait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */; };
-		9446C7E7225746F10093554D /* BrowseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C7E6225746F10093554D /* BrowseDetailViewController.swift */; };
+		941D576E225D624200BD796A /* MachineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D576D225D624200BD796A /* MachineCollectionViewCell.swift */; };
+		9446C7E7225746F10093554D /* MachineGroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C7E6225746F10093554D /* MachineGroupDetailViewController.swift */; };
 		94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC5224B3F29003260EC /* MachineGroup.swift */; };
 		CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B072C2224701C0029E71B /* UIView+Utils.swift */; };
 		CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */; };
@@ -87,7 +88,8 @@
 /* Begin PBXFileReference section */
 		1E8C087BA582491148334264 /* Pods-LosingWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.release.xcconfig"; sourceTree = "<group>"; };
 		7F608CB5EAF198A4F09C4F86 /* Pods-LosingWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LosingWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait.debug.xcconfig"; sourceTree = "<group>"; };
-		9446C7E6225746F10093554D /* BrowseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseDetailViewController.swift; sourceTree = "<group>"; };
+		941D576D225D624200BD796A /* MachineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineCollectionViewCell.swift; sourceTree = "<group>"; };
+		9446C7E6225746F10093554D /* MachineGroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineGroupDetailViewController.swift; sourceTree = "<group>"; };
 		94E5BCC5224B3F29003260EC /* MachineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineGroup.swift; sourceTree = "<group>"; };
 		B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LosingWait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1B072C2224701C0029E71B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
@@ -299,7 +301,8 @@
 				CA79D6C5221F61A30055317B /* WorkoutBrowseViewController.swift */,
 				CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */,
 				CA1B0737222480830029E71B /* BannerCollectionViewCell.swift */,
-				9446C7E6225746F10093554D /* BrowseDetailViewController.swift */,
+				9446C7E6225746F10093554D /* MachineGroupDetailViewController.swift */,
+				941D576D225D624200BD796A /* MachineCollectionViewCell.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -480,13 +483,14 @@
 				CA3152D5221F668F00770832 /* WKManager.swift in Sources */,
 				CA1B073E222482610029E71B /* Bannerable.swift in Sources */,
 				CA3152D7221F6D9B00770832 /* Muscle.swift in Sources */,
+				941D576E225D624200BD796A /* MachineCollectionViewCell.swift in Sources */,
 				CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */,
 				CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */,
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
 				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
 				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
-				9446C7E7225746F10093554D /* BrowseDetailViewController.swift in Sources */,
+				9446C7E7225746F10093554D /* MachineGroupDetailViewController.swift in Sources */,
 				CA21E184224971AB00498412 /* WorkoutDetailTableViewCell.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
