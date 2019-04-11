@@ -41,9 +41,7 @@ struct Exercise: Displayable {
         vc.exercise = self
         return vc
     }
-}
-
-extension Exercise {
+    
     var setDescription: String {
         return "\(sets ?? "-") Sets"
     }
@@ -53,6 +51,24 @@ extension Exercise {
             return reps ?? "-"
         } else {
             return "\(reps ?? "-") Sets"
+        }
+    }
+    
+    var similar: [Exercise] {
+        let exercises = WKManager.shared.exercises?.filter( { $0.muscle_id == self.muscle_id && $0.name != self.name }) ?? []
+        return exercises.sorted { (lfs, rhs) -> Bool in
+            return lfs.machineGroup.queue?.count ?? 0 > rhs.machineGroup.queue?.count ?? 0
+        }
+    }
+    
+    var machineGroup: MachineGroup {
+        return WKManager.shared.machine_groups!.filter({ $0.id == machine_group_id ?? "" }).first!
+    }
+    
+    func machines(completion: @escaping ([Machine]) -> ()) {
+        WKManager.shared.getMachines { machines in
+            let matchingMachines = machines.filter({ $0.machine_group_id == self.machine_group_id })
+            completion(matchingMachines)
         }
     }
 }

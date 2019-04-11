@@ -22,6 +22,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint!
     
     var workout: Workout?
     var exercise: Exercise?
@@ -33,25 +34,17 @@ class ActiveWorkoutViewController: UIViewController {
     var timer: Timer?
     var timeElapsed: TimeInterval = 0
     
-    var _paused = false
-    var paused : Bool {
-        set {
-            _paused = newValue
-            updatePopupItem()
-        } get {
-            return _paused
+    var paused : Bool = false {
+        didSet {
+            updatePopupItem(currentIndex: manager.currentExerciseIdx)
         }
     }
     
-    var _idx: Int = 0
-    var currentExerciseIdx: Int {
-        set {
-            _idx = newValue
-            updatePopupItem()
-        } get {
-            return _idx
-        }
-    }
+    lazy var manager: ActiveWorkoutTableManager = {
+        let manager = ActiveWorkoutTableManager(workout: workout, exercise: exercise)
+        manager.popupDelegate = self
+        return manager
+    }()
     
     lazy var pauseItem: UIBarButtonItem = {
         UIBarButtonItem(image: #imageLiteral(resourceName: "pause-mini"), style: .plain, target: self, action: #selector(togglePause))
@@ -69,15 +62,14 @@ class ActiveWorkoutViewController: UIViewController {
         UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: #selector(next(_:)))
     }()
     
-    var collapsedSections: [Int] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        alternatesTableView.dataSource = self
-        alternatesTableView.delegate = self
+        alternatesTableView.dataSource = manager
+        alternatesTableView.delegate = manager
         alternatesTableView?.sectionHeaderHeight = 55
         alternatesTableView?.register(ExpandableTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: ExpandableTableHeaderView.identifier)
+        stackViewHeightConstraint.constant = CGFloat((workout?.exercises.count ?? 0 + 2) * 55)
         
         configurePopupItem()
 
@@ -90,7 +82,6 @@ class ActiveWorkoutViewController: UIViewController {
         }
         
         favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
-        
         NotificationCenter.default.addObserver(self, selector: #selector(videoFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
@@ -133,11 +124,11 @@ class ActiveWorkoutViewController: UIViewController {
     }
     
     @IBAction func previous(_ sender: Any) {
-        if currentExerciseIdx != 0 {
-            currentExerciseIdx -= 1
+        if manager.currentExerciseIdx != 0 {
+            manager.currentExerciseIdx -= 1
         }
         
-        setActive(exercise: workout?.exercises[currentExerciseIdx])
+        setActive(exercise: workout?.exercises[manager.currentExerciseIdx])
         alternatesTableView.reloadData()
     }
     
@@ -147,6 +138,10 @@ class ActiveWorkoutViewController: UIViewController {
     
     @IBAction func favoritePressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func locationPressed(_ sender: Any) {
+        
     }
     
     @IBAction func replayPressed(_ sender: Any) {
@@ -161,11 +156,11 @@ class ActiveWorkoutViewController: UIViewController {
             return
         }
         
-        if currentExerciseIdx != exercises.count - 1 {
-            currentExerciseIdx += 1
+        if manager.currentExerciseIdx != exercises.count - 1 {
+            manager.currentExerciseIdx += 1
         }
         
-        setActive(exercise: workout?.exercises[currentExerciseIdx])
+        setActive(exercise: workout?.exercises[manager.currentExerciseIdx])
         alternatesTableView.reloadData()
     }
 }
@@ -216,17 +211,7 @@ extension ActiveWorkoutViewController {
             popupItem.rightBarButtonItems = [backItem, pauseItem, nextItem]
         }
 
-        updatePopupItem()
-    }
-    
-    func updatePopupItem() {
-        if workout == nil {
-            popupItem.title = exercise?.name
-        } else {
-            let currentExercise = workout?.exercises[currentExerciseIdx]
-            popupItem.title = currentExercise?.name
-            popupItem.subtitle = workout?.name
-        }
+        updatePopupItem(currentIndex: manager.currentExerciseIdx)
     }
     
     func playVideo(with url: URL) {
@@ -281,83 +266,22 @@ extension ActiveWorkoutViewController {
     }
 }
 
-extension ActiveWorkoutViewController: HeaderViewDelegate {
-    func toggleSection(header: ExpandableTableHeaderView, section: Int) {
-        if collapsedSections.contains(section) {
-            collapsedSections.remove(at: collapsedSections.index(of: section)!)
+extension ActiveWorkoutViewController: PopupUpdater {
+    
+    func updatePopupItem(currentIndex: Int) {
+        if workout == nil {
+            popupItem.title = exercise?.name
         } else {
-            collapsedSections.append(section)
+            let currentExercise = workout?.exercises[currentIndex]
+            popupItem.title = currentExercise?.name
+            popupItem.subtitle = workout?.name
         }
-        
+    }
+    
+    func updateTableViewHeight(numRows: Int, refreshSection: IndexSet) {
         alternatesTableView.beginUpdates()
-        alternatesTableView.reloadSections([section], with: .fade)
+        stackViewHeightConstraint.constant = CGFloat(55 * numRows)
+        alternatesTableView.reloadSections(refreshSection, with: .fade)
         alternatesTableView.endUpdates()
-    }
-}
-
-extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ExerciseTableViewCell.height
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ExpandableTableHeaderView.identifier) as? ExpandableTableHeaderView {
-            guard let exercise = workout?.exercises[currentExerciseIdx + section + 1],
-                let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
-                    return UIView()
-            }
-            headerView.configure(with: targetExercise, index: section)
-            headerView.repLabel.text = exercise.repDescription
-            headerView.setLabel.text = exercise.setDescription
-            headerView.section = section
-            headerView.delegate = self
-            return headerView
-        }
-    
-        return UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        currentExerciseIdx += indexPath.row + 1
-        guard let selectedExercise = workout?.exercises[currentExerciseIdx] else {
-            return
-        }
-        
-        setActive(exercise: selectedExercise)
-       
-        tableView.reloadData()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        let sectionCnt = (workout?.exercises.count ?? 0) - currentExerciseIdx - 1
-        return max(0, sectionCnt)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if collapsedSections.contains(section) {
-            // Number of alternate exercises
-            return 1
-        } else {
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseTableViewCell.identifier, for: indexPath) as? ExerciseTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        guard let exercise = workout?.exercises[currentExerciseIdx + indexPath.row + 1],
-            let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
-            return UITableViewCell()
-        }
-        
-        cell.configure(with: targetExercise, isCurrentWorkout: true, index: indexPath)
-        cell.repLabel.text = exercise.repDescription
-        cell.setLabel.text = exercise.setDescription
-        return cell
     }
 }

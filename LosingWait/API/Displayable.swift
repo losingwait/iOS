@@ -10,4 +10,5 @@ import Foundation
 
 protocol Displayable {
     var name: String { get }
+    var id: String { get }
 }
