@@ -22,6 +22,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint!
     
     var workout: Workout?
     var exercise: Exercise?
@@ -69,7 +70,7 @@ class ActiveWorkoutViewController: UIViewController {
         UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: #selector(next(_:)))
     }()
     
-    var collapsedSections: [Int] = []
+    var expandedSections: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,7 @@ class ActiveWorkoutViewController: UIViewController {
         alternatesTableView.delegate = self
         alternatesTableView?.sectionHeaderHeight = 55
         alternatesTableView?.register(ExpandableTableHeaderView.nib, forHeaderFooterViewReuseIdentifier: ExpandableTableHeaderView.identifier)
+        stackViewHeightConstraint.constant = CGFloat((workout?.exercises.count ?? 0 + 2) * 55)
         
         configurePopupItem()
 
@@ -90,7 +92,6 @@ class ActiveWorkoutViewController: UIViewController {
         }
         
         favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
-        
         NotificationCenter.default.addObserver(self, selector: #selector(videoFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
@@ -283,13 +284,21 @@ extension ActiveWorkoutViewController {
 
 extension ActiveWorkoutViewController: HeaderViewDelegate {
     func toggleSection(header: ExpandableTableHeaderView, section: Int) {
-        if collapsedSections.contains(section) {
-            collapsedSections.remove(at: collapsedSections.index(of: section)!)
+        var numRows = workout?.exercises.count ?? 0 + 2
+        
+        if expandedSections.contains(section) {
+            expandedSections.remove(at: expandedSections.index(of: section)!)
         } else {
-            collapsedSections.append(section)
+            expandedSections.append(section)
+            
+            if let exercise = workout?.exercises[currentExerciseIdx + section + 1],
+                let targetExercise = WKManager.shared.exercises?.filter({ $0.name == exercise.name }).first {
+                numRows += targetExercise.similar.count
+            }
         }
         
         alternatesTableView.beginUpdates()
+        stackViewHeightConstraint.constant = CGFloat(55 * numRows)
         alternatesTableView.reloadSections([section], with: .fade)
         alternatesTableView.endUpdates()
     }
@@ -321,14 +330,17 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        currentExerciseIdx += indexPath.row + 1
-        guard let selectedExercise = workout?.exercises[currentExerciseIdx] else {
-            return
+        guard let originalExercise = workout?.exercises[currentExerciseIdx + indexPath.section + 1],
+            let targetExercise = WKManager.shared.exercises?.filter( {$0.name == originalExercise.name }).first else {
+                return
         }
         
-        setActive(exercise: selectedExercise)
-       
-        tableView.reloadData()
+        let alternateSelectedExercise = targetExercise.similar[indexPath.row]
+        workout?.exercises[currentExerciseIdx + indexPath.section + 1] = alternateSelectedExercise
+        
+        let targetIndexSet: IndexSet = [indexPath.section]
+        expandedSections.remove(at: expandedSections.index(of: indexPath.section)!)
+        tableView.reloadSections(targetIndexSet, with: UITableView.RowAnimation.fade)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -337,9 +349,12 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if collapsedSections.contains(section) {
-            // Number of alternate exercises
-            return 1
+        if expandedSections.contains(section) {
+            guard let exercise = workout?.exercises[currentExerciseIdx + section + 1],
+                let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
+                    return 0
+            }
+            return targetExercise.similar.count
         } else {
             return 0
         }
@@ -350,14 +365,13 @@ extension ActiveWorkoutViewController: UITableViewDataSource, UITableViewDelegat
             return UITableViewCell()
         }
         
-        guard let exercise = workout?.exercises[currentExerciseIdx + indexPath.row + 1],
-            let targetExercise = WKManager.shared.exercises?.filter( {$0.name == exercise.name }).first else {
+        guard let originalExercise = workout?.exercises[currentExerciseIdx + indexPath.section + 1],
+            let targetExercise = WKManager.shared.exercises?.filter( {$0.name == originalExercise.name }).first else {
             return UITableViewCell()
         }
         
-        cell.configure(with: targetExercise, isCurrentWorkout: true, index: indexPath)
-        cell.repLabel.text = exercise.repDescription
-        cell.setLabel.text = exercise.setDescription
+        let exercise = targetExercise.similar[indexPath.row]
+        cell.configure(with: exercise, isCurrentWorkout: true, index: indexPath)
         return cell
     }
 }

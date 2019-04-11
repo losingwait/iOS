@@ -230,6 +230,10 @@
                                             <constraint firstAttribute="trailing" secondItem="Usq-uq-qPa" secondAttribute="trailing" constant="12" id="Np2-cb-Pi0"/>
                                         </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4h-Yy-dZf">
+                                        <rect key="frame" x="0.0" y="902" width="375" height="600"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9P2-cM-Eek">
                                         <rect key="frame" x="0.0" y="902" width="375" height="500"/>
                                         <subviews>
@@ -339,17 +343,21 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9P2-cM-Eek" secondAttribute="trailing" id="A8J-En-THY"/>
+                                    <constraint firstItem="V4h-Yy-dZf" firstAttribute="leading" secondItem="pTb-wc-6SM" secondAttribute="leading" id="Brj-qr-N1F"/>
                                     <constraint firstItem="BuQ-pU-zGA" firstAttribute="width" secondItem="pTb-wc-6SM" secondAttribute="width" multiplier="0.1" id="I4W-il-vvf"/>
                                     <constraint firstItem="d3E-KM-ndi" firstAttribute="width" secondItem="pTb-wc-6SM" secondAttribute="width" id="MBd-e2-5J0"/>
                                     <constraint firstAttribute="trailing" secondItem="mO0-HQ-tj0" secondAttribute="trailing" id="R2Q-bi-Ojg"/>
+                                    <constraint firstAttribute="trailing" secondItem="V4h-Yy-dZf" secondAttribute="trailing" id="Ryk-lH-zbo"/>
                                     <constraint firstItem="mO0-HQ-tj0" firstAttribute="leading" secondItem="pTb-wc-6SM" secondAttribute="leading" id="bUk-ek-PiM"/>
                                     <constraint firstItem="9P2-cM-Eek" firstAttribute="top" secondItem="mO0-HQ-tj0" secondAttribute="bottom" constant="50" id="bYo-IQ-Bfe"/>
                                     <constraint firstItem="mO0-HQ-tj0" firstAttribute="top" secondItem="pTb-wc-6SM" secondAttribute="top" constant="60" id="bm3-zi-Url"/>
-                                    <constraint firstAttribute="bottom" secondItem="9P2-cM-Eek" secondAttribute="bottom" constant="12" id="cEb-mg-Oby"/>
+                                    <constraint firstAttribute="bottom" secondItem="9P2-cM-Eek" secondAttribute="bottom" id="cEb-mg-Oby"/>
+                                    <constraint firstItem="V4h-Yy-dZf" firstAttribute="top" secondItem="9P2-cM-Eek" secondAttribute="top" id="gO1-le-uhE"/>
                                     <constraint firstItem="Kqe-4I-44G" firstAttribute="width" secondItem="pTb-wc-6SM" secondAttribute="width" id="iRn-kC-gln"/>
                                     <constraint firstItem="Zej-TW-aUf" firstAttribute="width" secondItem="pTb-wc-6SM" secondAttribute="width" multiplier="0.9" id="m7o-Nf-nlb"/>
                                     <constraint firstItem="mO0-HQ-tj0" firstAttribute="centerX" secondItem="pTb-wc-6SM" secondAttribute="centerX" id="qaG-oj-Lgf"/>
                                     <constraint firstItem="9P2-cM-Eek" firstAttribute="leading" secondItem="pTb-wc-6SM" secondAttribute="leading" id="tLf-Ba-v45"/>
+                                    <constraint firstItem="V4h-Yy-dZf" firstAttribute="height" secondItem="9P2-cM-Eek" secondAttribute="height" multiplier="1.2" id="wwu-Ky-FpM"/>
                                     <constraint firstItem="uJW-SC-TZv" firstAttribute="width" secondItem="pTb-wc-6SM" secondAttribute="width" multiplier="0.8" id="xGq-2J-Vdh"/>
                                 </constraints>
                             </scrollView>
@@ -373,6 +381,7 @@
                         <outlet property="replayButton" destination="Mpl-Zo-5w8" id="W8i-JC-Ibd"/>
                         <outlet property="repsLabel" destination="g6a-UC-1nc" id="wHZ-uE-Gxa"/>
                         <outlet property="setsLabel" destination="ZVE-zZ-R6h" id="aup-KZ-IUS"/>
+                        <outlet property="stackViewHeightConstraint" destination="fGy-rh-idm" id="jIo-QU-2f6"/>
                         <outlet property="videoView" destination="uJW-SC-TZv" id="UtC-Zv-Phd"/>
                         <outlet property="workoutLabel" destination="ssN-Qa-lSe" id="UWg-UF-bff"/>
                     </connections>

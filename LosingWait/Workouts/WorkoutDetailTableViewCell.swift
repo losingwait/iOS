@@ -30,10 +30,10 @@ class ExerciseTableViewCell: UITableViewCell {
             availabilityLabel.backgroundColor = .lightGray
             if let queue = machineGroup.queue, queue.count > 0 {
                 availabilityLabel.text = "Occupied"
-                availabilityLabel.backgroundColor = #colorLiteral(red: 1, green: 0.1764705882, blue: 0.3333333333, alpha: 1)
+                availabilityLabel.backgroundColor = MachineStatus.occupied.color
             } else {
                 availabilityLabel.text = "Available"
-                availabilityLabel.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1)
+                availabilityLabel.backgroundColor = MachineStatus.open.color
             }
         } else {
             numberLabel.isHidden = false

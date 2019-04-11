@@ -646,7 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BHZ8BSJQW;
+				DEVELOPMENT_TEAM = 7J57M62A98;
 				INFOPLIST_FILE = LosingWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,7 +667,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2BHZ8BSJQW;
+				DEVELOPMENT_TEAM = 7J57M62A98;
 				INFOPLIST_FILE = LosingWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
