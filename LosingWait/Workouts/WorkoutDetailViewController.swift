@@ -17,6 +17,7 @@ class WorkoutDetailViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var addedButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var unfavoriteButton: UIButton!
     
     var workout: Workout!
     
@@ -33,6 +34,7 @@ class WorkoutDetailViewController: UIViewController {
         let isFavorite = UserDefaults.standard.favoriteWorkouts.contains(workout)
         favoriteButton.isHidden = isFavorite
         addedButton.isHidden = !isFavorite
+        unfavoriteButton.isHidden = !isFavorite
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +46,17 @@ class WorkoutDetailViewController: UIViewController {
         UserDefaults.standard.favorite(workout: workout)
         favoriteButton.isHidden = true
         addedButton.isHidden = false
+        unfavoriteButton.isHidden = false
     }
+    
+    @IBAction func unfavoriteWorkout(_ sender: Any) {
+        UserDefaults.standard.unfavorite(workout: workout)
+        favoriteButton.isHidden = false
+        addedButton.isHidden = true
+        unfavoriteButton.isHidden = true
+    }
+    
+    
     
     @IBAction func startWorkout(_ sender: Any) {
         let vc = workout.viewController

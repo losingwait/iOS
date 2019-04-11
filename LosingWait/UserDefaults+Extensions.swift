@@ -48,4 +48,18 @@ extension UserDefaults {
         let workoutIDs = newWorkouts.map({ $0.id} )
         set(workoutIDs, forKey: UserDefaults.favorite_workouts)
     }
+    
+    func unfavorite(workout: Workout) {
+        var currWorkouts = favoriteWorkouts
+        currWorkouts.removeAll(where: {$0.id == workout.id})
+        let workoutIDs = currWorkouts.map({ $0.id} )
+        set(workoutIDs, forKey: UserDefaults.favorite_workouts)
+    }
+    
+    func unfavorite(exercise: Exercise) {
+        var currExercises = favoriteExercises
+        currExercises.removeAll(where: {$0.id == exercise.id})
+        let exerciseIDs = currExercises.map({ $0.id} )
+        set(exerciseIDs, forKey: UserDefaults.favorite_exercises)
+    }
 }
