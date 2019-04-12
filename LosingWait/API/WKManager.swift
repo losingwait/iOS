@@ -94,6 +94,32 @@ class WKManager {
         }
     }
     
+    func getUserStatus(completion: @escaping (String) -> ()) {
+        let myID = UserDefaults.standard.string(forKey: "id") ?? ""
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/user_id/\(myID)")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]],
+                let machineID = json.first?.value["machine_id"] as? String else {
+                    return
+            }
+            
+            completion(machineID)
+        }
+    }
+    
     func populateMachines(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/machines/all/all")!
         

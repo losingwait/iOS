@@ -37,15 +37,35 @@ class MapPopoverViewController: UIViewController {
         }
     }
     
-    // setter and getter for toggling the get in queue button
-    var _inQueue: Bool?
-    var inQueue: Bool {
-        set {
-            _inQueue = newValue
-            queueButton.setTitle(newValue ? "Leave queue" : "Get in queue", for: UIButton.State.normal)
-            queueButton.setTitleColor(newValue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: UIButton.State.normal)
-        } get {
-            return _inQueue ?? false
+    // didSet for toggling the get in queue button
+    var inQueue: Bool = false {
+        didSet {
+            queueButton.setTitle(inQueue ? "Leave queue" : "Get in queue", for: .normal)
+            queueButton.setTitleColor(inQueue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: .normal)
+        }
+    }
+    
+    var queueCount: Int = 0 {
+        didSet {
+            queueLabel.text = "0"
+            
+            if queueCount == 0 {
+                userOwnsStation = false
+            }
+        }
+    }
+    
+    var userOwnsStation: Bool = false {
+        didSet {
+            if userOwnsStation {
+                queueButton.setTitle("Check out in station", for: .normal)
+                queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+            } else {
+                queueButton.setTitle("Station Available", for: .normal)
+                queueButton.setTitleColor(#colorLiteral(red: 0.2667426467, green: 0.5628252625, blue: 0.9620206952, alpha: 1), for: .normal)
+            }
+            queueButton.backgroundColor = .white
+            queueButton.isEnabled = false
         }
     }
     
@@ -67,7 +87,6 @@ class MapPopoverViewController: UIViewController {
             // reconfigure so that you can see accurate queue status
             self.configure(for: self.machineName)
         })
-        
     }
     
     func updateUserToQueue(alreadyInQueue: Bool, completion: @escaping (Bool) -> ()) -> () {
@@ -111,7 +130,6 @@ class MapPopoverViewController: UIViewController {
         let newlineStripped = name.components(separatedBy: .whitespacesAndNewlines).filter( {$0.count != 0 }).joined(separator: " ")
         nameLabel.text = newlineStripped
         
-        
         if newlineStripped == "Dumbbell Rack" {
             _ = stackView.arrangedSubviews.map({ if !$0.isHidden { $0.isHidden = true } })
             muscleLabel.isHidden = true
@@ -133,6 +151,7 @@ extension MapPopoverViewController {
     }
     
     func updateStatus(for machineName: String) {
+        
         WKManager.shared.getMachineGroups { ok in
             guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(machineName) || machineName.contains($0.name) }).first else {
                 self.queueLabel.text = "?"
@@ -140,19 +159,29 @@ extension MapPopoverViewController {
             }
             self.thisMachineGroup = targetGroup
             
-            if let queue = targetGroup.queue {
-                self.queueLabel.text = "\(queue.count)"
-                guard let id: String = UserDefaults.standard.string(forKey: "id") else {
-                    fatalError("User not logged in. Need User ID")
-                }
+            let queue = targetGroup.queue ?? []
+            self.queueCount = queue.count
+            
+            let id = UserDefaults.standard.string(forKey: "id")!
+            
+            if self.queueCount != 0 {
                 self.inQueue = queue.contains(id) ? true : false
-            } else {
-                self.queueLabel.text = "0"
-                self.inQueue = false
             }
         }
-        
+    
         WKManager.shared.getMachines { machines in
+            
+            WKManager.shared.getUserStatus(completion: { machineID in
+                guard let currentUserMachine = machines.filter({ $0._id == machineID }).first else {
+                    return
+                }
+                
+                if currentUserMachine.machine_group_id == self.thisMachineGroup?.id {
+                    self.userOwnsStation = true
+                }
+            })
+            
+            
             guard let targetMachine = machines.filter({ $0.name.contains(machineName) }).first else {
                 return
             }
