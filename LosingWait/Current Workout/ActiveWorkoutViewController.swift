@@ -18,6 +18,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var setsLabel: UILabel!
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
+    @IBOutlet weak var userLocationButton: UIButton!
     
     @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -92,6 +93,8 @@ class ActiveWorkoutViewController: UIViewController {
             player?.play()
             createTimer()
         }
+        
+        updateUserLocation()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -139,7 +142,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBAction func favoritePressed(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
-    
+
     @IBAction func locationPressed(_ sender: Any) {
         
     }
@@ -277,6 +280,18 @@ extension ActiveWorkoutViewController: PopupUpdater {
             let currentExercise = workout?.exercises[currentIndex]
             popupItem.title = currentExercise?.name
             popupItem.subtitle = workout?.name
+        }
+    }
+    
+    func updateUserLocation() {
+        WKManager.shared.getUserStatus { machineID in
+            guard let id = machineID,
+                let userMachine = WKManager.shared.machines?.filter({ $0._id == id }).first  else {
+                self.userLocationButton.isHidden = true
+                return
+            }
+            self.userLocationButton.isHidden = false
+            self.userLocationButton.setTitle(userMachine.name, for: .normal)
         }
     }
     

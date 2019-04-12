@@ -13,9 +13,9 @@ class WKManager {
     static let shared = WKManager()
     var muscles: [Muscle]?
     var machine_groups: [MachineGroup]?
+    var machines: [Machine]?
     var workouts: [Workout]?
     var exercises: [Exercise]?
-    var equipment: [Machine]?
     
     func getMuscles(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
@@ -90,11 +90,13 @@ class WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Machine.init))
+            
+            self.machines = results.compactMap(Machine.init)
+            completion(self.machines!)
         }
     }
     
-    func getUserStatus(completion: @escaping (String) -> ()) {
+    func getUserStatus(completion: @escaping (String?) -> ()) {
         let myID = UserDefaults.standard.string(forKey: "id") ?? ""
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/user_id/\(myID)")!
         
@@ -113,39 +115,14 @@ class WKManager {
             
             guard let json = response.value as? [String : [String : Any]],
                 let machineID = json.first?.value["machine_id"] as? String else {
+                    completion(nil)
                     return
             }
             
             completion(machineID)
         }
     }
-    
-    func populateMachines(completion: @escaping (Bool) -> ()) {
-        let endpoint = URL(string: "https://losing-wait.herokuapp.com/machines/all/all")!
-        
-        let headers: HTTPHeaders = [
-            "Accept": "application/json"
-        ]
-        
-        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-            case .failure(let error):
-                BannerNotification.fatalError(msg: "Could not access server").show()
-                print(error)
-            }
-            
-            guard let json = response.value as? [String : [String : Any]] else { return }
-            var results = Array<Dictionary<String, Any>>()
-            for(_, value) in json {
-                results.append(value)
-            }
-            self.equipment = results.compactMap(Machine.init)
-            completion(true)
-        }
-    }
-    
+
     func getWorkouts(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
         

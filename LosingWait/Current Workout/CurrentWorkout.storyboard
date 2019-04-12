@@ -27,7 +27,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJW-SC-TZv" userLabel="Video View">
                                                 <rect key="frame" x="37.5" y="0.0" width="300" height="300"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpl-Zo-5w8">
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpl-Zo-5w8">
                                                         <rect key="frame" x="90" y="90" width="120" height="120"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Mpl-Zo-5w8" secondAttribute="height" multiplier="1:1" id="r2M-FC-Oo8"/>
@@ -164,12 +164,12 @@
                                                                 <rect key="frame" x="32" y="0.0" width="100" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                 <state key="normal" title="Bench Press 1"/>
+                                                                <connections>
+                                                                    <action selector="locationPressed:" destination="Z2e-PH-k7Y" eventType="touchUpInside" id="FsH-tk-jqC"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <gestureRecognizers/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="LJa-IZ-lXg" appends="YES" id="qq6-F4-We0"/>
-                                                        </connections>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -386,6 +386,7 @@
                         <outlet property="repsLabel" destination="g6a-UC-1nc" id="wHZ-uE-Gxa"/>
                         <outlet property="setsLabel" destination="ZVE-zZ-R6h" id="aup-KZ-IUS"/>
                         <outlet property="stackViewHeightConstraint" destination="fGy-rh-idm" id="jIo-QU-2f6"/>
+                        <outlet property="userLocationButton" destination="jcW-YT-qH6" id="ikj-8c-96H"/>
                         <outlet property="videoView" destination="uJW-SC-TZv" id="UtC-Zv-Phd"/>
                         <outlet property="workoutLabel" destination="ssN-Qa-lSe" id="UWg-UF-bff"/>
                     </connections>
@@ -394,11 +395,6 @@
                 <tapGestureRecognizer id="l78-UJ-bbo">
                     <connections>
                         <action selector="videoTapped:" destination="Z2e-PH-k7Y" id="kgn-Z9-i2k"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="LJa-IZ-lXg">
-                    <connections>
-                        <action selector="locationPressed:" destination="Z2e-PH-k7Y" id="3mw-Xo-znw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

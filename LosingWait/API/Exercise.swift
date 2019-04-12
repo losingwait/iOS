@@ -50,7 +50,7 @@ struct Exercise: Displayable {
         if reps == "To Failure" {
             return reps ?? "-"
         } else {
-            return "\(reps ?? "-") Sets"
+            return "\(reps ?? "-") Reps"
         }
     }
     
