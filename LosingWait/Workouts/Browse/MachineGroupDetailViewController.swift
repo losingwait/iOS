@@ -23,6 +23,7 @@ class MachineGroupDetailViewController: UIViewController, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         title = group?.name
+        WKManager.shared.getMachines { finished in print("updated machines") }
         machinesInGroup = WKManager.shared.machines?.filter{$0.machine_group_id == group?.id}
         exercisesForMachine = WKManager.shared.exercises?.filter{$0.machine_group_id == group?.id}
     }
