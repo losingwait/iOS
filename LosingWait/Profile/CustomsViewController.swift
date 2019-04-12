@@ -38,11 +38,15 @@ class CustomsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addCustomSegue" {
-            guard let vc = segue.destination as? AddCustomViewController else {
+            guard let vc = segue.destination as? UINavigationController else {
+                fatalError("Expected UINavigationController")
+            }
+            
+            guard let childVC = vc.children.first as? AddCustomViewController else {
                 fatalError("Expected AddCustomViewController")
             }
             
-            vc.category = self.category
+            childVC.category = self.category
         }
     }
     

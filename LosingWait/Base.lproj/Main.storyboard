@@ -851,7 +851,7 @@ Area</string>
                     <navigationItem key="navigationItem" title="Title" id="ayA-7F-DgE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LzT-M0-6T4">
                             <connections>
-                                <segue destination="fRp-QX-SOn" kind="presentation" id="vgu-Va-Y1o"/>
+                                <segue destination="fRp-QX-SOn" kind="presentation" identifier="addCustomSegue" id="vgu-Va-Y1o"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

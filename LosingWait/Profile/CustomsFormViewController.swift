@@ -58,22 +58,22 @@ class CustomsFormViewController: FormViewController {
                     }
                     
                 +++ MultivaluedSection(multivaluedOptions: [.Insert, .Delete, .Reorder],
-                                       header: "Add Exercises",
-                                       footer: "") {
-                                        
-                                        var exerciseList: [String] = []
-                                        for item in WKManager.shared.exercises as! [Exercise] {
-                                            exerciseList.append(item.name)
-                                        }
-                                        exerciseList.sort()
-                                        
-                                        $0.tag = "push"
-                                        $0.multivaluedRowToInsertAt = { index in
-                                            return PushRow<String>{
-                                                $0.title = "Tap to select.."
-                                                $0.options = exerciseList
-                                            }
-                                        }
+                       header: "Add Exercises",
+                       footer: "") {
+                        
+                        var exerciseList: [String] = []
+                        for item in WKManager.shared.exercises as! [Exercise] {
+                            exerciseList.append(item.name)
+                        }
+                        exerciseList.sort()
+                        
+                        $0.tag = "push"
+                        $0.multivaluedRowToInsertAt = { index in
+                            return PushRow<String>{
+                                $0.title = "Tap to select.."
+                                $0.options = exerciseList
+                            }
+                        }
                                         
                     }
             }
