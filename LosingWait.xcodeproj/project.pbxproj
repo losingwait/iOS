@@ -12,6 +12,8 @@
 		9446C7E7225746F10093554D /* MachineGroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C7E6225746F10093554D /* MachineGroupDetailViewController.swift */; };
 		94E5BCC6224B3F29003260EC /* MachineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5BCC5224B3F29003260EC /* MachineGroup.swift */; };
 		C9D0C4DB225EE7890046AF7B /* CustomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */; };
+		C9D0C4DE225F93790046AF7B /* AddCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */; };
+		C9D0C4E3226027B20046AF7B /* CustomsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */; };
 		CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B072C2224701C0029E71B /* UIView+Utils.swift */; };
 		CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */; };
 		CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */; };
@@ -95,6 +97,8 @@
 		94E5BCC5224B3F29003260EC /* MachineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineGroup.swift; sourceTree = "<group>"; };
 		B4B760BA2E83558D80EEBEC2 /* Pods_LosingWait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LosingWait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomsViewController.swift; sourceTree = "<group>"; };
+		C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomViewController.swift; sourceTree = "<group>"; };
+		C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomsFormViewController.swift; sourceTree = "<group>"; };
 		CA1B072C2224701C0029E71B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentWorkout.storyboard; sourceTree = "<group>"; };
 		CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseListViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 			children = (
 				CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */,
 				C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */,
+				C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */,
+				C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -436,26 +442,26 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -468,6 +474,7 @@
 				CA79D6C8221F63B80055317B /* Injectable.swift in Sources */,
 				CA77C4A92256D55400E04EFF /* ExpandableTableHeaderView.swift in Sources */,
 				CA79D6C6221F61A30055317B /* WorkoutBrowseViewController.swift in Sources */,
+				C9D0C4E3226027B20046AF7B /* CustomsFormViewController.swift in Sources */,
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
 				CA4849BB225C3BC2005881FB /* TileCollectionViewController.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
@@ -502,6 +509,7 @@
 				CAF92079225ED7CD0025F4BA /* ActiveWorkoutTableViewDataSource+Delegate.swift in Sources */,
 				CA996567224019E6009BF4F0 /* Displayable.swift in Sources */,
 				CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */,
+				C9D0C4DE225F93790046AF7B /* AddCustomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

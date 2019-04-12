@@ -769,18 +769,27 @@ Area</string>
         <!--Customs View Controller-->
         <scene sceneID="J32-z6-3Zr">
             <objects>
-                <tableViewController id="RAO-ET-Ltd" customClass="CustomsViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Customs View Controller" id="RAO-ET-Ltd" customClass="CustomsViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qx9-S5-qvg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4ia-jp-RiL">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CategoryCell" textLabel="gYc-1I-2Rw" rowHeight="65" style="IBUITableViewCellStyleDefault" id="t90-gh-Ifa">
+                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ia-jp-RiL" id="wO5-zA-yPw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t90-gh-Ifa" id="iIM-mA-vqg">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gYc-1I-2Rw">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -789,10 +798,64 @@ Area</string>
                             <outlet property="delegate" destination="RAO-ET-Ltd" id="G45-hv-dFa"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ayA-7F-DgE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LzT-M0-6T4">
+                            <connections>
+                                <segue destination="fRp-QX-SOn" kind="presentation" id="vgu-Va-Y1o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="had-Yy-dlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="828" y="621"/>
+        </scene>
+        <!--Add Custom View Controller-->
+        <scene sceneID="eOB-q5-QWF">
+            <objects>
+                <viewController id="eTQ-9Z-AmW" customClass="AddCustomViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nAl-yd-zeB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQq-Ud-452">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="IXI-tM-i6F" kind="embed" id="GQp-6a-ydT"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vQq-Ud-452" firstAttribute="leading" secondItem="De5-XU-KTP" secondAttribute="leading" id="88j-M6-orI"/>
+                            <constraint firstItem="De5-XU-KTP" firstAttribute="trailing" secondItem="vQq-Ud-452" secondAttribute="trailing" id="ZI3-SE-6Nf"/>
+                            <constraint firstItem="De5-XU-KTP" firstAttribute="bottom" secondItem="vQq-Ud-452" secondAttribute="bottom" id="ZdL-hN-24J"/>
+                            <constraint firstItem="vQq-Ud-452" firstAttribute="top" secondItem="De5-XU-KTP" secondAttribute="top" id="dT9-in-ASq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="De5-XU-KTP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sX1-ky-GOO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zlc-L6-U3R">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="eTQ-9Z-AmW" id="oW9-yI-HY6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WCT-vk-hhh">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="eTQ-9Z-AmW" id="vcL-wb-Mhp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="zlc-L6-U3R" id="lFd-Rv-zpo"/>
+                        <outlet property="saveButton" destination="WCT-vk-hhh" id="m7O-BC-C6K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0R-rR-avH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2497" y="620"/>
         </scene>
         <!--License-->
         <scene sceneID="Qsg-pQ-89R">
@@ -830,6 +893,39 @@ Open Source Listing  These applications are under use of the MIT License.</s
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCX-ke-2KB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="833" y="1307"/>
+        </scene>
+        <!--Customs Form View Controller-->
+        <scene sceneID="Mgd-ip-Kpv">
+            <objects>
+                <viewController id="IXI-tM-i6F" customClass="CustomsFormViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTl-Oe-0as">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axO-Fe-EDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641" y="1316"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QLt-6Z-OC7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fRp-QX-SOn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pct-0n-znd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eTQ-9Z-AmW" kind="relationship" relationship="rootViewController" id="fx2-TD-Jax"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1c-t7-HSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="9mB-Ma-PkK"/>
+            </objects>
+            <point key="canvasLocation" x="1641" y="622"/>
         </scene>
     </scenes>
     <resources>

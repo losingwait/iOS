@@ -12,6 +12,8 @@ class CustomsViewController: UITableViewController {
 
     var category: String = ""
     var items: [Displayable] = []
+    var exercises: [Exercise] = []
+    var workouts: [Workout] = []
     
     
     override func viewDidLoad() {
@@ -20,10 +22,27 @@ class CustomsViewController: UITableViewController {
         // Do any additional setup after loading the view.
         self.title = category
         
+        guard let id: String = UserDefaults.standard.string(forKey: "id") else {
+            fatalError("User not logged in. Need User ID")
+        }
+        
         if category == "Custom Exercises" {
-            self.items = WKManager.shared.exercises!
+            WKManager.shared.getSingleExercises(completion: { ok in })
+            self.exercises = WKManager.shared.exercises?.filter({ $0.user_id == id }) ?? []
+            
         } else if category == "Custom Workouts" {
-            self.items = WKManager.shared.workouts!
+            self.workouts = WKManager.shared.workouts?.filter({ $0.user_id == id }) ?? []
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addCustomSegue" {
+            guard let vc = segue.destination as? AddCustomViewController else {
+                fatalError("Expected AddCustomViewController")
+            }
+            
+            vc.category = self.category
         }
     }
     
@@ -40,4 +59,17 @@ class CustomsViewController: UITableViewController {
     }
     */
 
+}
+
+extension CustomsViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return category == "Custom Exercises" ? exercises.count : workouts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        cell.textLabel?.text = category == "Custom Exercises" ? exercises[indexPath.row].name : workouts[indexPath.row].name
+        return cell
+    }
 }
