@@ -99,6 +99,8 @@ class ActiveWorkoutTableManager: NSObject, UITableViewDataSource, UITableViewDel
         
         let exercise = targetExercise.similar[indexPath.row]
         cell.configure(with: exercise, isCurrentWorkout: true, index: indexPath)
+        cell.repLabel.isHidden = true
+        cell.setLabel.isHidden = true
         return cell
     }
     

@@ -106,7 +106,6 @@ extension WorkoutDetailViewController: UITableViewDelegate {
         
         let vc = targetExercise.viewController
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
-        tabBarController?.popupBar.imageView.layer.cornerRadius = 5
         tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
     }
 }

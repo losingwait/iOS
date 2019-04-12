@@ -76,12 +76,19 @@ extension WorkoutBrowseViewController: UICollectionViewDataSource {
 extension WorkoutBrowseViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+//        collectionView.deselectItem(at: indexPath, animated: true)
         let workout = WKManager.shared.workouts![indexPath.item]
-        let vc = workout.viewController
+//        let vc = workout.viewController
+//
+//        tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
+//        tabBarController?.popupBar.imageView.layer.cornerRadius = 5
+//        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
         
-        tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
-        tabBarController?.popupBar.imageView.layer.cornerRadius = 5
-        tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
+        let workoutStoryboard = UIStoryboard(name: "Workouts", bundle: nil)
+        guard let vc = workoutStoryboard.instantiateViewController(withIdentifier: "WorkoutDetailViewController") as? WorkoutDetailViewController else {
+            return
+        }
+        vc.workout = workout
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

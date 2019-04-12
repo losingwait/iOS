@@ -14,14 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         WKManager.shared.getMuscles{finished in print("got muscles")}
         WKManager.shared.getWorkouts{finished in print("got workouts")}
         WKManager.shared.getMachineGroups{finished in print("got machine groups")}
         WKManager.shared.getSingleExercises{finished in print("got single exercises")}
-        WKManager.shared.populateMachines{finished in print("got all machines")}
+        WKManager.shared.getMachines{finished in print("got all machines")}
         
         let defaults = UserDefaults.standard
         let loggedIn = defaults.bool(forKey: "loggedIn")

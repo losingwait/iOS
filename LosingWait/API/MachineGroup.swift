@@ -9,13 +9,11 @@
 struct MachineGroup: Displayable {
     let name: String
     let id: String
-    let location: Int
     var queue: [String]?
     
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String
-        location = response["location"] as! Int
         
         if let queue = response["queue"] as? [String] {
             self.queue = queue

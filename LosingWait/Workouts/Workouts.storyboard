@@ -437,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uwc-sV-Nvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="1219.3403298350825"/>
+            <point key="canvasLocation" x="49" y="1218"/>
         </scene>
         <!--Tile Collection View Controller-->
         <scene sceneID="3pp-7g-LND">
@@ -528,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xaa-qO-Ukl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="1218"/>
+            <point key="canvasLocation" x="886" y="1219"/>
         </scene>
         <!--Workout Browse View Controller-->
         <scene sceneID="YJT-Et-o9c">
@@ -703,12 +703,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uL-8f-MfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="509.59520239880067"/>
+            <point key="canvasLocation" x="886" y="510"/>
         </scene>
         <!--Workout Browse List View Controller-->
         <scene sceneID="sqz-SK-yC5">
             <objects>
-                <tableViewController extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gSF-Ca-uxP" customClass="WorkoutBrowseListViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WorkoutBrowseListViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gSF-Ca-uxP" customClass="WorkoutBrowseListViewController" customModule="LosingWait" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W0F-2H-Mc9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -744,7 +744,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FM-Pu-QWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="510"/>
+            <point key="canvasLocation" x="1682" y="510"/>
         </scene>
         <!--Workout-->
         <scene sceneID="OlJ-ce-ut3">

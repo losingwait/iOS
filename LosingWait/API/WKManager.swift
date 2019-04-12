@@ -13,9 +13,9 @@ class WKManager {
     static let shared = WKManager()
     var muscles: [Muscle]?
     var machine_groups: [MachineGroup]?
+    var machines: [Machine]?
     var workouts: [Workout]?
     var exercises: [Exercise]?
-    var equipment: [Machine]?
     
     func getMuscles(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
@@ -90,12 +90,15 @@ class WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            completion(results.compactMap(Machine.init))
+            
+            self.machines = results.compactMap(Machine.init)
+            completion(self.machines!)
         }
     }
     
-    func populateMachines(completion: @escaping (Bool) -> ()) {
-        let endpoint = URL(string: "https://losing-wait.herokuapp.com/machines/all/all")!
+    func getUserStatus(completion: @escaping (String?) -> ()) {
+        let myID = UserDefaults.standard.string(forKey: "id") ?? ""
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/user_id/\(myID)")!
         
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -110,16 +113,16 @@ class WKManager {
                 print(error)
             }
             
-            guard let json = response.value as? [String : [String : Any]] else { return }
-            var results = Array<Dictionary<String, Any>>()
-            for(_, value) in json {
-                results.append(value)
+            guard let json = response.value as? [String : [String : Any]],
+                let machineID = json.first?.value["machine_id"] as? String else {
+                    completion(nil)
+                    return
             }
-            self.equipment = results.compactMap(Machine.init)
-            completion(true)
+            
+            completion(machineID)
         }
     }
-    
+
     func getWorkouts(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
         
