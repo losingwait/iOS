@@ -58,7 +58,7 @@ class MapPopoverViewController: UIViewController {
     var userOwnsStation: Bool = false {
         didSet {
             if userOwnsStation {
-                queueButton.setTitle("Check out in station", for: .normal)
+                queueButton.setTitle("Check out at station", for: .normal)
                 queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
             } else {
                 queueButton.setTitle("Station Available", for: .normal)

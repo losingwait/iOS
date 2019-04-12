@@ -62,7 +62,8 @@ struct Exercise: Displayable {
     }
     
     var machineGroup: MachineGroup {
-        return WKManager.shared.machine_groups!.filter({ $0.id == machine_group_id ?? "" }).first!
+        let betterSelf = WKManager.shared.exercises!.filter({ $0.name == self.name }).first!
+        return WKManager.shared.machine_groups!.filter({ $0.id == betterSelf.machine_group_id ?? "" }).first!
     }
     
     func machines(completion: @escaping ([Machine]) -> ()) {

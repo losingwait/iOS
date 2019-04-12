@@ -19,6 +19,7 @@ class ActiveWorkoutViewController: UIViewController {
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var alternatesTableView: UITableView!
     @IBOutlet weak var userLocationButton: UIButton!
+    @IBOutlet weak var locationImageView: UIImageView!
     
     @IBOutlet weak var replayButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -124,6 +125,8 @@ class ActiveWorkoutViewController: UIViewController {
         setsLabel.text = exercise.sets ?? "-"
         repsLabel.text = exercise.reps ?? "-"
         playVideo(with: URL(string: targetExercise.exercise_media!)!)
+        
+        updateUserLocation()
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -286,12 +289,19 @@ extension ActiveWorkoutViewController: PopupUpdater {
     func updateUserLocation() {
         WKManager.shared.getUserStatus { machineID in
             guard let id = machineID,
-                let userMachine = WKManager.shared.machines?.filter({ $0._id == id }).first  else {
-                self.userLocationButton.isHidden = true
+                let userMachine = WKManager.shared.machines?.filter({ $0._id == id }).first else {
+                
+                if let machineGroup = self.workout?.exercises[self.manager.currentExerciseIdx].machineGroup {
+                    self.userLocationButton.setTitle("Go to \(machineGroup.name)", for: .normal)
+                    self.locationImageView.image = #imageLiteral(resourceName: "empty_location")
+                } else {
+                    self.userLocationButton.isHidden = true
+                }
                 return
             }
             self.userLocationButton.isHidden = false
             self.userLocationButton.setTitle(userMachine.name, for: .normal)
+            self.locationImageView.image = #imageLiteral(resourceName: "location")
         }
     }
     
