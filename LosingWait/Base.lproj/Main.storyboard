@@ -324,11 +324,23 @@ Area</string>
                                     <outletCollection property="gestureRecognizers" destination="bVh-gS-wZO" appends="YES" id="HGa-RC-p6z"/>
                                 </connections>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-xE-StX">
+                                <rect key="frame" x="12" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="YwF-CV-EnA"/>
+                                    <constraint firstAttribute="width" secondItem="a0Y-xE-StX" secondAttribute="height" multiplier="1:1" id="ale-wU-Xqs"/>
+                                </constraints>
+                                <state key="normal" image="trend"/>
+                                <connections>
+                                    <action selector="trendPressed:" destination="AxN-IB-XAS" eventType="touchUpInside" id="kdg-9h-KS8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96456772089004517" green="0.9373355507850647" blue="0.88233596086502075" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="UzF-bA-Iv9" firstAttribute="centerY" secondItem="pVd-Xg-7zO" secondAttribute="centerY" multiplier="1.28" id="05I-Mo-LD8"/>
+                            <constraint firstItem="a0Y-xE-StX" firstAttribute="leading" secondItem="pwj-JO-nvy" secondAttribute="leading" constant="12" id="14g-27-I6K"/>
                             <constraint firstItem="U3r-pC-kP6" firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" multiplier="0.87" id="3Bn-aV-gHm"/>
                             <constraint firstItem="UzF-bA-Iv9" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leading" constant="20" id="3gy-Os-gdW"/>
                             <constraint firstItem="viV-R5-1qw" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leading" id="600-fI-WWd"/>
@@ -345,6 +357,7 @@ Area</string>
                             <constraint firstItem="Ot0-7U-xcT" firstAttribute="leading" secondItem="pVd-Xg-7zO" secondAttribute="leadingMargin" constant="18" id="W0c-vE-2eP"/>
                             <constraint firstItem="2xe-gJ-kyB" firstAttribute="centerY" secondItem="Czd-Zx-Xff" secondAttribute="centerY" id="WM8-lQ-x2T"/>
                             <constraint firstItem="vBH-om-MxG" firstAttribute="top" secondItem="RsU-9D-82g" secondAttribute="bottom" constant="57" id="ZIm-hE-0XO"/>
+                            <constraint firstItem="a0Y-xE-StX" firstAttribute="top" secondItem="pwj-JO-nvy" secondAttribute="top" constant="8" id="ZSe-Si-huz"/>
                             <constraint firstAttribute="bottom" secondItem="viV-R5-1qw" secondAttribute="bottom" constant="49" id="aLk-a1-Bc0"/>
                             <constraint firstItem="c2v-Ti-FNV" firstAttribute="centerX" secondItem="pwj-JO-nvy" secondAttribute="centerX" multiplier="1.3" id="eWQ-pJ-mFd"/>
                             <constraint firstItem="c2v-Ti-FNV" firstAttribute="centerY" secondItem="UzF-bA-Iv9" secondAttribute="centerY" multiplier="0.9" id="gZ5-sy-B7L"/>
@@ -358,6 +371,7 @@ Area</string>
                     <tabBarItem key="tabBarItem" title="Map" image="map-unselected" selectedImage="map-selected" id="UK9-5b-L2I"/>
                     <connections>
                         <outlet property="mapImageView" destination="viV-R5-1qw" id="grX-3u-8DC"/>
+                        <outlet property="trendButton" destination="a0Y-xE-StX" id="kJV-eU-O3r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHX-5D-DKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -524,13 +538,13 @@ Area</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Czq-kF-RH5" userLabel="Since...">
                                         <rect key="frame" x="117" y="0.0" width="117" height="47.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="20 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-pa-Bqi">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-pa-Bqi">
                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="since last check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ul-LM-3Id">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="since last check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ul-LM-3Id">
                                                 <rect key="frame" x="0.0" y="31.5" width="117" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -989,6 +1003,7 @@ Open Source Listing  These applications are under use of the MIT License.</s
         <image name="profile-selected" width="25" height="25"/>
         <image name="profile-unselected" width="27" height="27"/>
         <image name="rack" width="105" height="100"/>
+        <image name="trend" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qDc-x9-Hnj"/>

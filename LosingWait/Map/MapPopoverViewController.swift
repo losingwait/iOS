@@ -174,7 +174,7 @@ extension MapPopoverViewController {
                         userOwnsMachine = currentUserMachine.machine_group_id == self.thisMachineGroup?.id
                     }
                     
-                    self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine)
+                    self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine, status:targetMachine.in_use)
                 })
                 
                 self.status = targetMachine.in_use
@@ -187,25 +187,22 @@ extension MapPopoverViewController {
 }
 
 extension MapPopoverViewController {
-    func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool) {
+    func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool, status: MachineStatus) {
         if inQueue {
             queueButton.setTitle("Leave queue", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
-        }
-        
-        if userOwnsMachine {
+            
+        } else if userOwnsMachine {
             queueButton.setTitle("Check out at station", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
             queueButton.backgroundColor = .white
             queueButton.isEnabled = false
-        }
-        
-        if queueCount == 0 {
+        } else if queueCount == 0 && status == .open {
             queueButton.setTitle("Station Available", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: .normal)
             queueButton.backgroundColor = .white
             queueButton.isEnabled = false
-        } else if queueCount > 0 {
+        } else {
             queueButton.setTitle("Get in queue", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.2667426467, green: 0.5628252625, blue: 0.9620206952, alpha: 1), for: .normal)
         }
