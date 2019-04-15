@@ -38,20 +38,11 @@ class MapPopoverViewController: UIViewController {
     }
     
     // didSet for toggling the get in queue button
-    var inQueue: Bool = false {
-        didSet {
-            queueButton.setTitle(inQueue ? "Leave queue" : "Get in queue", for: .normal)
-            queueButton.setTitleColor(inQueue ? #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1) : #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: .normal)
-        }
-    }
+    var inQueue: Bool = false
     
     var queueCount: Int = 0 {
         didSet {
             queueLabel.text = "0"
-            
-            if queueCount == 0 {
-                userOwnsStation = false
-            }
         }
     }
     
@@ -162,39 +153,61 @@ extension MapPopoverViewController {
             let queue = targetGroup.queue ?? []
             self.queueCount = queue.count
             
-            let id = UserDefaults.standard.string(forKey: "id")!
-            
-            if self.queueCount != 0 {
-                self.inQueue = queue.contains(id) ? true : false
-            }
-        }
-    
-        WKManager.shared.getMachines { machines in
-            
-            WKManager.shared.getUserStatus(completion: { machineID in
-                guard let currentUserMachine = machines.filter({ $0._id == machineID }).first else {
+            WKManager.shared.getMachines { machines in
+                guard let targetMachine = machines.filter({ $0.name.contains(machineName) }).first else {
                     return
                 }
                 
-                if currentUserMachine.machine_group_id == self.thisMachineGroup?.id {
-                    self.userOwnsStation = true
+                if let muscles = WKManager.shared.muscles,
+                    let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
+                    self.muscleLabel.text = targetMuscle.name
                 }
-            })
-            
-            
-            guard let targetMachine = machines.filter({ $0.name.contains(machineName) }).first else {
-                return
+                
+                let id = UserDefaults.standard.string(forKey: "id")!
+                let userInQueue = queue.contains(id) ? true : false
+                self.inQueue = userInQueue
+
+                WKManager.shared.getUserStatus(completion: { machineID in
+                    var userOwnsMachine = false
+                    
+                    if let currentUserMachine = machines.filter({ $0._id == machineID }).first {
+                        userOwnsMachine = currentUserMachine.machine_group_id == self.thisMachineGroup?.id
+                    }
+                    
+                    self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine)
+                })
+                
+                self.status = targetMachine.in_use
+                self.lastCheckinLabel.text = targetMachine.sinceLastCheckIn
+                self.statusLabel.isHidden = false
+                self.stackView.isHidden = false
             }
-            
-            if let muscles = WKManager.shared.muscles,
-                let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
-                self.muscleLabel.text = targetMuscle.name
-            }
-            
-            self.status = targetMachine.in_use
-            self.lastCheckinLabel.text = targetMachine.sinceLastCheckIn
-            self.statusLabel.isHidden = false
-            self.stackView.isHidden = false
+        }
+    }
+}
+
+extension MapPopoverViewController {
+    func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool) {
+        if inQueue {
+            queueButton.setTitle("Leave queue", for: .normal)
+            queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+        }
+        
+        if userOwnsMachine {
+            queueButton.setTitle("Check out at station", for: .normal)
+            queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+            queueButton.backgroundColor = .white
+            queueButton.isEnabled = false
+        }
+        
+        if queueCount == 0 {
+            queueButton.setTitle("Station Available", for: .normal)
+            queueButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: .normal)
+            queueButton.backgroundColor = .white
+            queueButton.isEnabled = false
+        } else if queueCount > 0 {
+            queueButton.setTitle("Get in queue", for: .normal)
+            queueButton.setTitleColor(#colorLiteral(red: 0.2667426467, green: 0.5628252625, blue: 0.9620206952, alpha: 1), for: .normal)
         }
     }
 }
