@@ -56,8 +56,6 @@ class WorkoutDetailViewController: UIViewController {
         unfavoriteButton.isHidden = true
     }
     
-    
-    
     @IBAction func startWorkout(_ sender: Any) {
         let vc = workout.viewController
         tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)

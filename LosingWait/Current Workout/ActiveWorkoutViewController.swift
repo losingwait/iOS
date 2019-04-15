@@ -143,6 +143,15 @@ class ActiveWorkoutViewController: UIViewController {
     }
     
     @IBAction func favoritePressed(_ sender: UIButton) {
+        if sender.isSelected {
+            if let favoritedExercise = manager.workout?.exercises[manager.currentExerciseIdx] ?? manager.exercise {
+                UserDefaults.standard.unfavorite(exercise: favoritedExercise)
+            }
+        } else {
+            if let newFavoriteExercise = manager.workout?.exercises[manager.currentExerciseIdx] ?? manager.exercise {
+                UserDefaults.standard.favorite(exercise: newFavoriteExercise)
+            }
+        }
         sender.isSelected = !sender.isSelected
     }
 
