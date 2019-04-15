@@ -123,6 +123,33 @@ class WKManager {
         }
     }
 
+    func getGymUserCount(completion: @escaping (Int) -> ()) {
+        let myID = UserDefaults.standard.string(forKey: "id") ?? ""
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else {
+                completion(0)
+                return
+            }
+            
+            completion(json.count)
+        }
+    }
+
+
     func getWorkouts(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
         
@@ -174,4 +201,6 @@ class WKManager {
             completion(true)
         }
     }
+    
+    
 }

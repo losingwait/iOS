@@ -11,7 +11,6 @@ import BLTNBoard
 
 class OccupacyPageItem: BLTNPageItem {
     
-    lazy var countLabel = EFCountingLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 150))
     lazy var barChart: BasicBarChart = {
         let barChart = BasicBarChart()
         let hour = Calendar.current.component(.hour, from: Date())
@@ -28,10 +27,12 @@ class OccupacyPageItem: BLTNPageItem {
         shouldStartWithActivityIndicator = true
     
         presentationHandler = { item in
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                item.manager?.hideActivityIndicator()
-                self.countLabel.countFromZeroTo(CGFloat(userCount), withDuration: 2.0)
-            }
+            WKManager.shared.getGymUserCount(completion: { count in
+                DispatchQueue.main.async {
+                    item.manager?.hideActivityIndicator()
+                    self.descriptionText = "\(count) patrons active"
+                }
+            })
         }
         
         actionHandler = { item in
@@ -40,12 +41,6 @@ class OccupacyPageItem: BLTNPageItem {
         
     }
     override func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
-        countLabel.format = "%d people at the gym"
-        countLabel.method = EFLabelCountingMethod.easeOut
-        countLabel.textColor = .black
-        countLabel.font = UIFont.systemFont(ofSize: 20)
-        countLabel.textAlignment = .center
-        
         NSLayoutConstraint.activate([
             barChart.heightAnchor.constraint(equalToConstant: 150.0)
             ])

@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     
     lazy var bulletinManager: BLTNItemManager = {
         let introPage = OccupacyPageItem(userCount: 10)
+        introPage.appearance.descriptionFontSize = 14
         return BLTNItemManager(rootItem: introPage)
     }()
     

@@ -102,7 +102,7 @@ class BasicBarChart: UIView {
             let textValue = "Live \((currentIndex + 7) % 12) \(currentIndex + 7 < 12 ? "AM" : "PM"):"
             drawTextValue(xPos: xPos - 30.0, yPos: 0, textValue: textValue, color: red)
             
-            drawTextValue(xPos: xPos + 18, yPos: 0, textValue: status, color: .black)
+            drawTextValue(xPos: xPos + 20, yPos: 0, textValue: status, color: .black)
             drawVerticalLine(index: index)
         }
         
@@ -159,8 +159,8 @@ class BasicBarChart: UIView {
         let xPos: CGFloat = space + CGFloat(index) * (barWidth + space) + barWidth / 2
         
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: xPos, y: 120))
-        path.addLine(to: CGPoint(x: xPos, y: scrollView.frame.size.height - bottomSpace))
+        path.move(to: CGPoint(x: xPos, y: 100))
+        path.addLine(to: CGPoint(x: xPos, y: scrollView.frame.size.height - bottomSpace + 25))
         let lineLayer = CAShapeLayer()
         lineLayer.path = path.cgPath
         lineLayer.lineWidth = 0.5
