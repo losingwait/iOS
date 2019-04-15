@@ -71,7 +71,24 @@ class ProfileViewController: UITableViewController, MFMailComposeViewControllerD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
+        if segue.identifier == "customExerciseSegue" {
+            guard let vc = segue.destination as? CustomsViewController else {
+                fatalError("Expected CustomsViewController for segue")
+            }
+            
+            vc.category = "Custom Exercises"
+            
+            
+            
+            
+        } else if segue.identifier == "customWorkoutSegue" {
+            guard let vc = segue.destination as? CustomsViewController else {
+                fatalError("Expected CustomsViewController for segue")
+            }
+            
+            vc.category = "Custom Workouts"
+        }
     }
     
 }

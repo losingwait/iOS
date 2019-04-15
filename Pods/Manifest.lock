@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - Eureka (5.0.0)
   - MarqueeLabel/Swift (3.2.0)
   - NotificationBannerSwift (1.8.0):
     - MarqueeLabel/Swift (~> 3.2.0)
@@ -9,12 +10,14 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Eureka
   - NotificationBannerSwift
   - SkyFloatingLabelTextField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Eureka
     - MarqueeLabel
     - NotificationBannerSwift
     - SkyFloatingLabelTextField
@@ -22,11 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: b4665d18954d89c3755771087a0f52d041daccab
+PODFILE CHECKSUM: c546c100662bb4d1515dd00c3293ff4fced34e81
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

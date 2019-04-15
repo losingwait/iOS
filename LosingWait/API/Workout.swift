@@ -16,6 +16,7 @@ struct Workout: Displayable {
     var exercises: [Exercise]
     let difficulty: String
     let workout_image_url: String
+    let user_id: String?
     
     init(response: [String : Any]) {
         id = response["_id"] as! String
@@ -28,6 +29,7 @@ struct Workout: Displayable {
         for ex in exercises_dict_array {
             exercises.append(Exercise(id: ex["_id"] as! String, name: ex["name"] as! String, reps: ex["reps"] as! String, sets: ex["sets"] as! String))
         }
+        user_id = response["user_id"] as? String
     }
     
     var viewController: ActiveWorkoutViewController {

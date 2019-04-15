@@ -20,12 +20,15 @@ struct Exercise: Displayable {
     var reps: String?
     var sets: String?
     
+    var user_id: String?
+    
     init(response: [String : Any]) {
         id = response["_id"] as! String
         name = response["name"] as! String
         muscle_id = response["muscle_id"] as? String
         machine_group_id = response["machine_group_id"] as? String
         exercise_media = response["exercise_media"] as? String
+        user_id = response["user_id"] as? String
     }
     
     init(id: String, name: String, reps: String, sets: String) {
