@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/xcode,macos
 # Edit at https://www.gitignore.io/?templates=xcode,macos
 
+Pods
 ### macOS ###
 # General
 .DS_Store
