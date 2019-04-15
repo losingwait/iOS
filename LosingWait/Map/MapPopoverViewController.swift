@@ -21,7 +21,12 @@ class MapPopoverViewController: UIViewController {
     @IBOutlet weak var queueButton: UIButton!
     
     @IBOutlet weak var oneDumbbellStackView: UIStackView!
-    @IBOutlet weak var twoDumbellStackView: UIStackView!
+    @IBOutlet weak var twoDumbbellStackView: UIStackView!
+    
+    @IBOutlet weak var oneDumbbellStatusDot: UIImageView!
+    @IBOutlet weak var twoDumbbellStatusDot: UIImageView!
+    
+    @IBOutlet weak var queueButtonTopConstraint: NSLayoutConstraint!
     
     static let identifier = "MapPopoverViewController"
     
@@ -122,12 +127,14 @@ class MapPopoverViewController: UIViewController {
         nameLabel.text = newlineStripped
         
         if newlineStripped == "Dumbbell Rack" {
+            self.preferredContentSize = CGSize(width: 270, height: 120)
             _ = stackView.arrangedSubviews.map({ if !$0.isHidden { $0.isHidden = true } })
             muscleLabel.isHidden = true
             queueButton.isHidden = true
             oneDumbbellStackView.isHidden = false
-            twoDumbellStackView.isHidden = false
+            twoDumbbellStackView.isHidden = false
             stackView.isHidden = false
+            queueButtonTopConstraint.constant = -40
             updateDumbellStatus()
         } else {
             updateStatus(for: newlineStripped)
@@ -138,6 +145,22 @@ class MapPopoverViewController: UIViewController {
 extension MapPopoverViewController {
     
     func updateDumbellStatus() {
+        guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains("Free Weights") }).first else {
+            return
+        }
+        self.thisMachineGroup = targetGroup
+        
+        WKManager.shared.getMachines { machines in
+            let dumbbells = machines.filter({ $0.machine_group_id == targetGroup.id })
+            let twenty = dumbbells.filter({$0.name.contains("20lb")}).first
+            let forty = dumbbells.filter({$0.name.contains("40lb")}).first
+            
+            self.oneDumbbellStatusDot.backgroundColor = twenty?.in_use.color
+            self.twoDumbbellStatusDot.backgroundColor = forty?.in_use.color
+            self.oneDumbbellStatusDot.layer.cornerRadius = 5
+            self.twoDumbbellStatusDot.layer.cornerRadius = 5
+            
+        }
         
     }
     
