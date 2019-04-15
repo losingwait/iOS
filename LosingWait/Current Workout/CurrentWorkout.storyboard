@@ -177,6 +177,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="5eD-h4-woF"/>
                                                     <constraint firstAttribute="trailing" secondItem="RR7-dt-iHE" secondAttribute="trailing" constant="12" id="Pdp-7d-Ry2"/>
                                                     <constraint firstItem="roD-Bd-zG9" firstAttribute="centerY" secondItem="Usq-uq-qPa" secondAttribute="centerY" id="YTU-Am-vaM"/>
+                                                    <constraint firstItem="RR7-dt-iHE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="roD-Bd-zG9" secondAttribute="trailing" constant="12" id="gwt-mt-f1a"/>
                                                     <constraint firstItem="roD-Bd-zG9" firstAttribute="centerX" secondItem="Usq-uq-qPa" secondAttribute="centerX" id="iwf-p2-vPW"/>
                                                     <constraint firstItem="RR7-dt-iHE" firstAttribute="centerY" secondItem="Usq-uq-qPa" secondAttribute="centerY" id="sef-Wy-I5R"/>
                                                 </constraints>

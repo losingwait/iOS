@@ -80,7 +80,7 @@ class ActiveWorkoutViewController: UIViewController {
         if let excercise = self.exercise {
             setActive(exercise: excercise)
         } else {
-            setActive(exercise: workout?.exercises.first)
+            setActive(exercise: manager.workout?.exercises.first)
         }
         
         favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
@@ -134,7 +134,7 @@ class ActiveWorkoutViewController: UIViewController {
             manager.currentExerciseIdx -= 1
         }
         
-        setActive(exercise: workout?.exercises[manager.currentExerciseIdx])
+        setActive(exercise: manager.workout?.exercises[manager.currentExerciseIdx])
         alternatesTableView.reloadData()
     }
     
@@ -158,7 +158,7 @@ class ActiveWorkoutViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        guard let exercises = workout?.exercises else {
+        guard let exercises = manager.workout?.exercises else {
             return
         }
         
@@ -166,7 +166,7 @@ class ActiveWorkoutViewController: UIViewController {
             manager.currentExerciseIdx += 1
         }
         
-        setActive(exercise: workout?.exercises[manager.currentExerciseIdx])
+        setActive(exercise: manager.workout?.exercises[manager.currentExerciseIdx])
         alternatesTableView.reloadData()
     }
 }
@@ -211,7 +211,7 @@ extension ActiveWorkoutViewController {
     func configurePopupItem() {
         popupBar.imageView.contentMode = .scaleAspectFill
         popupBar.imageView.layer.cornerRadius = 8
-        popupItem.image = workout?.image
+        popupItem.image = manager.workout?.image
         
         if workout == nil {
             popupItem.rightBarButtonItems = [pauseItem]
@@ -280,9 +280,9 @@ extension ActiveWorkoutViewController: PopupUpdater {
         if workout == nil {
             popupItem.title = exercise?.name
         } else {
-            let currentExercise = workout?.exercises[currentIndex]
+            let currentExercise = manager.workout?.exercises[currentIndex]
             popupItem.title = currentExercise?.name
-            popupItem.subtitle = workout?.name
+            popupItem.subtitle = manager.workout?.name
         }
     }
     
@@ -290,15 +290,14 @@ extension ActiveWorkoutViewController: PopupUpdater {
         WKManager.shared.getUserStatus { machineID in
             guard let id = machineID,
                 let userMachine = WKManager.shared.machines?.filter({ $0._id == id }).first else {
-                
-                if let machineGroup = self.workout?.exercises[self.manager.currentExerciseIdx].machineGroup {
-                    self.userLocationButton.setTitle("Go to \(machineGroup.name)", for: .normal)
-                    self.locationImageView.image = #imageLiteral(resourceName: "empty_location")
-                } else {
-                    self.userLocationButton.isHidden = true
-                }
-                return
+                    let currentExercise =  self.manager.workout?.exercises[self.manager.currentExerciseIdx] ?? self.manager.exercise
+                    if let machineGroup = currentExercise?.machineGroup {
+                        self.userLocationButton.setTitle("Go to \(machineGroup.name)", for: .normal)
+                        self.locationImageView.image = #imageLiteral(resourceName: "empty_location")
+                    }
+                    return
             }
+            
             self.userLocationButton.isHidden = false
             self.userLocationButton.setTitle(userMachine.name, for: .normal)
             self.locationImageView.image = #imageLiteral(resourceName: "location")
