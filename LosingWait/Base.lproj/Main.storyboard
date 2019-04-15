@@ -471,7 +471,7 @@ Area</string>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nJi-tu-Bxi" userLabel="Dumbbell #1">
                                         <rect key="frame" x="-10" y="0.0" width="10" height="47.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-Oo-eXW">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-Oo-eXW">
                                                 <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="aRg-Oo-eXW" secondAttribute="height" multiplier="1:1" id="q4C-tz-ng2"/>
@@ -489,14 +489,14 @@ Area</string>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="chO-w8-toa" userLabel="Dumbbell #2">
                                         <rect key="frame" x="-10" y="0.0" width="10" height="47.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="Gyb-jn-pIM">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gyb-jn-pIM">
                                                 <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="BhT-4c-NxF"/>
                                                     <constraint firstAttribute="width" secondItem="Gyb-jn-pIM" secondAttribute="height" multiplier="1:1" id="qLy-jo-O71"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Pounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-ho-ehY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40 Pounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ4-ho-ehY">
                                                 <rect key="frame" x="0.0" y="10" width="10" height="37.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -524,13 +524,13 @@ Area</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Czq-kF-RH5" userLabel="Since...">
                                         <rect key="frame" x="117" y="0.0" width="117" height="47.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="20 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-pa-Bqi">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 mins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-pa-Bqi">
                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="since last check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ul-LM-3Id">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="since last check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ul-LM-3Id">
                                                 <rect key="frame" x="0.0" y="31.5" width="117" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -560,8 +560,8 @@ Area</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PBj-df-9du" firstAttribute="top" secondItem="WBx-W1-8OB" secondAttribute="bottom" constant="14" id="2Sl-ri-Tso"/>
                             <constraint firstItem="tXu-tG-iVz" firstAttribute="leading" secondItem="DaY-56-mJT" secondAttribute="leading" constant="18" id="61v-jm-IeD"/>
-                            <constraint firstItem="PBj-df-9du" firstAttribute="top" secondItem="WBx-W1-8OB" secondAttribute="bottom" constant="14" id="Aqk-vo-MhU"/>
                             <constraint firstItem="tXu-tG-iVz" firstAttribute="top" secondItem="DaY-56-mJT" secondAttribute="top" constant="16" id="Dgl-Sg-XZh"/>
                             <constraint firstItem="WBx-W1-8OB" firstAttribute="leading" secondItem="DaY-56-mJT" secondAttribute="leading" constant="18" id="HHF-P4-EdV"/>
                             <constraint firstItem="DaY-56-mJT" firstAttribute="trailing" secondItem="E5b-n2-LS5" secondAttribute="trailing" constant="18" id="S7v-wj-cdS"/>
@@ -578,11 +578,14 @@ Area</string>
                         <outlet property="muscleLabel" destination="zrE-Jf-bmY" id="TBK-uJ-vjN"/>
                         <outlet property="nameLabel" destination="W4n-Pd-4Il" id="GdN-dQ-ofO"/>
                         <outlet property="oneDumbbellStackView" destination="nJi-tu-Bxi" id="VWu-9c-Yzh"/>
+                        <outlet property="oneDumbbellStatusDot" destination="aRg-Oo-eXW" id="6C7-CV-mAa"/>
                         <outlet property="queueButton" destination="PBj-df-9du" id="Tyy-0a-s7I"/>
+                        <outlet property="queueButtonTopConstraint" destination="2Sl-ri-Tso" id="XXV-06-C0N"/>
                         <outlet property="queueLabel" destination="sfW-Uy-L2A" id="Nxa-VY-D9g"/>
                         <outlet property="stackView" destination="WBx-W1-8OB" id="Gb4-gp-rBG"/>
                         <outlet property="statusLabel" destination="pwL-ie-A2u" id="vHu-QH-FCw"/>
-                        <outlet property="twoDumbellStackView" destination="chO-w8-toa" id="fIh-zf-KZn"/>
+                        <outlet property="twoDumbbellStackView" destination="chO-w8-toa" id="EJC-5k-GoE"/>
+                        <outlet property="twoDumbbellStatusDot" destination="Gyb-jn-pIM" id="ktg-sb-PUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUF-Ko-BoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -981,7 +984,6 @@ Open Source Listing  These applications are under use of the MIT License.</s
     <resources>
         <image name="body" width="144" height="144"/>
         <image name="dumbell" width="162" height="162"/>
-        <image name="green_dot" width="12" height="12"/>
         <image name="machine" width="105" height="105"/>
         <image name="map-1" width="1125" height="2001"/>
         <image name="map-selected" width="19" height="25"/>
