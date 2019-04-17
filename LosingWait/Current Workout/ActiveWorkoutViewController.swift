@@ -348,7 +348,6 @@ extension ActiveWorkoutViewController: PopupUpdater, PopoverDismissable {
     }
     
     func dismiss() {
-
         UIView.animate(withDuration: 0.2, animations: {
             self.blurEffectView.alpha = 0.0
         }) { ok in
