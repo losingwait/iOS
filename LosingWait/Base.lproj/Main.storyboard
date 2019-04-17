@@ -24,17 +24,17 @@
                                 <viewLayoutGuide key="safeArea" id="aan-Vc-0NX"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2xe-gJ-kyB">
-                                <rect key="frame" x="34" y="50" width="69" height="44"/>
+                                <rect key="frame" x="34" y="50" width="63.5" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="HS3-kW-qeW">
-                                        <rect key="frame" x="22" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HS3-kW-qeW" secondAttribute="height" multiplier="1:1" id="1Cs-he-Mb9"/>
                                             <constraint firstAttribute="width" constant="25" id="wrT-Iq-aco"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cable Machine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-sk-SfW">
-                                        <rect key="frame" x="0.0" y="33" width="69" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cable Station" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-sk-SfW">
+                                        <rect key="frame" x="0.0" y="33" width="63.5" height="11"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                         <color key="textColor" red="0.93265193700790405" green="0.72991162538528442" blue="0.34889420866966248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>

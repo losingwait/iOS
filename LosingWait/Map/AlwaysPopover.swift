@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol PopoverDismissable {
+    func dismiss()
+}
 
 class AlwaysPresentAsPopover: NSObject, UIPopoverPresentationControllerDelegate {
 
     private static let sharedInstance = AlwaysPresentAsPopover()
+    var popoverDelegate: PopoverDismissable?
     
     private override init() {
         super.init()
@@ -26,5 +30,10 @@ class AlwaysPresentAsPopover: NSObject, UIPopoverPresentationControllerDelegate 
         let presentationController = controller.presentationController as! UIPopoverPresentationController
         presentationController.delegate = AlwaysPresentAsPopover.sharedInstance
         return presentationController
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        popoverDelegate?.dismiss()
+        return true
     }
 }

@@ -64,6 +64,15 @@ class ActiveWorkoutViewController: UIViewController {
         UIBarButtonItem(image: #imageLiteral(resourceName: "next-mini"), style: .plain, target: self, action: #selector(next(_:)))
     }()
     
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.isUserInteractionEnabled = true
+        return blurEffectView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -156,9 +165,27 @@ class ActiveWorkoutViewController: UIViewController {
     }
 
     @IBAction func locationPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: MapPopoverViewController.identifier) as! MapPopoverViewController
+        vc.machineName = exercise?.machineGroup.name
+        vc.preferredContentSize = CGSize(width: 270, height: 180)
         
+        let controller = AlwaysPresentAsPopover.configurePresentation(forController: vc)
+        controller.sourceView = self.view
+        controller.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0,height: 0)
+        controller.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        (controller.delegate as? AlwaysPresentAsPopover)?.popoverDelegate = self
+        
+        self.blurEffectView.alpha = 0.0
+        view.addSubview(blurEffectView)
+        UIView.animate(withDuration: 0.2) {
+            self.blurEffectView.alpha = 1.0
+        }
+        if(!paused) {
+            togglePause()
+        }
+        present(vc, animated: true, completion: nil)
     }
-    
+
     @IBAction func replayPressed(_ sender: Any) {
         guard let currentExercise = exercise else {
             return
@@ -283,7 +310,7 @@ extension ActiveWorkoutViewController {
     }
 }
 
-extension ActiveWorkoutViewController: PopupUpdater {
+extension ActiveWorkoutViewController: PopupUpdater, PopoverDismissable {
     
     func updatePopupItem(currentIndex: Int) {
         if workout == nil {
@@ -318,5 +345,17 @@ extension ActiveWorkoutViewController: PopupUpdater {
         stackViewHeightConstraint.constant = CGFloat(55 * numRows)
         alternatesTableView.reloadSections(refreshSection, with: .fade)
         alternatesTableView.endUpdates()
+    }
+    
+    func dismiss() {
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.blurEffectView.alpha = 0.0
+        }) { ok in
+            self.blurEffectView.removeFromSuperview()
+        }
+        if(paused) {
+            togglePause()
+        }
     }
 }
