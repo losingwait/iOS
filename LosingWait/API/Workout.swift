@@ -23,7 +23,7 @@ struct Workout: Displayable {
         name = response["name"] as! String
         description = response["description"] as! String
         difficulty = response["difficulty"] as! String
-        workout_image_url = response["workout_image"] as! String
+        workout_image_url = response["workout_image"] as? String ?? ""
         exercises = []
         exercises_dict_array = response["array_exercises_dictionary"] as! [[String: Any]]
         for ex in exercises_dict_array {

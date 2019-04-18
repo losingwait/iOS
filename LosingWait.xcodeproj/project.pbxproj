@@ -14,6 +14,8 @@
 		C9D0C4DB225EE7890046AF7B /* CustomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */; };
 		C9D0C4DE225F93790046AF7B /* AddCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */; };
 		C9D0C4E3226027B20046AF7B /* CustomsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */; };
+		C9EBFB9A2265197000C01DFB /* SetExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EBFB992265197000C01DFB /* SetExercisesViewController.swift */; };
+		C9EBFB9C2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EBFB9B2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift */; };
 		CA1B072D2224701C0029E71B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B072C2224701C0029E71B /* UIView+Utils.swift */; };
 		CA1B0730222475FD0029E71B /* CurrentWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */; };
 		CA1B0734222478FC0029E71B /* WorkoutBrowseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */; };
@@ -99,6 +101,8 @@
 		C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomsViewController.swift; sourceTree = "<group>"; };
 		C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomViewController.swift; sourceTree = "<group>"; };
 		C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomsFormViewController.swift; sourceTree = "<group>"; };
+		C9EBFB992265197000C01DFB /* SetExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExercisesViewController.swift; sourceTree = "<group>"; };
+		C9EBFB9B2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsDelegateProtocol.swift; sourceTree = "<group>"; };
 		CA1B072C2224701C0029E71B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		CA1B072F222475FD0029E71B /* CurrentWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentWorkout.storyboard; sourceTree = "<group>"; };
 		CA1B0733222478FC0029E71B /* WorkoutBrowseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBrowseListViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				C9D0C4DA225EE7880046AF7B /* CustomsViewController.swift */,
 				C9D0C4DD225F93790046AF7B /* AddCustomViewController.swift */,
 				C9D0C4E2226027B20046AF7B /* CustomsFormViewController.swift */,
+				C9EBFB992265197000C01DFB /* SetExercisesViewController.swift */,
+				C9EBFB9B2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -442,7 +448,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
@@ -461,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -477,10 +483,12 @@
 				C9D0C4E3226027B20046AF7B /* CustomsFormViewController.swift in Sources */,
 				CA79D6C0221F5E3A0055317B /* WorkoutViewController.swift in Sources */,
 				CA4849BB225C3BC2005881FB /* TileCollectionViewController.swift in Sources */,
+				C9EBFB9C2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
 				CA21E1882249739000498412 /* WorkoutCollectionDataSource.swift in Sources */,
+				C9EBFB9A2265197000C01DFB /* SetExercisesViewController.swift in Sources */,
 				CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
 				CA3166A7222B21EE0048D788 /* AVPlayer+Extension.swift in Sources */,
