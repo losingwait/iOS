@@ -29,7 +29,8 @@ class OccupacyPageItem: BLTNPageItem {
             WKManager.shared.getGymUserCount(completion: { count in
                 DispatchQueue.main.async {
                     item.manager?.hideActivityIndicator()
-                    self.descriptionText = "\(count) patrons active"
+                 
+                    self.descriptionText = "\(count) \(count == 1 ? "patron" : "patrons") active"
                 }
             })
         }
@@ -37,7 +38,6 @@ class OccupacyPageItem: BLTNPageItem {
         actionHandler = { item in
             item.manager?.dismissBulletin(animated: true)
         }
-        
     }
     override func makeViewsUnderDescription(with interfaceBuilder: BLTNInterfaceBuilder) -> [UIView]? {
         NSLayoutConstraint.activate([

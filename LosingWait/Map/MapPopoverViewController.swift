@@ -159,9 +159,7 @@ extension MapPopoverViewController {
             self.twoDumbbellStatusDot.backgroundColor = forty?.in_use.color
             self.oneDumbbellStatusDot.layer.cornerRadius = 5
             self.twoDumbbellStatusDot.layer.cornerRadius = 5
-            
         }
-        
     }
     
     func updateStatus(for machineName: String) {
