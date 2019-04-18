@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MachineGroupDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MachineGroupDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, PopoverDismissable {
     
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
@@ -19,6 +19,15 @@ class MachineGroupDetailViewController: UIViewController, UICollectionViewDelega
     var machinesInGroup: [Machine]?
     var exercisesForMachine: [Exercise]?
     var group_muscle_id: String?
+    
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.isUserInteractionEnabled = true
+        return blurEffectView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +85,34 @@ class MachineGroupDetailViewController: UIViewController, UICollectionViewDelega
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: MapPopoverViewController.identifier) as! MapPopoverViewController
+        vc.machineName = machinesInGroup?[indexPath.item].name
+        vc.preferredContentSize = CGSize(width: 270, height: 180)
+        
+        let controller = AlwaysPresentAsPopover.configurePresentation(forController: vc)
+        controller.sourceView = self.view
+        controller.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0,height: 0)
+        controller.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        (controller.delegate as? AlwaysPresentAsPopover)?.popoverDelegate = self
+        
+        self.blurEffectView.alpha = 0.0
+        view.addSubview(blurEffectView)
+        UIView.animate(withDuration: 0.2) {
+            self.blurEffectView.alpha = 1.0
+        }
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func dismiss() {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.blurEffectView.alpha = 0.0
+        }) { ok in
+            self.blurEffectView.removeFromSuperview()
+        }
+    }
 
 }
 
@@ -92,6 +129,7 @@ extension MachineGroupDetailViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let targetExercise = exercisesForMachine?[indexPath.row] else {
             fatalError("Couldn't find exercise")
         }

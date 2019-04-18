@@ -21,7 +21,12 @@ class MapPopoverViewController: UIViewController {
     @IBOutlet weak var queueButton: UIButton!
     
     @IBOutlet weak var oneDumbbellStackView: UIStackView!
-    @IBOutlet weak var twoDumbellStackView: UIStackView!
+    @IBOutlet weak var twoDumbbellStackView: UIStackView!
+    
+    @IBOutlet weak var oneDumbbellStatusDot: UIImageView!
+    @IBOutlet weak var twoDumbbellStatusDot: UIImageView!
+    
+    @IBOutlet weak var queueButtonTopConstraint: NSLayoutConstraint!
     
     static let identifier = "MapPopoverViewController"
     
@@ -122,12 +127,14 @@ class MapPopoverViewController: UIViewController {
         nameLabel.text = newlineStripped
         
         if newlineStripped == "Dumbbell Rack" {
+            self.preferredContentSize = CGSize(width: 270, height: 120)
             _ = stackView.arrangedSubviews.map({ if !$0.isHidden { $0.isHidden = true } })
             muscleLabel.isHidden = true
             queueButton.isHidden = true
             oneDumbbellStackView.isHidden = false
-            twoDumbellStackView.isHidden = false
+            twoDumbbellStackView.isHidden = false
             stackView.isHidden = false
+            queueButtonTopConstraint.constant = -40
             updateDumbellStatus()
         } else {
             updateStatus(for: newlineStripped)
@@ -138,6 +145,22 @@ class MapPopoverViewController: UIViewController {
 extension MapPopoverViewController {
     
     func updateDumbellStatus() {
+        guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains("Free Weights") }).first else {
+            return
+        }
+        self.thisMachineGroup = targetGroup
+        
+        WKManager.shared.getMachines { machines in
+            let dumbbells = machines.filter({ $0.machine_group_id == targetGroup.id })
+            let twenty = dumbbells.filter({$0.name.contains("20lb")}).first
+            let forty = dumbbells.filter({$0.name.contains("40lb")}).first
+            
+            self.oneDumbbellStatusDot.backgroundColor = twenty?.in_use.color
+            self.twoDumbbellStatusDot.backgroundColor = forty?.in_use.color
+            self.oneDumbbellStatusDot.layer.cornerRadius = 5
+            self.twoDumbbellStatusDot.layer.cornerRadius = 5
+            
+        }
         
     }
     
@@ -174,7 +197,7 @@ extension MapPopoverViewController {
                         userOwnsMachine = currentUserMachine.machine_group_id == self.thisMachineGroup?.id
                     }
                     
-                    self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine)
+                    self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine, status:targetMachine.in_use)
                 })
                 
                 self.status = targetMachine.in_use
@@ -187,25 +210,22 @@ extension MapPopoverViewController {
 }
 
 extension MapPopoverViewController {
-    func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool) {
+    func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool, status: MachineStatus) {
         if inQueue {
             queueButton.setTitle("Leave queue", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
-        }
-        
-        if userOwnsMachine {
+            
+        } else if userOwnsMachine {
             queueButton.setTitle("Check out at station", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
             queueButton.backgroundColor = .white
             queueButton.isEnabled = false
-        }
-        
-        if queueCount == 0 {
+        } else if queueCount == 0 && status == .open {
             queueButton.setTitle("Station Available", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1), for: .normal)
             queueButton.backgroundColor = .white
             queueButton.isEnabled = false
-        } else if queueCount > 0 {
+        } else {
             queueButton.setTitle("Get in queue", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.2667426467, green: 0.5628252625, blue: 0.9620206952, alpha: 1), for: .normal)
         }

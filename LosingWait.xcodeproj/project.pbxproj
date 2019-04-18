@@ -51,6 +51,9 @@
 		CA79D6C8221F63B80055317B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA79D6C7221F63B80055317B /* Injectable.swift */; };
 		CA996567224019E6009BF4F0 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA996566224019E6009BF4F0 /* Displayable.swift */; };
 		CA99656A22401BD7009BF4F0 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */; };
+		CABD61292264F856007CA630 /* OccupacyPageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABD61282264F856007CA630 /* OccupacyPageItem.swift */; };
+		CABD61302265107C007CA630 /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABD612E2265107C007CA630 /* BarEntry.swift */; };
+		CABD61312265107C007CA630 /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABD612F2265107C007CA630 /* BasicBarChart.swift */; };
 		CAC072BA221B37AC0065BF72 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */; };
 		CAC072BC221B3DDB0065BF72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */; };
 		CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */; };
@@ -139,6 +142,9 @@
 		CA79D6C7221F63B80055317B /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		CA996566224019E6009BF4F0 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		CA99656922401BD7009BF4F0 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
+		CABD61282264F856007CA630 /* OccupacyPageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupacyPageItem.swift; sourceTree = "<group>"; };
+		CABD612E2265107C007CA630 /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		CABD612F2265107C007CA630 /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
 		CAC072B9221B37AC0065BF72 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		CAC072BB221B3DDB0065BF72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CAC072BE221B3F2E0065BF72 /* NotificationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBanner.swift; sourceTree = "<group>"; };
@@ -281,6 +287,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		CABD6132226510AB007CA630 /* Bar Chart */ = {
+			isa = PBXGroup;
+			children = (
+				CABD612E2265107C007CA630 /* BarEntry.swift */,
+				CABD612F2265107C007CA630 /* BasicBarChart.swift */,
+			);
+			path = "Bar Chart";
+			sourceTree = "<group>";
+		};
 		CAC072BD221B3DDE0065BF72 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,8 +322,10 @@
 			isa = PBXGroup;
 			children = (
 				CAFB33532242AA4800564D34 /* MapViewController.swift */,
-				CA2FB16422529C2700189EAC /* AlwaysPopover.swift */,
 				CA2FB1662252BE4A00189EAC /* MapPopoverViewController.swift */,
+				CABD61282264F856007CA630 /* OccupacyPageItem.swift */,
+				CA2FB16422529C2700189EAC /* AlwaysPopover.swift */,
+				CABD6132226510AB007CA630 /* Bar Chart */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -450,6 +467,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LosingWait/Pods-LosingWait-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/EFCountingLabel/EFCountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -459,6 +478,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFCountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -486,11 +507,13 @@
 				C9EBFB9C2265366B00C01DFB /* WorkoutDetailsDelegateProtocol.swift in Sources */,
 				CA5036F0221DF06F00411484 /* LoginViewController.swift in Sources */,
 				CA3DF62A221B32E500E70446 /* LosingWait.xcdatamodeld in Sources */,
+				CABD61292264F856007CA630 /* OccupacyPageItem.swift in Sources */,
 				CA3166A5222A2D6E0048D788 /* ActiveWorkoutViewController.swift in Sources */,
 				CA21E1882249739000498412 /* WorkoutCollectionDataSource.swift in Sources */,
 				C9EBFB9A2265197000C01DFB /* SetExercisesViewController.swift in Sources */,
 				CAFB33542242AA4800564D34 /* MapViewController.swift in Sources */,
 				CA1B0738222480830029E71B /* BannerCollectionViewCell.swift in Sources */,
+				CABD61312265107C007CA630 /* BasicBarChart.swift in Sources */,
 				CA3166A7222B21EE0048D788 /* AVPlayer+Extension.swift in Sources */,
 				CA2FB16522529C2700189EAC /* AlwaysPopover.swift in Sources */,
 				CA2FB16C2252C35500189EAC /* Machine.swift in Sources */,
@@ -510,6 +533,7 @@
 				CAC072BF221B3F2E0065BF72 /* NotificationBanner.swift in Sources */,
 				CAFB33572242C05400564D34 /* TileCollectionViewCell.swift in Sources */,
 				CA1B073A2224812B0029E71B /* Workout.swift in Sources */,
+				CABD61302265107C007CA630 /* BarEntry.swift in Sources */,
 				C9D0C4DB225EE7890046AF7B /* CustomsViewController.swift in Sources */,
 				CA21E182224970B800498412 /* WorkoutDetailViewController.swift in Sources */,
 				9446C7E7225746F10093554D /* MachineGroupDetailViewController.swift in Sources */,

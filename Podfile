@@ -5,5 +5,7 @@ target 'LosingWait' do
   pod 'NotificationBannerSwift'
   pod 'Alamofire'
   pod 'Eureka'
+  pod 'BulletinBoard'
+  pod 'EFCountingLabel'
 
 end
