@@ -122,18 +122,19 @@ class ActiveWorkoutViewController: UIViewController {
     func setActive(exercise: Exercise?) {
         timeElapsed = 0
         
-        guard let exercise = exercise,
+        if let exercise = exercise,
             let allExercises = WKManager.shared.exercises,
-            let targetExercise = allExercises.filter({ $0.name == exercise.name }).first else {
-            return
+            let targetExercise = allExercises.filter({ $0.name == exercise.name }).first {
+            playVideo(with: URL(string: targetExercise.exercise_media!)!)
+            self.exercise = targetExercise
+        } else {
+            self.exercise = exercise
         }
         
-        self.exercise = targetExercise
-        
-        exerciseLabel.text = targetExercise.name
-        setsLabel.text = exercise.sets ?? "-"
-        repsLabel.text = exercise.reps ?? "-"
-        playVideo(with: URL(string: targetExercise.exercise_media!)!)
+        workoutLabel.text = workout?.name ?? "Custom Exercise"
+        exerciseLabel.text = exercise?.name ?? "Unknown Exercise"
+        setsLabel.text = exercise?.sets ?? "-"
+        repsLabel.text = exercise?.reps ?? "-"
         
         updateUserLocation()
     }
@@ -190,7 +191,10 @@ class ActiveWorkoutViewController: UIViewController {
         guard let currentExercise = exercise else {
             return
         }
-        playVideo(with: URL(string: currentExercise.exercise_media!)!)
+        if currentExercise.user_id == nil {
+            playVideo(with: URL(string: currentExercise.exercise_media!)!)
+        }
+        
     }
     
     @IBAction func next(_ sender: Any) {

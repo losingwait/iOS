@@ -86,4 +86,27 @@ extension CustomsViewController {
         cell.textLabel?.text = category == "Custom Exercises" ? exercises[indexPath.row].name : workouts[indexPath.row].name
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if category == "Custom Exercises" {
+            let currExercise: Exercise = exercises[indexPath.row]
+            
+            // set exercise
+            let vc = currExercise.viewController
+            tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
+            tabBarController?.popupBar.imageView.layer.cornerRadius = 5
+            tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
+        } else {
+            let currWorkout: Workout = workouts[indexPath.row]
+            
+            // start workout
+            let vc = currWorkout.viewController
+            tabBarController?.popupBar.tintColor = UIColor(white: 38.0 / 255.0, alpha: 1.0)
+            tabBarController?.popupBar.imageView.layer.cornerRadius = 5
+            tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
+        }
+        
+    }
 }

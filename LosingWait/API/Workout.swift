@@ -40,6 +40,9 @@ struct Workout: Displayable {
     }
     
     var image: UIImage {
+        if workout_image_url == "" {
+            return UIImage()
+        }
         let url = URL(string: workout_image_url)
         do {
             let data = try Data(contentsOf: url!)

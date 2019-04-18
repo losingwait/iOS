@@ -65,7 +65,12 @@ struct Exercise: Displayable {
     }
     
     var machineGroup: MachineGroup {
-        let betterSelf = WKManager.shared.exercises!.filter({ $0.name == self.name }).first!
+        var betterSelf: Exercise
+        if self.user_id == nil {
+            betterSelf = WKManager.shared.exercises!.filter({ $0.name == self.name }).first!
+        } else {
+            betterSelf = WKManager.shared.customExercises!.filter({ $0.name == self.name }).first!
+        }
         return WKManager.shared.machine_groups!.filter({ $0.id == betterSelf.machine_group_id ?? "" }).first!
     }
     
