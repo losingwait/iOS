@@ -13,7 +13,7 @@ class WorkoutCollectionDataSource: NSObject, UICollectionViewDataSource {
     var workouts: [Workout]
     
     init(with workouts: [Workout]) {
-        self.workouts = workouts
+        self.workouts = workouts.filter({$0.user_id == nil})
         super.init()
     }
 

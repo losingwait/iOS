@@ -16,6 +16,8 @@ class WKManager {
     var machines: [Machine]?
     var workouts: [Workout]?
     var exercises: [Exercise]?
+    var customWorkouts: [Workout]?
+    var customExercises: [Exercise]?
     
     func getMuscles(completion: @escaping (Bool) -> ()) {
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/muscles/all/all")!
@@ -171,7 +173,39 @@ class WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            self.workouts = results.compactMap(Workout.init)
+            self.workouts = results.compactMap(Workout.init).filter({$0.user_id == nil})
+            completion(true)
+        }
+    }
+    
+    func getCustomWorkouts(completion: @escaping (Bool) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/workouts/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else { return }
+            var results = Array<Dictionary<String, Any>>()
+            for(_, value) in json {
+                results.append(value)
+            }
+            
+            guard let id: String = UserDefaults.standard.string(forKey: "id") else {
+                fatalError("User not logged in. Need User ID")
+            }
+            
+            let allWorkouts = results.compactMap(Workout.init)
+            self.customWorkouts = allWorkouts.filter({$0.user_id == id})
             completion(true)
         }
     }
@@ -197,7 +231,39 @@ class WKManager {
             for(_, value) in json {
                 results.append(value)
             }
-            self.exercises = results.compactMap(Exercise.init)
+            self.exercises = results.compactMap(Exercise.init).filter({$0.user_id == nil})
+            completion(true)
+        }
+    }
+    
+    func getCustomSingleExercises(completion: @escaping (Bool) -> ()) {
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else { return }
+            var results = Array<Dictionary<String, Any>>()
+            for(_, value) in json {
+                results.append(value)
+            }
+            
+            guard let id: String = UserDefaults.standard.string(forKey: "id") else {
+                fatalError("User not logged in. Need User ID")
+            }
+            
+            let allExercises = results.compactMap(Exercise.init)
+            self.customExercises = allExercises.filter({$0.user_id == id})
             completion(true)
         }
     }
