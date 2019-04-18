@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mike JS. Choi. All rights reserved.
 //
 
-import EFCountingLabel
 import BLTNBoard
 
 class OccupacyPageItem: BLTNPageItem {

@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WKManager.shared.getMachineGroups{finished in print("got machine groups")}
         WKManager.shared.getSingleExercises{finished in print("got single exercises")}
         WKManager.shared.getMachines{finished in print("got all machines")}
+        WKManager.shared.getCustomSingleExercises{finished in print("got custom single exercises")}
+        WKManager.shared.getCustomWorkouts{finished in print("got custom workouts")}
+        
         
         let defaults = UserDefaults.standard
         let loggedIn = defaults.bool(forKey: "loggedIn")

@@ -22,16 +22,16 @@ class WorkoutBrowseListViewController: UITableViewController {
         title = category
     
         if category == "Muscle" {
-            self.items = WKManager.shared.muscles!
+            self.items = WKManager.shared.muscles!.sorted(by: {$0.name < $1.name})
             self.tableView.reloadData()
         } else if category == "Equipment" {
-            self.items = WKManager.shared.machine_groups!
+            self.items = WKManager.shared.machine_groups!.sorted(by: {$0.name < $1.name})
             self.tableView.reloadData()
         } else if category == "Workout" {
-            self.items = WKManager.shared.workouts!
+            self.items = WKManager.shared.workouts!.sorted(by: {$0.name < $1.name})
             self.tableView.reloadData()
         } else if category == "Single Exercises" {
-            self.items = WKManager.shared.exercises!
+            self.items = WKManager.shared.exercises!.sorted(by: {$0.name < $1.name})
             self.tableView.reloadData()
         } else if category == "Muscle Exercises" {
             self.items = (WKManager.shared.exercises?.filter{$0.muscle_id == originMuscle?.id})!

@@ -22,16 +22,10 @@ class CustomsViewController: UITableViewController {
         // Do any additional setup after loading the view.
         self.title = category
         
-        guard let id: String = UserDefaults.standard.string(forKey: "id") else {
-            fatalError("User not logged in. Need User ID")
-        }
-        
         if category == "Custom Exercises" {
-            WKManager.shared.getSingleExercises(completion: { ok in })
-            self.exercises = WKManager.shared.exercises?.filter({ $0.user_id == id }) ?? []
-            
+            self.exercises = WKManager.shared.customExercises?.sorted(by: {$0.name < $1.name}) ?? []
         } else if category == "Custom Workouts" {
-            self.workouts = WKManager.shared.workouts?.filter({ $0.user_id == id }) ?? []
+            self.workouts = WKManager.shared.customWorkouts?.sorted(by: {$0.name < $1.name}) ?? []
         }
 
     }
@@ -47,6 +41,22 @@ class CustomsViewController: UITableViewController {
             }
             
             childVC.category = self.category
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if category == "Custom Exercises" {
+            WKManager.shared.getCustomSingleExercises(completion: { ok in
+                self.exercises = WKManager.shared.customExercises?.sorted(by: {$0.name < $1.name}) ?? []
+                self.tableView.reloadData()
+            })
+        } else if category == "Custom Workouts" {
+            WKManager.shared.getCustomWorkouts(completion: {ok in
+                self.workouts = WKManager.shared.customWorkouts?.sorted(by: {$0.name < $1.name}) ?? []
+                self.tableView.reloadData()
+            })
         }
     }
     

@@ -87,7 +87,13 @@ class AddCustomViewController: UIViewController, WorkoutDetailsDelegate {
             // insert json data to the request
             request.httpBody = jsonData
             
+            
+            
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                // dismiss the form view
+                self.dismiss(animated: true, completion: nil)
+                
                 guard let data = data, error == nil else {
                     print(error?.localizedDescription ?? "No data")
                     return
@@ -101,12 +107,10 @@ class AddCustomViewController: UIViewController, WorkoutDetailsDelegate {
             task.resume()
             /****************** TRYING THIS ********************/
             
-//            self.addWorkoutToDatabase(basicInfo: basicWorkoutInfo, arrayExercises: arrayToUpload, completion: { ok in })
-           
+            
         })
         
-        // dismiss the form view
-        self.dismiss(animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
