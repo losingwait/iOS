@@ -99,10 +99,12 @@ class BasicBarChart: UIView {
             } else {
                 status = "Packed"
             }
-            let textValue = "Live \((currentIndex + 7) % 12) \(currentIndex + 7 < 12 ? "AM" : "PM"):"
-            drawTextValue(xPos: xPos - 30.0, yPos: 0, textValue: textValue, color: red)
-            
-            drawTextValue(xPos: xPos + 20, yPos: 0, textValue: status, color: .black)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "hh a"
+            let hourString = formatter.string(from: Date()).uppercased()
+            let textValue = "Live at \(hourString)"
+            drawTextValue(xPos: xPos - 25.0, yPos: 0, textValue: textValue, color: red)
+            drawTextValue(xPos: xPos - 48.0, yPos: 15, textValue: status, color: .black)
             drawVerticalLine(index: index)
         }
         

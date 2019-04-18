@@ -17,9 +17,27 @@ class WorkoutDetailViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var addedButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var unfavoriteButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
     
     var workout: Workout!
+    
+    var alertController: UIAlertController {
+        let alert = UIAlertController(title: self.workout.name, message: nil, preferredStyle: .actionSheet)
+        
+        let unfavoriteAction = UIAlertAction(title: "Unfavorite", style: .default, handler: { action in
+            self.unfavoriteWorkout()
+        })
+        let shareAction = UIAlertAction(title: "Share", style: .default, handler: { action in
+            self.share()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        if UserDefaults.standard.favoriteWorkouts.contains(workout) {
+            alert.addAction(unfavoriteAction)
+        }
+        _ = [shareAction, cancelAction].map { alert.addAction($0) }
+        return alert
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +52,6 @@ class WorkoutDetailViewController: UIViewController {
         let isFavorite = UserDefaults.standard.favoriteWorkouts.contains(workout)
         favoriteButton.isHidden = isFavorite
         addedButton.isHidden = !isFavorite
-        unfavoriteButton.isHidden = !isFavorite
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,14 +63,12 @@ class WorkoutDetailViewController: UIViewController {
         UserDefaults.standard.favorite(workout: workout)
         favoriteButton.isHidden = true
         addedButton.isHidden = false
-        unfavoriteButton.isHidden = false
     }
     
-    @IBAction func unfavoriteWorkout(_ sender: Any) {
+    @objc func unfavoriteWorkout() {
         UserDefaults.standard.unfavorite(workout: workout)
         favoriteButton.isHidden = false
         addedButton.isHidden = true
-        unfavoriteButton.isHidden = true
     }
     
     @IBAction func startWorkout(_ sender: Any) {
@@ -65,6 +80,15 @@ class WorkoutDetailViewController: UIViewController {
     
     @IBAction func viewBrochure(_ sender: Any) {
         
+    }
+    
+    @IBAction func morePressed(_ sender: Any) {
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func share() {
+        let activityViewController = UIActivityViewController(activityItems: [workout.description], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
 }
 
