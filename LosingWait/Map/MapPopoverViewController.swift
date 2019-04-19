@@ -104,7 +104,12 @@ class MapPopoverViewController: UIViewController {
         Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             switch response.result {
             case .success:
-                print("Successfully added/removed user from queue")
+                if alreadyInQueue {
+                    print("Successfully removed user from queue")
+                } else {
+                    print("Successfully added user from queue")
+                }
+                
             case .failure(let error):
                 BannerNotification.fatalError(msg: "Could not access server").show()
                 print(error)
@@ -112,7 +117,7 @@ class MapPopoverViewController: UIViewController {
             completion(true)
 
             let code = response.response?.statusCode
-            if(code == 401) {
+            if(code == 401 || code == 400) {
                 print("User not added/removed from queue")
             }
         }
