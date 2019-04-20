@@ -31,6 +31,16 @@ class MapViewController: UIViewController {
         trendButton.layer.masksToBounds = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        WKManager.shared.userIsCheckedIn { ok in
+            if !ok {
+                BannerNotification.error(msg: "You are not checked in to the gym").show()
+            }
+        }
+    }
+    
     @IBAction func iconTapped(_ sender: UITapGestureRecognizer) {
         guard let stackView = sender.view as? UIStackView,
             let label = sender.view?.subviews.last as? UILabel else {
