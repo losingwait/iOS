@@ -103,7 +103,6 @@ class ActiveWorkoutTableManager: NSObject, UITableViewDataSource, UITableViewDel
         cell.setLabel.isHidden = true
         return cell
     }
-    
 }
 
 extension ActiveWorkoutTableManager: HeaderViewDelegate {

@@ -40,7 +40,10 @@ class ExpandableTableHeaderView: UITableViewHeaderFooterView {
             let machineGroup = WKManager.shared.machine_groups?.filter({ $0.id == machineID }).first {
             availabilityLabel.text = "-"
             availabilityLabel.backgroundColor = .lightGray
-            if let queue = machineGroup.queue, queue.count > 0 {
+            
+            let machines = WKManager.shared.machines!.filter( {$0.machine_group_id == machineGroup.id })
+            let occupied = machines.filter({ $0.in_use == .occupied }).count != 0
+            if occupied {
                 availabilityLabel.text = "Occupied"
                 availabilityLabel.backgroundColor = #colorLiteral(red: 1, green: 0.1764705882, blue: 0.3333333333, alpha: 1)
             } else {

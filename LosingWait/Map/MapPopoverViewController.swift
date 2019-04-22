@@ -32,22 +32,13 @@ class MapPopoverViewController: UIViewController {
     
     var machineName: String?
     var thisMachineGroup: MachineGroup?
-    var status: MachineStatus? {
-        didSet {
-            guard let status = status else {
-                return
-            }
-            statusLabel.text = status.rawValue.capitalized
-            statusLabel.textColor = status.color
-        }
-    }
     
     // didSet for toggling the get in queue button
     var inQueue: Bool = false
     
     var queueCount: Int = 0 {
         didSet {
-            queueLabel.text = "0"
+            queueLabel.text = "\(self.queueCount)"
         }
     }
     
@@ -145,15 +136,15 @@ class MapPopoverViewController: UIViewController {
 extension MapPopoverViewController {
     
     func updateDumbellStatus() {
-        guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains("Free Weights") }).first else {
+        guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains("Dumbbell Rack") }).first else {
             return
         }
         self.thisMachineGroup = targetGroup
         
         WKManager.shared.getMachines { machines in
             let dumbbells = machines.filter({ $0.machine_group_id == targetGroup.id })
-            let twenty = dumbbells.filter({$0.name.contains("20lb")}).first
-            let forty = dumbbells.filter({$0.name.contains("40lb")}).first
+            let twenty = dumbbells.filter({$0.name.contains("5lb")}).first
+            let forty = dumbbells.filter({$0.name.contains("8lb")}).first
             
             self.oneDumbbellStatusDot.backgroundColor = twenty?.in_use.color
             self.twoDumbbellStatusDot.backgroundColor = forty?.in_use.color
@@ -165,7 +156,7 @@ extension MapPopoverViewController {
     func updateStatus(for machineName: String) {
         
         WKManager.shared.getMachineGroups { ok in
-            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.contains(machineName) || machineName.contains($0.name) }).first else {
+            guard let targetGroup = WKManager.shared.machine_groups?.filter({ $0.name.hasPrefix(machineName) }).first else {
                 self.queueLabel.text = "?"
                 return
             }
@@ -175,10 +166,10 @@ extension MapPopoverViewController {
             self.queueCount = queue.count
             
             WKManager.shared.getMachines { machines in
-                guard let targetMachine = machines.filter({ $0.name.contains(machineName) }).first else {
+                guard let targetMachine = machines.filter({ $0.name.hasPrefix(machineName) }).first else {
                     return
                 }
-                
+                print(targetMachine)
                 if let muscles = WKManager.shared.muscles,
                     let targetMuscle = muscles.filter({ $0.id == targetMachine.muscle_id }).first {
                     self.muscleLabel.text = targetMuscle.name
@@ -189,6 +180,7 @@ extension MapPopoverViewController {
                 self.inQueue = userInQueue
 
                 WKManager.shared.getUserStatus(completion: { machineID in
+                    print(machineID)
                     var userOwnsMachine = false
                     
                     if let currentUserMachine = machines.filter({ $0._id == machineID }).first {
@@ -197,8 +189,7 @@ extension MapPopoverViewController {
                     
                     self.update(queueCount: queue.count, inQueue: userInQueue, userOwnsMachine: userOwnsMachine, status:targetMachine.in_use)
                 })
-                
-                self.status = targetMachine.in_use
+
                 self.lastCheckinLabel.text = targetMachine.sinceLastCheckIn
                 self.statusLabel.isHidden = false
                 self.stackView.isHidden = false
@@ -209,10 +200,13 @@ extension MapPopoverViewController {
 
 extension MapPopoverViewController {
     func update(queueCount: Int, inQueue: Bool, userOwnsMachine: Bool, status: MachineStatus) {
+        print(status.rawValue)
+        self.statusLabel.text = status.rawValue.capitalized
+        self.statusLabel.textColor = status.color
+        
         if inQueue {
             queueButton.setTitle("Leave queue", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
-            
         } else if userOwnsMachine {
             queueButton.setTitle("Check out at station", for: .normal)
             queueButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
