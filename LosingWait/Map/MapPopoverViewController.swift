@@ -119,6 +119,8 @@ class MapPopoverViewController: UIViewController {
             let code = response.response?.statusCode
             if(code == 401 || code == 400) {
                 print("User not added/removed from queue")
+            } else if (code == 200) {
+                print("Successful insertion")
             }
         }
     }

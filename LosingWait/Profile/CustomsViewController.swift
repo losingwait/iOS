@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CustomsViewController: UITableViewController {
 
@@ -107,6 +108,79 @@ extension CustomsViewController {
             tabBarController?.popupBar.imageView.layer.cornerRadius = 5
             tabBarController?.presentPopupBar(withContentViewController: vc, animated: true, completion: nil)
         }
-        
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if category == "Custom Exercises" {
+                // networking call
+                let endpoint = URL(string: "https://losing-wait.herokuapp.com/exercises")!
+                
+                let action: String = "remove"
+                
+                let parameters: Parameters = ["del_id": exercises[indexPath.row].id, "action": action]
+                
+                let headers: HTTPHeaders = [
+                    "Accept": "application/json"
+                ]
+                
+                Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        print("Successfully removed exercise")
+                        
+                    case .failure(let error):
+                        BannerNotification.fatalError(msg: "Could not access server").show()
+                        print(error)
+                    }
+                    
+                    let code = response.response?.statusCode
+                    if(code == 401 || code == 400) {
+                        print("Exercise not removed")
+                    } else if (code == 200) {
+                        print("Successful deletion")
+                    }
+                }
+                
+                exercises.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else {
+                // networking call
+                let json: [String : Any] = [
+                    "del_id": workouts[indexPath.row].id,
+                    "action": "remove"
+                ]
+                
+                let jsonData = try? JSONSerialization.data(withJSONObject: json)
+                
+                // create post request
+                let url = URL(string: "https://losing-wait.herokuapp.com/workouts")!
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                
+                // insert json data to the request
+                request.httpBody = jsonData
+                
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    
+                    // dismiss the form view
+                    self.dismiss(animated: true, completion: nil)
+                    
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any] {
+                        print(responseJSON)
+                    }
+                }
+                
+                task.resume()
+                
+                workouts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     }
 }
