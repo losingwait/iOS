@@ -100,11 +100,11 @@ class BasicBarChart: UIView {
                 status = "Packed"
             }
             let formatter = DateFormatter()
-            formatter.dateFormat = "hh a"
+            formatter.dateFormat = "h a"
             let hourString = formatter.string(from: Date()).uppercased()
             let textValue = "Live at \(hourString)"
             drawTextValue(xPos: xPos - 25.0, yPos: 0, textValue: textValue, color: red)
-            drawTextValue(xPos: xPos - 48.0, yPos: 15, textValue: status, color: .black)
+            drawTextValue(xPos: xPos - 40.0, yPos: 15, textValue: status, color: .black)
             drawVerticalLine(index: index)
         }
         

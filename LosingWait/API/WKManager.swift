@@ -121,12 +121,12 @@ class WKManager {
                     return
             }
             
+            print(machineID)
             completion(machineID)
         }
     }
 
     func getGymUserCount(completion: @escaping (Int) -> ()) {
-        let myID = UserDefaults.standard.string(forKey: "id") ?? ""
         let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/all/all")!
         
         let headers: HTTPHeaders = [
@@ -201,7 +201,9 @@ class WKManager {
             }
             
             guard let id: String = UserDefaults.standard.string(forKey: "id") else {
-                fatalError("User not logged in. Need User ID")
+                completion(false)
+                return
+                //fatalError("User not logged in. Need User ID")
             }
             
             let allWorkouts = results.compactMap(Workout.init)
@@ -259,7 +261,9 @@ class WKManager {
             }
             
             guard let id: String = UserDefaults.standard.string(forKey: "id") else {
-                fatalError("User not logged in. Need User ID")
+                completion(false)
+                return
+                //fatalError("User not logged in. Need User ID")
             }
             
             let allExercises = results.compactMap(Exercise.init)
@@ -269,4 +273,33 @@ class WKManager {
     }
     
     
+    func userIsCheckedIn(completion: @escaping (Bool) -> ()) {
+        let myID = UserDefaults.standard.string(forKey: "id")!
+        let endpoint = URL(string: "https://losing-wait.herokuapp.com/gym_users/all/all")!
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request(endpoint, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                BannerNotification.fatalError(msg: "Could not access server").show()
+                print(error)
+            }
+            
+            guard let json = response.value as? [String : [String : Any]] else {
+                completion(false)
+                return
+            }
+            
+            let res = json.filter({ (arg) -> Bool in
+                let (_, value) = arg
+                return value["user_id"] as! String == myID
+            }).count == 1
+            completion(res)
+        }
+    }
 }

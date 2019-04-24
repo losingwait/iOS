@@ -63,7 +63,7 @@ extension DateFormatter {
     static let iso8601Full: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
-        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.timeZone = TimeZone(abbreviation: "CST")
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }()

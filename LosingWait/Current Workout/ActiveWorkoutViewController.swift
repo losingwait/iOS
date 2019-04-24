@@ -94,6 +94,10 @@ class ActiveWorkoutViewController: UIViewController {
         
         favoriteButton.setImage(#imageLiteral(resourceName: "star_selected"), for: UIControl.State.selected.union(.highlighted))
         NotificationCenter.default.addObserver(self, selector: #selector(videoFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+        
+        WKManager.shared.getMachines { _ in
+            self.alternatesTableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -118,7 +122,7 @@ class ActiveWorkoutViewController: UIViewController {
             observer?.invalidate()
         }
     }
-    
+
     func setActive(exercise: Exercise?) {
         timeElapsed = 0
         
